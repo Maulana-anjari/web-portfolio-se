@@ -8,6 +8,16 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Helper to resolve posts directory (dev or production)
+function getPostsDirectory() {
+  let postsDir = path.join(process.cwd(), "posts");
+  // In production, posts are copied to dist/posts during build
+  if (process.env.NODE_ENV === "production" && !fs.existsSync(postsDir)) {
+    postsDir = path.join(process.cwd(), "dist", "posts");
+  }
+  return postsDir;
+}
+
 async function startServer() {
   const app = express();
   const PORT = 3000;
@@ -15,7 +25,7 @@ async function startServer() {
   // Blog API Routes
   app.get("/api/posts", (req, res) => {
     try {
-      const postsDirectory = path.join(process.cwd(), "posts");
+      const postsDirectory = getPostsDirectory();
       if (!fs.existsSync(postsDirectory)) {
         return res.json([]);
       }
@@ -42,7 +52,8 @@ async function startServer() {
   app.get("/api/posts/:slug", (req, res) => {
     try {
       const { slug } = req.params;
-      const filePath = path.join(process.cwd(), "posts", `${slug}.md`);
+      const postsDirectory = getPostsDirectory();
+      const filePath = path.join(postsDirectory, `${slug}.md`);
       if (!fs.existsSync(filePath)) {
         return res.status(404).json({ error: "Post not found" });
       }

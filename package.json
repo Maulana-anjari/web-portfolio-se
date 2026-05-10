@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "vite build",
+    "build": "vite build && npm run copy:posts",
     "start": "node server.ts",
     "preview": "vite preview",
     "clean": "rm -rf dist",
+    "copy:posts": "mkdir -p dist && cp -r posts dist/ || true",
     "lint": "tsc --noEmit"
   },
   "dependencies": {

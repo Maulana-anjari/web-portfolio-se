@@ -101,6 +101,7 @@ const getFlattenedText = (children: any): string => {
 export function BlogIndex() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState<"DESC" | "ASC">("DESC");
@@ -114,13 +115,31 @@ export function BlogIndex() {
     Architecture: ["distributed systems", "scalability", "system design", "design patterns", "infrastructure"]
   };
 
-  useEffect(() => {
-    fetch("/api/posts")
-      .then((res) => res.json())
+  const fetchPosts = () => {
+    setLoading(true);
+    setError(null);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+    
+    fetch("/api/posts", { signal: controller.signal })
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then((data) => {
         setPosts(data);
         setLoading(false);
-      });
+      })
+      .catch((err) => {
+        clearTimeout(timeoutId);
+        setLoading(false);
+        setError(err.name === "AbortError" ? "Request timeout - please try again" : `Error loading posts: ${err.message}`);
+      })
+      .finally(() => clearTimeout(timeoutId));
+  };
+
+  useEffect(() => {
+    fetchPosts();
   }, []);
 
   const filteredPosts = posts
@@ -162,6 +181,24 @@ export function BlogIndex() {
       <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
         <div className="text-neon-mint animate-pulse font-mono tracking-tighter text-xl">
           LOADING_POSTS...
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-6">
+        <div className="text-center max-w-md">
+          <div className="text-red-400 font-mono text-sm mb-4 border border-red-400/30 rounded px-4 py-3 bg-red-400/5">
+            {error}
+          </div>
+          <button
+            onClick={fetchPosts}
+            className="px-6 py-2 border border-neon-mint text-neon-mint font-mono text-sm uppercase tracking-widest hover:bg-neon-mint hover:text-black transition-all duration-300"
+          >
+            Try Again
+          </button>
         </div>
       </div>
     );
@@ -347,6 +384,7 @@ export function BlogPost() {
   const { slug } = useParams();
   const [post, setPost] = useState<PostDetail | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [activeId, setActiveId] = useState<string>("");
   const [toc, setToc] = useState<ToCItem[]>([]);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -359,8 +397,18 @@ export function BlogPost() {
   });
 
   useEffect(() => {
-    fetch(`/api/posts/${slug}`)
-      .then((res) => res.json())
+    if (!slug) return;
+    
+    setLoading(true);
+    setError(null);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+    fetch(`/api/posts/${slug}`, { signal: controller.signal })
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then((data) => {
         setPost(data);
         setLoading(false);
@@ -379,7 +427,13 @@ export function BlogPost() {
           }
         });
         setToc(headings);
-      });
+      })
+      .catch((err) => {
+        clearTimeout(timeoutId);
+        setLoading(false);
+        setError(err.name === "AbortError" ? "Request timeout - please try again" : `Error loading post: ${err.message}`);
+      })
+      .finally(() => clearTimeout(timeoutId));
   }, [slug]);
 
   useEffect(() => {
@@ -431,8 +485,34 @@ export function BlogPost() {
     );
   };
 
+  if (error) {
+    return (
+      <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-6">
+        <div className="text-center max-w-md">
+          <Link to="/blog" className="inline-flex items-center gap-2 text-neon-mint/60 hover:text-neon-mint transition-all mb-8 group relative py-1">
+            <ArrowLeft size={16} className="group-hover:-translate-x-2 transition-transform duration-300" />
+            <span className="font-mono text-sm uppercase tracking-widest">Back to Blog</span>
+          </Link>
+          <div className="text-red-400 font-mono text-sm mb-4 border border-red-400/30 rounded px-4 py-3 bg-red-400/5">
+            {error}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (loading) return null;
-  if (!post) return <div>Post not found</div>;
+  if (!post) return (
+    <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-6">
+      <div className="text-center max-w-md">
+        <Link to="/blog" className="inline-flex items-center gap-2 text-neon-mint/60 hover:text-neon-mint transition-all mb-8 group relative py-1">
+          <ArrowLeft size={16} className="group-hover:-translate-x-2 transition-transform duration-300" />
+          <span className="font-mono text-sm uppercase tracking-widest">Back to Blog</span>
+        </Link>
+        <div className="text-neon-mint/60 font-mono text-sm">Post not found</div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-[#E0E0E0] selection:bg-neon-mint selection:text-black scroll-smooth">
