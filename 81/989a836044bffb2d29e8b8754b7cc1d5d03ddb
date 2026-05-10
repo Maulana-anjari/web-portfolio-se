@@ -1,0 +1,23 @@
+index.html
+  s_555facfe2916dd::t_0b9200c5b76779 118-119
+  s_555facfe2916dd::t_b2bfc6fb503b18 117
+src/App.tsx
+  s_555facfe2916dd::t_714ee24ff7795d 475
+  s_555facfe2916dd::t_c27ddf88c18fa6 476-477
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "81989a836044bffb2d29e8b8754b7cc1d5d03ddb",
+  "prompts": {},
+  "sessions": {
+    "s_555facfe2916dd": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1ee80b7d2ffePmB7Oax23AW2Pa",
+        "model": "glm-4.7"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
