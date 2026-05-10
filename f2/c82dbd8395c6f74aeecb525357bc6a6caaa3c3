@@ -1,0 +1,45 @@
+package.json
+  s_555facfe2916dd::t_2b06a5bc48cbea 30
+  s_555facfe2916dd::t_a0070b9bb57c50 8
+scripts/generate-sitemap.ts
+  s_555facfe2916dd::t_dde8ac1d25fbfb 8-14
+  s_555facfe2916dd::t_716e8898382218 36
+  s_555facfe2916dd::t_fad37bdd27b987 1-7,15-35,37-86
+src/components/Blog.tsx
+  s_555facfe2916dd::t_2ce96a71751705 855
+  s_555facfe2916dd::t_0863928a685a93 538-594,596-634
+  s_555facfe2916dd::t_20c896ecd16b89 209-230
+  s_555facfe2916dd::t_7e68b072d8a47d 400
+  s_555facfe2916dd::t_cae9990749cc86 784-787
+  s_555facfe2916dd::t_fa5bfb41762f11 9-17
+src/App.tsx
+  s_555facfe2916dd::t_fd7d349c361b80 416-499
+  s_555facfe2916dd::t_6bc17738b7320c 1340
+  s_555facfe2916dd::t_f374c9f2ead7ca 1779
+  s_555facfe2916dd::t_9753136530adef 27
+  s_555facfe2916dd::t_5584aa56c909e0 1675
+  s_555facfe2916dd::t_16fc49f72607e6 2205-2217
+  s_555facfe2916dd::t_218159e08b7014 2086
+  s_555facfe2916dd::t_8e2abb0e6cc848 2196
+  s_555facfe2916dd::t_0e2213195d0561 1419
+public/sitemap.xml
+  s_555facfe2916dd::t_e42a115233899f 1-75
+public/robots.txt
+  s_555facfe2916dd::t_4c6cc2fe6b65f4 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "f2c82dbd8395c6f74aeecb525357bc6a6caaa3c3",
+  "prompts": {},
+  "sessions": {
+    "s_555facfe2916dd": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1ee80b7d2ffePmB7Oax23AW2Pa",
+        "model": "glm-4.7"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
