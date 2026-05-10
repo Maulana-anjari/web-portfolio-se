@@ -472,7 +472,9 @@ function PortfolioHome() {
             ],
             "sameAs": [
               "https://linkedin.com/in/maulana-anjari-anggorokasih",
-              "https://github.com/Maulana-anjari"
+              "https://github.com/Maulana-anjari",
+              "https://www.instagram.com/maulana_anjari",
+              "https://www.instagram.com/maul_foto.rar"
             ]
           })}
         </script>
