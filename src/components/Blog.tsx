@@ -6,14 +6,15 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { 
-  Calendar, 
-  Clock, 
-  ArrowLeft, 
-  ChevronRight, 
-  Tag, 
-  Copy, 
-  Check, 
+import { Helmet } from "react-helmet-async";
+import {
+  Calendar,
+  Clock,
+  ArrowLeft,
+  ChevronRight,
+  Tag,
+  Copy,
+  Check,
   List,
   Twitter,
   Linkedin,
@@ -205,9 +206,28 @@ export function BlogIndex() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] pt-32 pb-48 px-6 md:px-20">
-      <div className="max-w-7xl mx-auto">
-        <header className="mb-32">
+    <>
+      <Helmet>
+        <title>Blog | Maulana Anjari - Backend Engineer</title>
+        <meta name="description" content="Technical blog about backend architectures, blockchain protocols, and agentic workflows by Maulana Anjari. Insights on Go, Python, Cardano, and scalable systems." />
+        <meta name="keywords" content="Backend, Blockchain, Cardano, Go, Python, Distributed Systems, Microservices, Web3" />
+        <link rel="canonical" href="https://maulana.sumbu.xyz/blog" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://maulana.sumbu.xyz/blog" />
+        <meta property="og:title" content="Blog | Maulana Anjari - Backend Engineer" />
+        <meta property="og:description" content="Technical blog about backend architectures, blockchain protocols, and agentic workflows." />
+        <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.png" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://maulana.sumbu.xyz/blog" />
+        <meta name="twitter:title" content="Blog | Maulana Anjari - Backend Engineer" />
+        <meta name="twitter:description" content="Technical blog about backend architectures, blockchain protocols, and agentic workflows." />
+        <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.png" />
+      </Helmet>
+      <div className="min-h-screen bg-[#0A0A0A] pt-32 pb-48 px-6 md:px-20">
+        <div className="max-w-7xl mx-auto">
+          <header className="mb-32">
           <Link to="/" className="inline-flex items-center gap-2 text-neon-mint/60 hover:text-neon-mint transition-all mb-16 group relative py-1">
             <ArrowLeft size={16} className="group-hover:-translate-x-2 transition-transform duration-300" />
             <span className="font-mono text-sm uppercase tracking-widest relative">
@@ -377,6 +397,7 @@ export function BlogIndex() {
         </motion.div>
       </div>
     </div>
+    </>
   );
 }
 
@@ -514,13 +535,103 @@ export function BlogPost() {
     </div>
   );
 
+  const siteUrl = 'https://maulana.sumbu.xyz';
+  const postUrl = `${siteUrl}/blog/${post.slug}`;
+  const imageUrl = post.frontmatter.img ? `${siteUrl}${post.frontmatter.img}` : `${siteUrl}/og-image.png`;
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.frontmatter.title,
+    "image": imageUrl,
+    "datePublished": post.frontmatter.date,
+    "dateModified": post.frontmatter.modified || post.frontmatter.date,
+    "author": {
+      "@type": "Person",
+      "name": "Maulana Anjari Anggorokasih",
+      "url": siteUrl
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Maulana Anjari",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/og-image.png`
+      }
+    },
+    "description": post.frontmatter.excerpt,
+    "url": postUrl,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": postUrl
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": siteUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": `${siteUrl}/blog`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.frontmatter.title,
+        "item": postUrl
+      }
+    ]
+  };
+
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-[#E0E0E0] selection:bg-neon-mint selection:text-black scroll-smooth">
-      {/* Progress Bar */}
-      <motion.div 
-        className="fixed top-0 left-0 right-0 h-[3px] bg-neon-mint z-[100] origin-left shadow-[0_0_10px_#00FF66]"
-        style={{ scaleX }}
-      />
+    <>
+      <Helmet>
+        <title>{post.frontmatter.title} | Maulana Anjari</title>
+        <meta name="description" content={post.frontmatter.excerpt} />
+        <meta name="keywords" content={post.frontmatter.tags.join(', ')} />
+        <link rel="canonical" href={postUrl} />
+
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={postUrl} />
+        <meta property="og:title" content={post.frontmatter.title} />
+        <meta property="og:description" content={post.frontmatter.excerpt} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="article:published_time" content={post.frontmatter.date} />
+        <meta property="article:modified_time" content={post.frontmatter.modified || post.frontmatter.date} />
+        <meta property="article:author" content="Maulana Anjari Anggorokasih" />
+        <meta property="article:section" content="Technology" />
+        {post.frontmatter.tags.map((tag: string) => (
+          <meta key={tag} property="article:tag" content={tag} />
+        ))}
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={postUrl} />
+        <meta name="twitter:title" content={post.frontmatter.title} />
+        <meta name="twitter:description" content={post.frontmatter.excerpt} />
+        <meta name="twitter:image" content={imageUrl} />
+
+        <script type="application/ld+json">
+          {JSON.stringify(articleSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+      </Helmet>
+      <div className="min-h-screen bg-[#0A0A0A] text-[#E0E0E0] selection:bg-neon-mint selection:text-black scroll-smooth">
+        {/* Progress Bar */}
+        <motion.div
+          className="fixed top-0 left-0 right-0 h-[3px] bg-neon-mint z-[100] origin-left shadow-[0_0_10px_#00FF66]"
+          style={{ scaleX }}
+        />
 
       <div className="max-w-7xl mx-auto px-6 pt-32 pb-32 flex flex-col md:flex-row gap-16">
         {/* Main Content */}
@@ -670,9 +781,10 @@ export function BlogPost() {
                 },
                 img: ({ src, alt }) => (
                   <div className="my-12">
-                    <img 
-                      src={src} 
-                      alt={alt} 
+                    <img
+                      src={src}
+                      alt={alt}
+                      loading="lazy"
                       className="rounded-2xl w-full border border-white/5 shadow-[0_0_40px_rgba(0,255,102,0.1)] transition-all hover:shadow-[0_0_60px_rgba(0,255,102,0.15)]"
                     />
                     {alt && (
@@ -740,5 +852,6 @@ export function BlogPost() {
         </aside>
       </div>
     </div>
+    </>
   );
 }

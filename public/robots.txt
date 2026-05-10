@@ -1,0 +1,12 @@
+# Allow all crawlers
+User-agent: *
+
+# Disallow specific paths if any (currently allowing all)
+# Disallow: /api/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://maulana.sumbu.xyz/sitemap.xml
+
+# Crawl-delay (optional, for politeness)
+Crawl-delay: 1

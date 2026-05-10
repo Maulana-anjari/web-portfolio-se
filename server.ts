@@ -91,6 +91,3 @@ async function startServer() {
 }
 
 startServer();
-
-// Export for Vercel serverless functions
-export default app;

@@ -24,6 +24,7 @@ import {
   Link,
   useParams,
 } from "react-router-dom";
+import { HelmetProvider, Helmet } from "react-helmet-async";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import {
@@ -412,12 +413,90 @@ function PortfolioHome() {
   }, [isMenuOpen]);
 
   return (
-    <main className="w-full bg-dark-charcoal text-white selection:bg-neon-mint selection:text-black cursor-none">
-      {/* Global Custom Cursor */}
-      <GlobalCursor
-        isHoveringProject={isHoveringProject}
-        isHoveringButton={isHoveringButton}
-      />
+    <>
+      <Helmet>
+        <title>Maulana Anjari | Backend Engineer - Portfolio</title>
+        <meta name="description" content="Software Engineer specializing in Backend (Go, Python), Blockchain (Cardano, Hyperledger), and LLM Infrastructure. Graduate of Universitas Gadjah Mada with experience at Pertamina and Sumbu Labs." />
+        <meta name="keywords" content="Maulana Anjari, Maulana Anjari Anggorokasih, Backend Engineer, Blockchain Developer Indonesia, LLM Engineer, Cardano, Go Developer, UGM IT, Pertamina LLM, Sumbu Labs" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://maulana.sumbu.xyz/" />
+        <meta property="og:title" content="Maulana Anjari | Backend Engineer" />
+        <meta property="og:description" content="Architecting scalable backend systems and decentralized protocols. Explore the portfolio of Maulana Anjari." />
+        <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.png" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://maulana.sumbu.xyz/" />
+        <meta name="twitter:title" content="Maulana Anjari | Backend Engineer" />
+        <meta name="twitter:description" content="Software Engineer focused on Backend, Blockchain, and AI Agentic Workflows." />
+        <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.png" />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Maulana Anjari Anggorokasih",
+            "alternateName": "Maul",
+            "url": "https://maulana.sumbu.xyz",
+            "jobTitle": "Software Engineer",
+            "image": "https://maulana.sumbu.xyz/og-image.png",
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Universitas Gadjah Mada",
+              "sameAs": "https://www.ugm.ac.id/"
+            },
+            "award": "Bachelor of Information Technology (GPA 3.40/4.00)",
+            "hasCredential": {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "degree",
+              "educationalLevel": "Bachelor",
+              "name": "Sarjana Teknik",
+              "sameAs": "Bachelors of Engineering in Information Engineering"
+            },
+            "knowsAbout": [
+              "Backend Development",
+              "Blockchain Development",
+              "Cardano",
+              "Go",
+              "Python"
+            ],
+            "worksFor": [
+              {
+                "@type": "Organization",
+                "name": "LKFT UGM x PT Pertamina EP"
+              },
+              {
+                "@type": "Organization",
+                "name": "Sumbu Labs"
+              }
+            ],
+            "sameAs": [
+              "https://linkedin.com/in/maulana-anjari-anggorokasih",
+              "https://github.com/Maulana-anjari"
+            ]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Maulana Anjari - Portfolio",
+            "url": "https://maulana.sumbu.xyz",
+            "description": "Software Engineer specializing in Backend, Blockchain, and LLM Infrastructure",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://maulana.sumbu.xyz/blog?search={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          })}
+        </script>
+      </Helmet>
+      <main className="w-full bg-dark-charcoal text-white selection:bg-neon-mint selection:text-black cursor-none">
+        {/* Global Custom Cursor */}
+        <GlobalCursor
+          isHoveringProject={isHoveringProject}
+          isHoveringButton={isHoveringButton}
+        />
 
       {/* Floating Menu Button */}
       <div
@@ -1258,6 +1337,7 @@ function PortfolioHome() {
                   <img
                     src={project.img}
                     alt={project.title}
+                    loading="lazy"
                     className="h-full w-full object-cover grayscale-[0.5] transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#121212]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -1336,6 +1416,7 @@ function PortfolioHome() {
               <img
                 src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?q=80&w=1000&auto=format&fit=crop"
                 alt="Cloud Architecture Visualization"
+                loading="lazy"
                 className="h-full w-full object-cover grayscale transition-transform duration-[800ms] ease-out group-hover:scale-[1.03] group-hover:grayscale-0"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-neon-mint/10 to-transparent mix-blend-overlay" />
@@ -1591,6 +1672,7 @@ function PortfolioHome() {
                 <img
                   src="https://avatars.githubusercontent.com/u/52191436?v=4"
                   alt="Giga Hidjrika"
+                  loading="lazy"
                   className="h-16 w-16 rounded-[8px] object-cover grayscale brightness-75"
                 />
                 <div className="flex flex-col items-start">
@@ -1694,6 +1776,7 @@ function PortfolioHome() {
                           "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop"
                         }
                         alt={post.title}
+                        loading="lazy"
                         className="h-full w-full object-cover grayscale transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0"
                       />
                     </div>
@@ -2000,6 +2083,7 @@ function PortfolioHome() {
                 transition={{ duration: 1 }}
                 src="/input_file_0.png"
                 alt="Maulana Anjari Footer"
+                loading="lazy"
                 className="h-full w-auto object-cover grayscale brightness-75"
                 style={{
                   maskImage:
@@ -2109,6 +2193,7 @@ function PortfolioHome() {
         )}
       </AnimatePresence>
     </main>
+    </>
   );
 }
 
@@ -2117,16 +2202,18 @@ export default function App() {
   const [isHoveringButton, setIsHoveringButton] = useState(false);
 
   return (
-    <BrowserRouter>
-      <GlobalCursor
-        isHoveringProject={isHoveringProject}
-        isHoveringButton={isHoveringButton}
-      />
-      <Routes>
-        <Route path="/" element={<PortfolioHome />} />
-        <Route path="/blog" element={<BlogIndex />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
-      </Routes>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <GlobalCursor
+          isHoveringProject={isHoveringProject}
+          isHoveringButton={isHoveringButton}
+        />
+        <Routes>
+          <Route path="/" element={<PortfolioHome />} />
+          <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
