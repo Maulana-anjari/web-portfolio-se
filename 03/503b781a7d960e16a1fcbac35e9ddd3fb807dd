@@ -1,0 +1,19 @@
+vercel.json
+  s_555facfe2916dd::t_3cb80b55d5407c 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "03503b781a7d960e16a1fcbac35e9ddd3fb807dd",
+  "prompts": {},
+  "sessions": {
+    "s_555facfe2916dd": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1ee80b7d2ffePmB7Oax23AW2Pa",
+        "model": "glm-4.7"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
