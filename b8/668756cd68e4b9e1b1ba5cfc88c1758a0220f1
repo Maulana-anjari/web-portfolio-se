@@ -1,0 +1,25 @@
+package.json
+  s_5e81a47440aa4d::t_a8a4753d02580d 8,12
+vercel.json
+  s_5e81a47440aa4d::t_a8a4753d02580d 1-43
+server.ts
+  s_5e81a47440aa4d::t_a8328e166142ac 11-20,28,55-56
+src/components/Blog.tsx
+  s_5e81a47440aa4d::t_202cd189ce1bd5 104,118-128,132-142,189-206,387,400-411,430-436,488-503,505-515
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "b8668756cd68e4b9e1b1ba5cfc88c1758a0220f1",
+  "prompts": {},
+  "sessions": {
+    "s_5e81a47440aa4d": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "02d1ef16-16f6-45a2-975e-909e7f4e73e4",
+        "model": "unknown"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
