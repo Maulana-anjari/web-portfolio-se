@@ -1,0 +1,19 @@
+api/posts/[slug].ts
+  s_5f51759f39550f::t_f6ace96d7fbbe1 1-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "24ee39049c5c88a9a04818a86852ffd61b38ac23",
+  "prompts": {},
+  "sessions": {
+    "s_5f51759f39550f": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1b5555ba1ffe4mDiDDO8VmXQC6",
+        "model": "glm-4.7"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
