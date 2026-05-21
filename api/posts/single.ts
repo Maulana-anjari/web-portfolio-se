@@ -3,14 +3,9 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-// Helper to resolve posts directory (dev or production)
+// Helper to resolve posts directory (Vercel deployment)
 function getPostsDirectory() {
-  let postsDir = path.join(process.cwd(), "posts");
-  // In production, posts are copied to dist/posts during build
-  if (process.env.NODE_ENV === "production" && !fs.existsSync(postsDir)) {
-    postsDir = path.join(process.cwd(), "dist", "posts");
-  }
-  return postsDir;
+  return path.join(process.cwd(), "posts");
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
