@@ -52,6 +52,10 @@ async function startServer() {
   app.get("/api/posts/:slug", (req, res) => {
     try {
       const { slug } = req.params;
+      // Prevent path traversal: only allow alphanumeric, dash, and underscore
+      if (!/^[a-zA-Z0-9_-]+$/.test(slug)) {
+        return res.status(400).json({ error: 'Invalid slug' });
+      }
       const postsDirectory = getPostsDirectory();
       const filePath = path.join(postsDirectory, `${slug}.md`);
       if (!fs.existsSync(filePath)) {

@@ -14,8 +14,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const { slug } = req.query;
-  
+
   if (!slug || typeof slug !== 'string') {
+    return res.status(400).json({ error: 'Invalid slug' });
+  }
+
+  // Prevent path traversal: only allow alphanumeric, dash, and underscore
+  if (!/^[a-zA-Z0-9_-]+$/.test(slug)) {
     return res.status(400).json({ error: 'Invalid slug' });
   }
 
