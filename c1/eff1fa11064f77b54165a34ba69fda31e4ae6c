@@ -1,0 +1,32 @@
+vite.config.ts
+  s_e7e604244f3768::t_c77d50342499ab 4-6
+api/posts/[slug].ts
+  s_e7e604244f3768::t_35456a0215ff82 17,22-23
+  s_5f51759f39550f::t_f6ace96d7fbbe1 24-26
+server.ts
+  s_e7e604244f3768::t_cfb2b67d54c17e 55-58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "c1eff1fa11064f77b54165a34ba69fda31e4ae6c",
+  "prompts": {},
+  "sessions": {
+    "s_5f51759f39550f": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1b5555ba1ffe4mDiDDO8VmXQC6",
+        "model": "glm-4.7"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    },
+    "s_e7e604244f3768": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "84ecb866-ee27-44a3-a72e-6b426182832e",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
