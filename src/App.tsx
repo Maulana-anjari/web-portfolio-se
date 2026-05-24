@@ -64,31 +64,17 @@ function GlobalCursor({
   isHoveringProject: boolean;
   isHoveringButton: boolean;
 }) {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  // Snappy spring config for base state
-  const springBase = { damping: 30, stiffness: 400 };
-  // Heavier spring config for project hover
-  const springHover = { damping: 20, stiffness: 100 };
-
-  const cursorX = useSpring(
-    mouseX,
-    isHoveringProject ? springHover : springBase,
-  );
-  const cursorY = useSpring(
-    mouseY,
-    isHoveringProject ? springHover : springBase,
-  );
+  const cursorX = useMotionValue(0);
+  const cursorY = useMotionValue(0);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
+  }, [cursorX, cursorY]);
 
   return (
     <motion.div
@@ -1775,10 +1761,16 @@ function PortfolioHome() {
                       <img
                         src={
                           post.img ||
-                          "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop"
+                          "https://placehold.co/600x400/1A1A1A/666666?text=No+Image&font=roboto"
                         }
                         alt={post.title}
                         loading="lazy"
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          if (target.src !== "https://placehold.co/600x400/1A1A1A/666666?text=No+Image&font=roboto") {
+                            target.src = "https://placehold.co/600x400/1A1A1A/666666?text=No+Image&font=roboto";
+                          }
+                        }}
                         className="h-full w-full object-cover grayscale transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0"
                       />
                     </div>
@@ -1789,7 +1781,7 @@ function PortfolioHome() {
                       </span>
                       <span className="text-[#666666]">|</span>
                       <span className="text-xs text-[#A0A0A0]">
-                        {post.date}
+                        {new Date(post.date).toISOString().slice(0, 10)}
                       </span>
                     </div>
 
