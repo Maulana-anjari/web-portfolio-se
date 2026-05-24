@@ -460,29 +460,34 @@ export function BlogPost() {
   useEffect(() => {
     if (!post) return;
 
-    // Small delay to ensure ReactMarkdown has finished rendering to the DOM
+    let cleanupScroll: (() => void) | undefined;
+
     const timer = setTimeout(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setActiveId(entry.target.id);
-            }
-          });
-        },
-        { 
-          rootMargin: "0px 0px -80% 0px", // Trigger when heading enters the top 20% of screen
-          threshold: 0.1
+      const onScroll = () => {
+        const headings = document.querySelectorAll<HTMLElement>(".markdown-body h2, .markdown-body h3");
+        if (headings.length === 0) return;
+
+        let active = headings[0].id;
+        for (const h of headings) {
+          const top = h.getBoundingClientRect().top;
+          if (top <= 100) {
+            active = h.id;
+          } else {
+            break;
+          }
         }
-      );
+        setActiveId(active);
+      };
 
-      const headings = document.querySelectorAll(".markdown-body h2, .markdown-body h3");
-      headings.forEach((h) => observer.observe(h));
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      cleanupScroll = () => window.removeEventListener("scroll", onScroll);
+    }, 200);
 
-      return () => observer.disconnect();
-    }, 200); // Slightly longer delay for safer DOM attachment
-
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      cleanupScroll?.();
+    };
   }, [post]);
 
   const CopyButton = ({ text }: { text: string }) => {
