@@ -1,0 +1,33 @@
+src/App.tsx
+  s_e7e604244f3768::t_76e369532abcba 1969-1983
+  s_e7e604244f3768::t_38e34d9fcfc761 776,2077
+  s_e7e604244f3768::t_755b66b092143f 2061-2066
+src/components/Blog.tsx
+  s_e7e604244f3768::t_9949ed57769048 538-546
+  s_e7e604244f3768::t_131db1187af3a0 106,109-116
+  s_e7e604244f3768::t_8b05ec2c0baff5 297-298
+  s_e7e604244f3768::t_bfc80f4c6c282e 396-397
+  s_e7e604244f3768::t_f4361e9d277d5f 108
+api/posts.ts
+  s_e7e604244f3768::t_6bf7b100f4a0e2 48-51,53-61
+scripts/generate-sitemap.ts
+  s_e7e604244f3768::t_0b22c6ee8f0a12 67
+server.ts
+  s_e7e604244f3768::t_fd947ce2a58398 56-68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "8a6ace8e21ecd54ceffe14414ce2cfdbeb49d4c2",
+  "prompts": {},
+  "sessions": {
+    "s_e7e604244f3768": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "84ecb866-ee27-44a3-a72e-6b426182832e",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
