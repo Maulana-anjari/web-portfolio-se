@@ -3,7 +3,6 @@ title: "How Playing Bridge Shaped My Thinking as an Engineer"
 date: 2026-05-24
 excerpt: "A personal reflection on how a card game taught pattern recognition, precise communication, and probabilistic thinking — skills that transferred directly to software engineering."
 tags: ["bridge", "soft-skills", "engineering", "thinking"]
-img: "/images/blog/bridge-shaped-engineer-thinking-01.png"
 readingTime: 6
 ---
 

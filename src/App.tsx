@@ -25,7 +25,6 @@ import {
   useParams,
 } from "react-router-dom";
 import { HelmetProvider, Helmet } from "react-helmet-async";
-import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import {
   ChevronsUpDown,

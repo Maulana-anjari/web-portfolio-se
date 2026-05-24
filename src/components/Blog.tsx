@@ -3,10 +3,8 @@ import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
 import { Link, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import rehypeSlug from "rehype-slug";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Helmet } from "react-helmet-async";
+import LazySyntaxHighlighter from "./LazySyntaxHighlighter";
 import {
   Calendar,
   Clock,
@@ -366,7 +364,7 @@ export function BlogIndex() {
                       
                       <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/5 shrink-0">
                         <div className="flex items-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.05em] text-[#6B7280] group-hover:text-neon-mint transition-colors">
-                          <span className="flex items-center gap-2"><Calendar size={14} strokeWidth={1.5} className="mt-[-1px]" /> {post.date}</span>
+                          <span className="flex items-center gap-2"><Calendar size={14} strokeWidth={1.5} className="mt-[-1px]" /> {new Date(post.date).toISOString().slice(0, 10)}</span>
                           <span className="flex items-center gap-2"><Clock size={14} strokeWidth={1.5} className="mt-[-1px]" /> {post.readingTime}</span>
                         </div>
                         <ChevronRight size={20} className="text-neon-mint flex-shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300" />
@@ -768,25 +766,11 @@ export function BlogPost() {
                         </div>
                       </div>
                       <div className="relative">
-                        <SyntaxHighlighter
-                          language={isAlgorithm ? "plaintext" : lang}
-                          style={vscDarkPlus}
-                          customStyle={{
-                            margin: 0,
-                            padding: "1.5rem",
-                            backgroundColor: isAlgorithm ? "#0a1f14" : "#0F0F0F",
-                            fontSize: "13px",
-                            lineHeight: "1.6",
-                          }}
-                          codeTagProps={{
-                            style: {
-                              fontFamily: '"JetBrains Mono", monospace',
-                              color: isAlgorithm ? "#D1FAE5" : undefined,
-                            }
-                          }}
-                        >
-                          {codeString}
-                        </SyntaxHighlighter>
+                        <LazySyntaxHighlighter
+                        language={isAlgorithm ? "plaintext" : lang}
+                        code={codeString}
+                        isAlgorithm={isAlgorithm}
+                      />
                         {/* Subtle green glow on the code block edge */}
                         <div className={`absolute top-0 right-0 h-full w-[2px] ${isAlgorithm ? "bg-neon-mint" : "bg-neon-mint/20"} opacity-0 group-hover/code:opacity-100 transition-opacity`} />
                       </div>

@@ -3,7 +3,6 @@ title: "When Does a Problem Actually Need Blockchain Technology?"
 date: 2026-05-19
 excerpt: "A structured framework for determining when a problem genuinely requires blockchain technology, and when conventional database systems remain the more appropriate choice."
 tags: ["blockchain", "software-architecture", "engineering", "decentralization"]
-img: "/images/blog/when-does-problem-need-blockchain-01.png"
 readingTime: 7
 ---
 
