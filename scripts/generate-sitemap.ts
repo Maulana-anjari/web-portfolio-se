@@ -64,8 +64,7 @@ function generateSitemap() {
 ${allPages
   .map(
     (page) => `  <url>
-    <loc>${SITE_URL}${page.url}</loc>
-    ${page.lastmod ? `<lastmod>${page.lastmod}</lastmod>` : ''}
+    <loc>${SITE_URL}${page.url}</loc>${page.lastmod ? `\n    <lastmod>${page.lastmod}</lastmod>` : ''}
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
   </url>`

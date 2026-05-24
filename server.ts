@@ -53,7 +53,19 @@ async function startServer() {
           };
         })
         .sort((a: any, b: any) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
-      res.json(posts);
+
+      // Optional pagination: /api/posts?page=1&limit=10
+      const page = parseInt(req.query.page as string, 10);
+      const limit = parseInt(req.query.limit as string, 10);
+
+      if (!isNaN(page) && !isNaN(limit) && page > 0 && limit > 0) {
+        const total = posts.length;
+        const start = (page - 1) * limit;
+        const paginated = posts.slice(start, start + limit);
+        res.json({ posts: paginated, total, page, limit });
+      } else {
+        res.json(posts);
+      }
     } catch (error) {
       console.error("Error reading posts:", error);
       res.status(500).json({ error: "Failed to load posts" });

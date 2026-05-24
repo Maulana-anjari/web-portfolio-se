@@ -773,7 +773,7 @@ function PortfolioHome() {
         >
           <div className="relative">
             <img
-              src="/input_file_0.png"
+              src="/portrait.png"
               alt="Maulana Anjari Anggorokasih Portrait"
               referrerPolicy="no-referrer"
               className="mask-gradient-bottom h-auto max-h-[70vh] md:max-h-[75vh] w-auto origin-bottom object-cover grayscale-[0.3] transition-all duration-700 hover:grayscale-0"
@@ -1966,17 +1966,21 @@ function PortfolioHome() {
                     Quick links
                   </span>
                   <div className="flex flex-col gap-3">
-                    {["HOME", "ABOUT", "WORKS", "BLOGS", "CONTACT"].map(
-                      (link) => (
-                        <a
-                          key={link}
-                          href={`#${link.toLowerCase()}`}
-                          className="text-xs font-semibold text-white/70 hover:text-[#00FF66] transition-colors"
-                        >
-                          {link}
-                        </a>
-                      ),
-                    )}
+                    {[
+                      { name: "HOME", href: "#hero" },
+                      { name: "ABOUT", href: "#about" },
+                      { name: "WORKS", href: "#work" },
+                      { name: "BLOGS", href: "#blog" },
+                      { name: "CONTACT", href: "#contact" },
+                    ].map((link) => (
+                      <a
+                        key={link.name}
+                        href={link.href}
+                        className="text-xs font-semibold text-white/70 hover:text-[#00FF66] transition-colors"
+                      >
+                        {link.name}
+                      </a>
+                    ))}
                   </div>
                 </div>
                 <div className="flex flex-col gap-6">
@@ -1989,8 +1993,6 @@ function PortfolioHome() {
                         name: "GITHUB",
                         url: "https://github.com/Maulana-anjari",
                       },
-                      { name: "GITLAB", url: "#" },
-                      { name: "LEETCODE", url: "#" },
                     ].map((link) => (
                       <a
                         key={link.name}
@@ -2056,15 +2058,12 @@ function PortfolioHome() {
 
               {/* Legal Bar */}
               <div className="mt-20 pt-8 border-t border-[#333333] flex flex-wrap gap-x-8 gap-y-4 justify-between md:justify-start">
-                {["404", "PRIVACY POLICY", "TERM & CONDITION"].map((item) => (
-                  <a
-                    key={item}
-                    href="#"
-                    className="text-[10px] tracking-[0.1em] text-[#A0A0A0] hover:text-white transition-colors"
-                  >
-                    {item}
-                  </a>
-                ))}
+                <Link
+                  to="/this-page-does-not-exist"
+                  className="text-[10px] tracking-[0.1em] text-[#A0A0A0] hover:text-white transition-colors"
+                >
+                  404
+                </Link>
               </div>
             </div>
 
@@ -2075,7 +2074,7 @@ function PortfolioHome() {
                 whileInView={{ opacity: 0.7, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1 }}
-                src="/input_file_0.png"
+                src="/portrait.png"
                 alt="Maulana Anjari Footer"
                 loading="lazy"
                 className="h-full w-auto object-cover grayscale brightness-75"

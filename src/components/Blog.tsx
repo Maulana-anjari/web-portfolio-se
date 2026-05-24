@@ -103,7 +103,17 @@ export function BlogIndex() {
   const [error, setError] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchInput, setSearchInput] = useState("");
   const [sortOrder, setSortOrder] = useState<"DESC" | "ASC">("DESC");
+  const debounceRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  // Debounce search input
+  useEffect(() => {
+    debounceRef.current = setTimeout(() => {
+      setSearchQuery(searchInput);
+    }, 250);
+    return () => clearTimeout(debounceRef.current);
+  }, [searchInput]);
 
   const categories = ["All", "Backend", "Blockchain", "AI", "Architecture", "Others"];
 
@@ -284,8 +294,8 @@ export function BlogIndex() {
                 </span>
                 <input 
                   type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
                   className="bg-transparent border-b border-[#00FF66]/10 focus:border-[#00FF66]/60 focus:ring-0 focus:outline-none pl-20 pr-4 py-1 text-white font-mono text-xs w-48 md:w-64 transition-all duration-300 focus:shadow-[0_4px_10px_-5px_rgba(0,255,102,0.2)]"
                   spellCheck="false"
                 />
@@ -383,8 +393,8 @@ export function BlogIndex() {
                 <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#666666] mb-4">
                   // 0 PROTOCOLS MATCH YOUR QUERY.
                 </p>
-                <button 
-                  onClick={() => { setSearchQuery(""); setActiveCategory("All"); }}
+                <button
+                  onClick={() => { setSearchInput(""); setSearchQuery(""); setActiveCategory("All"); }}
                   className="text-[10px] font-mono text-neon-mint hover:underline"
                 >
                   Clear all filters
@@ -525,7 +535,15 @@ export function BlogPost() {
     );
   }
 
-  if (loading) return null;
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
+        <div className="text-neon-mint animate-pulse font-mono tracking-tighter text-xl">
+          LOADING_POST...
+        </div>
+      </div>
+    );
+  }
   if (!post) return (
     <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-6">
       <div className="text-center max-w-md">
