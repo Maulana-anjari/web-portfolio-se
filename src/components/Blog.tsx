@@ -542,7 +542,16 @@ export function BlogPost() {
 
   const siteUrl = 'https://maulana.sumbu.xyz';
   const postUrl = `${siteUrl}/blog/${post.slug}`;
-  const imageUrl = post.frontmatter.img ? `${siteUrl}${post.frontmatter.img}` : `${siteUrl}/og-image.png`;
+  const imageUrl = (() => {
+    const img = post.frontmatter.img;
+    if (!img) return `${siteUrl}/og-image.png`;
+    // Relative path: prepend site URL (always HTTPS)
+    if (img.startsWith('/')) return `${siteUrl}${img}`;
+    // Already HTTPS: use as-is
+    if (img.startsWith('https://')) return img;
+    // HTTP or other scheme: fall back to OG image to avoid mixed content
+    return `${siteUrl}/og-image.png`;
+  })();
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -790,6 +799,13 @@ export function BlogPost() {
                       src={src}
                       alt={alt}
                       loading="lazy"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        const placeholder = "https://placehold.co/800x400/1A1A1A/666666?text=Image+Not+Found&font=roboto";
+                        if (target.src !== placeholder) {
+                          target.src = placeholder;
+                        }
+                      }}
                       className="rounded-2xl w-full border border-white/5 shadow-[0_0_40px_rgba(0,255,102,0.1)] transition-all hover:shadow-[0_0_60px_rgba(0,255,102,0.15)]"
                     />
                     {alt && (

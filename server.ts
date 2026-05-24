@@ -4,9 +4,20 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { fileURLToPath } from 'url';
+import { rateLimit } from './api/rate-limit';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Rate limit middleware for Express
+function rateLimitMiddleware(req: express.Request, res: express.Response, next: express.NextFunction) {
+  const ip = req.ip || req.socket.remoteAddress || 'unknown';
+  if (!rateLimit(ip)) {
+    res.status(429).json({ error: 'Too many requests' });
+    return;
+  }
+  next();
+}
 
 // Helper to resolve posts directory (dev or production)
 function getPostsDirectory() {
@@ -23,7 +34,7 @@ async function startServer() {
   const PORT = 3000;
 
   // Blog API Routes
-  app.get("/api/posts", (req, res) => {
+  app.get("/api/posts", rateLimitMiddleware, (req, res) => {
     try {
       const postsDirectory = getPostsDirectory();
       if (!fs.existsSync(postsDirectory)) {
@@ -49,7 +60,7 @@ async function startServer() {
     }
   });
 
-  app.get("/api/posts/:slug", (req, res) => {
+  app.get("/api/posts/:slug", rateLimitMiddleware, (req, res) => {
     try {
       const { slug } = req.params;
       // Prevent path traversal: only allow alphanumeric, dash, and underscore
