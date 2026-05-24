@@ -52,6 +52,7 @@ import {
 } from "lucide-react";
 
 import { BlogIndex, BlogPost } from "./components/Blog";
+import { NotFound } from "./components/NotFound";
 
 /**
  * Global Custom Cursor with Dynamic Transformations
@@ -2205,6 +2206,7 @@ export default function App() {
           <Route path="/" element={<PortfolioHome />} />
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>
