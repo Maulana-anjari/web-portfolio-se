@@ -2,9 +2,7 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { rateLimit } from '../../src/rate-limit';
 
-// Helper to resolve posts directory (Vercel deployment)
 function getPostsDirectory() {
   return path.join(process.cwd(), "posts");
 }
@@ -16,12 +14,25 @@ function getClientIp(req: VercelRequest): string {
   return req.socket.remoteAddress || 'unknown';
 }
 
+const rateStore = new Map<string, { count: number; resetAt: number }>();
+function checkRate(key: string, max = 100, windowMs = 60_000): boolean {
+  const now = Date.now();
+  const entry = rateStore.get(key);
+  if (!entry || now > entry.resetAt) {
+    rateStore.set(key, { count: 1, resetAt: now + windowMs });
+    return true;
+  }
+  if (entry.count >= max) return false;
+  entry.count++;
+  return true;
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  if (!rateLimit(getClientIp(req))) {
+  if (!checkRate(getClientIp(req))) {
     return res.status(429).json({ error: 'Too many requests' });
   }
 
