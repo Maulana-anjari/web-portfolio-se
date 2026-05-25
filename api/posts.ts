@@ -2,7 +2,7 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { rateLimit } from './rate-limit';
+import { rateLimit } from '../src/rate-limit';
 
 // Helper to resolve posts directory (Vercel deployment)
 function getPostsDirectory() {
