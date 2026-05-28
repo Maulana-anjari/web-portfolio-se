@@ -19,6 +19,14 @@ import {
   Github
 } from "lucide-react";
 
+const SAFE_IMAGE_PLACEHOLDER = "https://placehold.co/800x400/1A1A1A/666666?text=Image+Not+Found&font=roboto";
+
+function getSafeImageSrc(src: string | undefined) {
+  if (!src) return SAFE_IMAGE_PLACEHOLDER;
+  if (src.startsWith("/") || src.startsWith("https://")) return src;
+  return SAFE_IMAGE_PLACEHOLDER;
+}
+
 interface Post {
   slug: string;
   title: string;
@@ -203,6 +211,7 @@ export function BlogIndex() {
             {error}
           </div>
           <button
+            type="button"
             onClick={fetchPosts}
             className="px-6 py-2 border border-neon-mint text-neon-mint font-mono text-sm uppercase tracking-widest hover:bg-neon-mint hover:text-black transition-all duration-300"
           >
@@ -269,6 +278,8 @@ export function BlogIndex() {
               {categories.map((category) => (
                 <button
                   key={category}
+                  type="button"
+                  aria-pressed={activeCategory === category}
                   onClick={() => setActiveCategory(category)}
                   className={`relative text-xs md:text-sm font-mono uppercase tracking-[0.15em] transition-all duration-300 group
                     ${activeCategory === category ? 'text-[#00FF66]' : 'text-[#666666] hover:text-[#00FF66]'}`}
@@ -302,6 +313,8 @@ export function BlogIndex() {
               </div>
 
               <button
+                type="button"
+                aria-label={`Sort posts ${sortOrder === "DESC" ? "oldest first" : "newest first"}`}
                 onClick={() => setSortOrder(prev => prev === "DESC" ? "ASC" : "DESC")}
                 className="font-mono text-[10px] tracking-widest text-[#666666] hover:text-[#00FF66] transition-colors border border-white/10 rounded px-3 py-1 bg-white/5 active:scale-95"
               >
@@ -507,6 +520,8 @@ export function BlogPost() {
     };
     return (
       <button 
+        type="button"
+        aria-label="Copy code to clipboard"
         onClick={handleCopy}
         className="flex items-center gap-1.5 text-[#666666] hover:text-neon-mint transition-colors px-2 py-1 rounded"
         title="Copy code"
@@ -798,14 +813,15 @@ export function BlogPost() {
                 img: ({ src, alt }) => (
                   <div className="my-12">
                     <img
-                      src={src}
+                      src={getSafeImageSrc(src)}
                       alt={alt}
+                      width="800"
+                      height="400"
                       loading="lazy"
                       onError={(e) => {
                         const target = e.currentTarget;
-                        const placeholder = "https://placehold.co/800x400/1A1A1A/666666?text=Image+Not+Found&font=roboto";
-                        if (target.src !== placeholder) {
-                          target.src = placeholder;
+                        if (target.src !== SAFE_IMAGE_PLACEHOLDER) {
+                          target.src = SAFE_IMAGE_PLACEHOLDER;
                         }
                       }}
                       className="rounded-2xl w-full border border-white/5 shadow-[0_0_40px_rgba(0,255,102,0.1)] transition-all hover:shadow-[0_0_60px_rgba(0,255,102,0.15)]"

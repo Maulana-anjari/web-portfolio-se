@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useRef, useEffect, useLayoutEffect } from "react";
+import { Suspense, lazy, useState, useRef, useEffect, useLayoutEffect } from "react";
 import Lenis from "lenis";
 import {
   motion,
@@ -22,10 +22,8 @@ import {
   Routes,
   Route,
   Link,
-  useParams,
 } from "react-router-dom";
 import { HelmetProvider, Helmet } from "react-helmet-async";
-import remarkGfm from "remark-gfm";
 import {
   ChevronsUpDown,
   ArrowUpRight,
@@ -44,15 +42,18 @@ import {
   Building2,
   Layers,
   Calendar,
-  Clock,
-  ArrowLeft,
-  ChevronRight,
   X,
   Download,
 } from "lucide-react";
 
-import { BlogIndex, BlogPost } from "./components/Blog";
 import { NotFound } from "./components/NotFound";
+
+const BlogIndex = lazy(() =>
+  import("./components/Blog").then((module) => ({ default: module.BlogIndex })),
+);
+const BlogPost = lazy(() =>
+  import("./components/Blog").then((module) => ({ default: module.BlogPost })),
+);
 
 /**
  * Global Custom Cursor with Dynamic Transformations
@@ -120,6 +121,16 @@ function GlobalCursor({
         )}
       </AnimatePresence>
     </motion.div>
+  );
+}
+
+function RouteLoader() {
+  return (
+    <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
+      <div className="text-neon-mint animate-pulse font-mono tracking-tighter text-xl">
+        LOADING_ROUTE...
+      </div>
+    </div>
   );
 }
 
@@ -493,6 +504,10 @@ function PortfolioHome() {
       >
         <motion.button
           id="menu-button"
+          type="button"
+          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="navigation-menu"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           whileHover={{ scale: 1.05 }}
@@ -533,6 +548,7 @@ function PortfolioHome() {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
+              id="navigation-menu"
               initial={{ opacity: 0, scale: 0.9, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 10 }}
@@ -775,6 +791,8 @@ function PortfolioHome() {
             <img
               src="/portrait.png"
               alt="Maulana Anjari Anggorokasih Portrait"
+              width="900"
+              height="1200"
               referrerPolicy="no-referrer"
               className="mask-gradient-bottom h-auto max-h-[70vh] md:max-h-[75vh] w-auto origin-bottom object-cover grayscale-[0.3] transition-all duration-700 hover:grayscale-0"
             />
@@ -785,9 +803,9 @@ function PortfolioHome() {
         <div className="absolute bottom-0 left-0 z-40 hidden md:flex flex-col gap-10 md:gap-16 p-6 md:p-10">
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.4 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
-            className="text-[10px] md:text-xs font-medium"
+            className="text-[10px] md:text-xs font-medium text-[#8F8F8F]"
           >
             ©2026
           </motion.div>
@@ -981,6 +999,9 @@ function PortfolioHome() {
                 ].map((item) => (
                   <div key={item.id} className="border-b border-[#333333]">
                     <button
+                      type="button"
+                      aria-expanded={openAccordion === item.id}
+                      aria-controls={`about-accordion-${item.id}`}
                       onClick={() =>
                         setOpenAccordion(
                           openAccordion === item.id ? null : item.id,
@@ -998,6 +1019,7 @@ function PortfolioHome() {
                     <AnimatePresence initial={false}>
                       {openAccordion === item.id && (
                         <motion.div
+                          id={`about-accordion-${item.id}`}
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
@@ -1141,7 +1163,7 @@ function PortfolioHome() {
                   >
                     {exp.company}
                   </span>
-                  <span className="block text-[10px] text-[#555555] mt-1 uppercase tracking-tighter">
+                  <span className="block text-[10px] text-[#8F8F8F] mt-1 uppercase tracking-tighter">
                     {exp.role}
                   </span>
                 </motion.button>
@@ -1325,6 +1347,8 @@ function PortfolioHome() {
                   <img
                     src={project.img}
                     alt={project.title}
+                    width="960"
+                    height="600"
                     loading="lazy"
                     className="h-full w-full object-cover grayscale-[0.5] transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0"
                   />
@@ -1404,6 +1428,8 @@ function PortfolioHome() {
               <img
                 src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?q=80&w=1000&auto=format&fit=crop"
                 alt="Cloud Architecture Visualization"
+                width="1000"
+                height="750"
                 loading="lazy"
                 className="h-full w-full object-cover grayscale transition-transform duration-[800ms] ease-out group-hover:scale-[1.03] group-hover:grayscale-0"
               />
@@ -1443,6 +1469,9 @@ function PortfolioHome() {
                   className="border-b border-[#333333] group"
                 >
                   <button
+                    type="button"
+                    aria-expanded={openService === service.id}
+                    aria-controls={`service-panel-${service.id}`}
                     onClick={() => setOpenService(service.id)}
                     className="flex w-full items-center justify-between py-6 text-left focus:outline-none"
                   >
@@ -1455,7 +1484,7 @@ function PortfolioHome() {
                     >
                       {service.title}
                     </span>
-                    <span className="font-mono text-xs text-[#A0A0A0] opacity-60">
+                    <span className="font-mono text-xs text-[#A0A0A0]">
                       {service.num}
                     </span>
                   </button>
@@ -1463,6 +1492,7 @@ function PortfolioHome() {
                   <AnimatePresence initial={false}>
                     {openService === service.id && (
                       <motion.div
+                        id={`service-panel-${service.id}`}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
@@ -1622,6 +1652,11 @@ function PortfolioHome() {
                     </svg>
                   </motion.button>
                   <motion.button
+                    type="button"
+                    aria-label="Start a project by email"
+                    onClick={() => {
+                      window.location.href = "mailto:maulana17anjari@gmail.com?subject=Project%20Inquiry";
+                    }}
                     onMouseEnter={() => setIsHoveringButton(true)}
                     onMouseLeave={() => setIsHoveringButton(false)}
                     whileHover={{
@@ -1660,6 +1695,8 @@ function PortfolioHome() {
                 <img
                   src="https://avatars.githubusercontent.com/u/52191436?v=4"
                   alt="Giga Hidjrika"
+                  width="64"
+                  height="64"
                   loading="lazy"
                   className="h-16 w-16 rounded-[8px] object-cover grayscale brightness-75"
                 />
@@ -1764,6 +1801,8 @@ function PortfolioHome() {
                           "https://placehold.co/600x400/1A1A1A/666666?text=No+Image&font=roboto"
                         }
                         alt={post.title}
+                        width="600"
+                        height="338"
                         loading="lazy"
                         onError={(e) => {
                           const target = e.currentTarget;
@@ -1833,7 +1872,8 @@ function PortfolioHome() {
         {/* Massive Background Repeating Text */}
         <div className="absolute bottom-[2%] md:bottom-[-5%] left-0 w-full z-[20] pointer-events-none select-none overflow-hidden">
           <h2
-            className="whitespace-nowrap font-black uppercase text-center opacity-[0.05] md:opacity-[0.03]"
+            aria-hidden="true"
+            className="whitespace-nowrap font-black uppercase text-center text-[#252525]"
             style={{
               fontSize: "clamp(5rem, 18vw, 20rem)",
               letterSpacing: "-0.05em",
@@ -1935,6 +1975,11 @@ function PortfolioHome() {
                 />
 
                 <motion.button
+                  type="button"
+                  aria-label="Start a project by email"
+                  onClick={() => {
+                    window.location.href = "mailto:maulana17anjari@gmail.com?subject=Project%20Inquiry";
+                  }}
                   onMouseEnter={() => setIsHoveringButton(true)}
                   onMouseLeave={() => setIsHoveringButton(false)}
                   initial={{ scale: 0.8, opacity: 0 }}
@@ -1962,7 +2007,7 @@ function PortfolioHome() {
             <div className="flex flex-col justify-end">
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-12">
                 <div className="flex flex-col gap-6">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#555555] font-bold">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#8F8F8F] font-bold">
                     Quick links
                   </span>
                   <div className="flex flex-col gap-3">
@@ -1984,7 +2029,7 @@ function PortfolioHome() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-6">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#555555] font-bold">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#8F8F8F] font-bold">
                     Portfolio
                   </span>
                   <div className="flex flex-col gap-3">
@@ -2007,7 +2052,7 @@ function PortfolioHome() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-6">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#555555] font-bold">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#8F8F8F] font-bold">
                     Social Link
                   </span>
                   <div className="flex flex-col gap-3">
@@ -2076,6 +2121,8 @@ function PortfolioHome() {
                 transition={{ duration: 1 }}
                 src="/portrait.png"
                 alt="Maulana Anjari Footer"
+                width="900"
+                height="1200"
                 loading="lazy"
                 className="h-full w-auto object-cover grayscale brightness-75"
                 style={{
@@ -2203,8 +2250,22 @@ export default function App() {
         />
         <Routes>
           <Route path="/" element={<PortfolioHome />} />
-          <Route path="/blog" element={<BlogIndex />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route
+            path="/blog"
+            element={
+              <Suspense fallback={<RouteLoader />}>
+                <BlogIndex />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/blog/:slug"
+            element={
+              <Suspense fallback={<RouteLoader />}>
+                <BlogPost />
+              </Suspense>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

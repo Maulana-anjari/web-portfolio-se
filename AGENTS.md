@@ -27,6 +27,6 @@ No test framework is configured.
 
 ## Environment
 
-- `GEMINI_API_KEY` — required at build time (injected via Vite `define`). Set in `.env.local` for dev.
+- Do not expose secret API keys through Vite `define` or client-side `import.meta.env`.
 - `APP_URL` — self-referential URL for the deployed app
 - HMR is conditionally disabled when `DISABLE_HMR=true` (used by AI Studio)

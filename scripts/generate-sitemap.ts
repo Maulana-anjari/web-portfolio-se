@@ -32,6 +32,15 @@ function getPostData(slug: string) {
   };
 }
 
+function toIsoDate(value: unknown) {
+  if (value instanceof Date) return value.toISOString().slice(0, 10);
+  if (typeof value === 'string') {
+    const parsed = new Date(value);
+    if (!Number.isNaN(parsed.getTime())) return parsed.toISOString().slice(0, 10);
+  }
+  return new Date().toISOString().slice(0, 10);
+}
+
 function generateSitemap() {
   const staticPages: SitemapPage[] = [
     {
@@ -53,7 +62,7 @@ function generateSitemap() {
       url: `/blog/${slug}`,
       priority: '0.8',
       changefreq: 'monthly',
-      lastmod: post?.modified || post?.date || new Date().toISOString(),
+      lastmod: toIsoDate(post?.modified || post?.date),
     };
   });
 

@@ -19,6 +19,20 @@ function rateLimitMiddleware(req: express.Request, res: express.Response, next: 
   next();
 }
 
+function securityHeadersMiddleware(_req: express.Request, res: express.Response, next: express.NextFunction) {
+  res.setHeader(
+    'Content-Security-Policy',
+    "default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https:; frame-src https://giscus.app; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; form-action 'self'",
+  );
+  res.setHeader('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()');
+  next();
+}
+
 // Helper to resolve posts directory (dev or production)
 function getPostsDirectory() {
   let postsDir = path.join(process.cwd(), "posts");
@@ -32,6 +46,8 @@ function getPostsDirectory() {
 async function startServer() {
   const app = express();
   const PORT = 3000;
+
+  app.use(securityHeadersMiddleware);
 
   // Blog API Routes
   app.get("/api/posts", rateLimitMiddleware, (req, res) => {
