@@ -65,7 +65,7 @@ html.lenis, html.lenis body {
     background: transparent;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #00FF66;
+    background: var(--color-neon-mint);
     border-radius: 10px;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
@@ -73,6 +73,6 @@ html.lenis, html.lenis body {
   }
   .custom-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: #00FF66 transparent;
+    scrollbar-color: var(--color-neon-mint) transparent;
   }
 }

@@ -113,15 +113,23 @@ export function BlogIndex() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchInput, setSearchInput] = useState("");
   const [sortOrder, setSortOrder] = useState<"DESC" | "ASC">("DESC");
+  const [page, setPage] = useState(1);
+  const postsPerPage = 6;
   const debounceRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   // Debounce search input
   useEffect(() => {
     debounceRef.current = setTimeout(() => {
       setSearchQuery(searchInput);
+      setPage(1);
     }, 250);
     return () => clearTimeout(debounceRef.current);
   }, [searchInput]);
+
+  // Reset page when category or sort changes
+  useEffect(() => {
+    setPage(1);
+  }, [activeCategory, sortOrder]);
 
   const categories = ["All", "Backend", "Blockchain", "AI", "Architecture", "Others"];
 
@@ -193,11 +201,26 @@ export function BlogIndex() {
       return sortOrder === "DESC" ? dateB - dateA : dateA - dateB;
     });
 
+  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / postsPerPage));
+  const safePage = Math.min(page, totalPages);
+  const paginatedPosts = filteredPosts.slice(
+    (safePage - 1) * postsPerPage,
+    safePage * postsPerPage,
+  );
+
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
-        <div className="text-neon-mint animate-pulse font-mono tracking-tighter text-xl">
-          LOADING_POSTS...
+      <div className="min-h-screen bg-[#0A0A0A] pt-32 pb-48 px-6 md:px-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="h-16 w-64 bg-[#1A1A1A] rounded animate-pulse mb-24" />
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div className="md:col-span-8 md:row-span-2 bg-[#111111] rounded-3xl aspect-[16/14] animate-pulse" />
+            <div className="md:col-span-4 bg-[#111111] rounded-3xl aspect-[16/10] animate-pulse" />
+            <div className="md:col-span-4 md:row-span-2 bg-[#111111] rounded-3xl aspect-[16/14] animate-pulse" />
+            <div className="md:col-span-4 bg-[#111111] rounded-3xl aspect-[16/10] animate-pulse" />
+            <div className="md:col-span-4 bg-[#111111] rounded-3xl aspect-[16/10] animate-pulse" />
+            <div className="md:col-span-4 md:row-span-2 bg-[#111111] rounded-3xl aspect-[16/14] animate-pulse" />
+          </div>
         </div>
       </div>
     );
@@ -329,8 +352,8 @@ export function BlogIndex() {
           className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(320px,auto)]"
         >
           <AnimatePresence mode="popLayout">
-            {filteredPosts.length > 0 ? (
-              filteredPosts.map((post, idx) => {
+            {paginatedPosts.length > 0 ? (
+              paginatedPosts.map((post, idx) => {
                 // asymmetric bento grid logic
                 // The "Tashawwur" card or the first card should be the feature
                 const isFeature = post.slug.includes("tashawwur") || idx === 0;
@@ -416,6 +439,42 @@ export function BlogIndex() {
             )}
           </AnimatePresence>
         </motion.div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="mt-16 flex items-center justify-center gap-4">
+            <button
+              type="button"
+              onClick={() => setPage((p) => Math.max(1, p - 1))}
+              disabled={safePage <= 1}
+              className="px-4 py-2 text-xs font-mono uppercase tracking-widest text-[#949494] hover:text-neon-mint disabled:opacity-30 disabled:cursor-not-allowed transition-colors border border-white/10 rounded-full"
+            >
+              Prev
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+              <button
+                key={n}
+                type="button"
+                onClick={() => setPage(n)}
+                className={`w-8 h-8 text-xs font-mono rounded-full transition-all ${
+                  safePage === n
+                    ? "bg-neon-mint text-[#111111] font-bold"
+                    : "text-[#949494] hover:text-white hover:bg-white/5"
+                }`}
+              >
+                {n}
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+              disabled={safePage >= totalPages}
+              className="px-4 py-2 text-xs font-mono uppercase tracking-widest text-[#949494] hover:text-neon-mint disabled:opacity-30 disabled:cursor-not-allowed transition-colors border border-white/10 rounded-full"
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
     </div>
     </>

@@ -252,7 +252,7 @@ function RollingNumber({
 }
 
 function SymmetricalDivider({
-  accentColor = "#00FF66",
+  accentColor = "var(--color-neon-mint)",
   className = "",
 }: {
   accentColor?: string;
@@ -299,7 +299,7 @@ function SymmetricalDivider({
 function SectionHeader({
   label,
   title,
-  accentColor = "#00FF66",
+  accentColor = "var(--color-neon-mint)",
 }: {
   label: string;
   title: string;
@@ -2067,13 +2067,18 @@ function PortfolioHome() {
                   </div>
                 )
                 : [1, 2, 3].map((_, idx) => (
-                  <div
-                    key={idx}
-                    className="flex flex-col gap-4 animate-pulse opacity-20"
-                  >
-                    <div className="aspect-video bg-white/5 rounded-[12px]" />
-                    <div className="h-4 w-1/2 bg-white/5 rounded" />
-                    <div className="h-6 w-full bg-white/5 rounded" />
+                  <div key={idx} className="flex flex-col gap-4">
+                    <div className="aspect-video bg-[#1A1A1A] rounded-[12px] animate-pulse" />
+                    <div className="flex items-center gap-3 mt-2">
+                      <div className="h-5 w-16 bg-[#1A1A1A] rounded-full animate-pulse" />
+                      <div className="h-3 w-3 bg-[#1A1A1A] rounded-full animate-pulse" />
+                      <div className="h-3 w-20 bg-[#1A1A1A] rounded animate-pulse" />
+                    </div>
+                    <div className="h-7 w-full bg-[#1A1A1A] rounded animate-pulse" />
+                    <div className="space-y-2">
+                      <div className="h-4 w-full bg-[#1A1A1A] rounded animate-pulse" />
+                      <div className="h-4 w-2/3 bg-[#1A1A1A] rounded animate-pulse" />
+                    </div>
                   </div>
                 ))}
           </div>
