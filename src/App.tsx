@@ -409,23 +409,36 @@ function PortfolioHome() {
     };
   }, [isMenuOpen]);
 
+  const openResume = () => {
+    if (window.innerWidth < 768) {
+      window.open("/resume.pdf", "_blank");
+      return;
+    }
+
+    setIsPdfLoading(true);
+    setTimeout(() => {
+      setIsPdfLoading(false);
+      setIsResumeModalOpen(true);
+    }, 800);
+  };
+
   return (
     <>
       <Helmet>
-        <title>Maulana Anjari | Backend Engineer - Portfolio</title>
-        <meta name="description" content="Software Engineer specializing in Backend (Go, Python), Blockchain (Cardano, Hyperledger), and LLM Infrastructure. Graduate of Universitas Gadjah Mada with experience at Pertamina and Sumbu Labs." />
-        <meta name="keywords" content="Maulana Anjari, Maulana Anjari Anggorokasih, Backend Engineer, Blockchain Developer Indonesia, LLM Engineer, Cardano, Go Developer, UGM IT, Pertamina LLM, Sumbu Labs" />
+        <title>Maulana Anjari | Backend & AI Engineer - Portfolio</title>
+        <meta name="description" content="Backend & AI Engineer building reliable APIs, LLM workflows, blockchain-backed systems, and governed digital infrastructure. Experienced across Pertamina EP, Sumbu Labs, and UGM." />
+        <meta name="keywords" content="Maulana Anjari, Backend AI Engineer, LLM Infrastructure Engineer, RAG Engineer, Blockchain Developer Indonesia, Digital Governance, IT Audit, Cardano, FastAPI, Go Developer, Sumbu Labs" />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://maulana.sumbu.xyz/" />
-        <meta property="og:title" content="Maulana Anjari | Backend Engineer" />
-        <meta property="og:description" content="Architecting scalable backend systems and decentralized protocols. Explore the portfolio of Maulana Anjari." />
+        <meta property="og:title" content="Maulana Anjari | Backend & AI Engineer" />
+        <meta property="og:description" content="Reliable APIs, LLM workflows, blockchain-backed systems, and governed digital infrastructure." />
         <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://maulana.sumbu.xyz/" />
-        <meta name="twitter:title" content="Maulana Anjari | Backend Engineer" />
-        <meta name="twitter:description" content="Software Engineer focused on Backend, Blockchain, and AI Agentic Workflows." />
+        <meta name="twitter:title" content="Maulana Anjari | Backend & AI Engineer" />
+        <meta name="twitter:description" content="Backend systems, LLM workflows, blockchain infrastructure, and risk-aware digital governance." />
         <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.png" />
 
         <script type="application/ld+json">
@@ -435,7 +448,7 @@ function PortfolioHome() {
             "name": "Maulana Anjari Anggorokasih",
             "alternateName": "Maul",
             "url": "https://maulana.sumbu.xyz",
-            "jobTitle": "Software Engineer",
+            "jobTitle": "Backend & AI Engineer",
             "image": "https://maulana.sumbu.xyz/og-image.png",
             "alumniOf": {
               "@type": "CollegeOrUniversity",
@@ -452,6 +465,9 @@ function PortfolioHome() {
             },
             "knowsAbout": [
               "Backend Development",
+              "AI Engineering",
+              "LLM Infrastructure",
+              "Digital Governance",
               "Blockchain Development",
               "Cardano",
               "Go",
@@ -481,7 +497,7 @@ function PortfolioHome() {
             "@type": "WebSite",
             "name": "Maulana Anjari - Portfolio",
             "url": "https://maulana.sumbu.xyz",
-            "description": "Software Engineer specializing in Backend, Blockchain, and LLM Infrastructure",
+            "description": "Backend & AI Engineer building reliable APIs, LLM workflows, blockchain-backed systems, and governed digital infrastructure",
             "potentialAction": {
               "@type": "SearchAction",
               "target": "https://maulana.sumbu.xyz/blog?search={search_term_string}",
@@ -731,7 +747,7 @@ function PortfolioHome() {
               transition={{ delay: 0.2 }}
               className="mb-2 text-base md:text-xl font-medium text-white/90"
             >
-              Hey 👋, I'm a Back End Developer
+              Backend & AI Engineer for reliable systems
             </motion.p>
 
             <motion.h1
@@ -747,6 +763,50 @@ function PortfolioHome() {
             >
               MAULANA ANJARI
             </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.75 }}
+              className="mt-5 max-w-[480px] text-sm md:text-lg leading-relaxed text-white/70 md:text-white/65"
+            >
+              I build production-ready APIs, LLM workflows, and
+              blockchain-backed infrastructure with strong awareness of
+              reliability, risk, controls, and auditability.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.95 }}
+              className="mt-6 flex flex-wrap items-center gap-3 pointer-events-auto"
+            >
+              <a
+                href="mailto:maulana17anjari@gmail.com?subject=Backend%20%26%20AI%20Engineer%20Opportunity"
+                onMouseEnter={() => setIsHoveringButton(true)}
+                onMouseLeave={() => setIsHoveringButton(false)}
+                className="rounded-full bg-neon-mint px-5 py-3 text-xs md:px-6 md:text-sm font-bold text-[#111111] transition-all hover:shadow-[0_0_30px_rgba(0,255,102,0.35)]"
+              >
+                Hire Me
+              </a>
+              <button
+                type="button"
+                onClick={openResume}
+                onMouseEnter={() => setIsHoveringButton(true)}
+                onMouseLeave={() => setIsHoveringButton(false)}
+                className="rounded-full border border-white/15 bg-white/[0.04] px-5 py-3 text-xs md:px-6 md:text-sm font-bold text-white transition-all hover:border-neon-mint/50 hover:text-neon-mint"
+              >
+                View Resume
+              </button>
+              <a
+                href="#work"
+                onMouseEnter={() => setIsHoveringButton(true)}
+                onMouseLeave={() => setIsHoveringButton(false)}
+                className="text-xs md:text-sm font-mono uppercase tracking-[0.16em] text-[#A0A0A0] transition-colors hover:text-neon-mint"
+              >
+                See Case Studies
+              </a>
+            </motion.div>
 
             {/* Mobile-only Contact Info under Name */}
             <motion.div
@@ -788,14 +848,17 @@ function PortfolioHome() {
           className="absolute bottom-0 left-1/2 z-30 flex w-full max-w-4xl -translate-x-1/2 items-end justify-center pointer-events-none"
         >
           <div className="relative">
-            <img
-              src="/portrait.png"
-              alt="Maulana Anjari Anggorokasih Portrait"
-              width="900"
-              height="1200"
-              referrerPolicy="no-referrer"
-              className="mask-gradient-bottom h-auto max-h-[70vh] md:max-h-[75vh] w-auto origin-bottom object-cover grayscale-[0.3] transition-all duration-700 hover:grayscale-0"
-            />
+            <picture className="block">
+              <source srcSet="/portrait.webp" type="image/webp" />
+              <img
+                src="/portrait.png"
+                alt="Maulana Anjari Anggorokasih Portrait"
+                width="900"
+                height="1200"
+                referrerPolicy="no-referrer"
+                className="mask-gradient-bottom h-auto max-h-[70vh] md:max-h-[75vh] w-auto origin-bottom object-cover grayscale-[0.3] transition-all duration-700 hover:grayscale-0"
+              />
+            </picture>
           </div>
         </motion.div>
 
@@ -879,9 +942,8 @@ function PortfolioHome() {
               className="bg-black/30 backdrop-blur-md p-4 rounded-lg md:bg-transparent md:backdrop-blur-none md:p-0"
             >
               <p className="text-xs md:text-sm leading-relaxed text-white/70 md:text-white/50">
-                I build robust, scalable, and high-performance server-side
-                applications. Main tools of choice are Python (FastAPI), Go, and
-                Node.js on the backend.
+                I build backend systems, RAG pipelines, and blockchain workflows for teams
+  that need reliable APIs, auditable data flows, and measurable technical impact.
               </p>
             </motion.div>
 
@@ -951,6 +1013,90 @@ function PortfolioHome() {
         </motion.div>
       </section>
 
+      {/* PROOF STRIP */}
+      <section className="relative w-full bg-[#0F0F0F] px-6 md:px-10 lg:px-20 py-8 z-10 border-b border-white/5">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-[1.15fr_2fr] md:items-center">
+            <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-neon-mint">
+              // Proof of Work
+            </div>
+            <div className="flex flex-wrap gap-x-5 gap-y-3 text-xs md:text-sm font-semibold text-[#D1D5DB]">
+              {[
+                "Pertamina EP",
+                "Sumbu Labs",
+                "UGM",
+                "51.9% faster issue-to-merge",
+                "50% faster inspection turnaround",
+                "100% uptime on inspection platform",
+              ].map((proof) => (
+                <span key={proof} className="inline-flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-neon-mint shadow-[0_0_8px_rgba(0,255,102,0.6)]" />
+                  {proof}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROBLEMS I SOLVE */}
+      <section className="relative w-full bg-[#121212] px-10 md:px-20 py-[100px] z-10 border-b border-white/5">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.9fr_1.6fr] lg:items-start">
+            <div>
+              <span className="font-mono text-sm uppercase tracking-wider text-neon-mint underline decoration-neon-mint/30 underline-offset-8">
+                //Problems I Solve
+              </span>
+              <h2 className="mt-10 max-w-xl text-4xl md:text-6xl font-black leading-[0.95] tracking-tighter text-white uppercase">
+                From technical build to governed execution.
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                {
+                  title: "Reliable backend APIs",
+                  copy: "Design and build production-ready APIs, database workflows, and service boundaries teams can operate with confidence.",
+                },
+                {
+                  title: "LLM and RAG infrastructure",
+                  copy: "Build retrieval pipelines, vector search, evaluation loops, and backend integrations for production-ready AI workflows.",
+                },
+                {
+                  title: "Blockchain-backed trust systems",
+                  copy: "Prototype and ship workflows where audit trails, multi-party trust, and verifiable records matter.",
+                },
+                {
+                  title: "Risk-aware digital infrastructure",
+                  copy: "Build systems with access control, traceability, reliability, and auditability considered from the start.",
+                },
+              ].map((problem, idx) => (
+                <motion.div
+                  key={problem.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="border border-white/5 bg-[#171717] p-6 md:p-7 rounded-[8px] hover:border-neon-mint/30 transition-colors"
+                >
+                  <div className="mb-5 flex items-center justify-between gap-5">
+                    <h3 className="text-xl font-bold text-white">
+                      {problem.title}
+                    </h3>
+                    <span className="font-mono text-[10px] text-neon-mint">
+                      0{idx + 1}
+                    </span>
+                  </div>
+                  <p className="text-sm leading-relaxed text-[#A0A0A0]">
+                    {problem.copy}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SKILLS & STATS SECTION */}
       <section
         id="about"
@@ -974,27 +1120,27 @@ function PortfolioHome() {
                 {[
                   {
                     id: "backend",
-                    title: "Backend",
+                    title: "Backend & APIs",
                     content:
-                      "Go (Golang), Python (FastAPI), TypeScript (Node.js, NestJS)",
+                      "Go, Python (FastAPI), TypeScript (Node.js, NestJS), RESTful APIs, service boundaries, and production integration",
                   },
                   {
-                    id: "cloud",
-                    title: "Database & Cloud",
+                    id: "ai",
+                    title: "AI Infrastructure",
                     content:
-                      "PostgreSQL, SQL Server, MongoDB, Redis, Milvus, Docker, Kubernetes",
+                      "LLM workflows, RAG pipelines, vector databases, Milvus, evaluation loops, and AI backend orchestration",
                   },
                   {
-                    id: "api",
-                    title: "API & Architecture",
+                    id: "systems",
+                    title: "Data, Cloud & Architecture",
                     content:
-                      "RESTful APIs, GraphQL, Microservices, RabbitMQ, Kafka",
+                      "PostgreSQL, SQL Server, MongoDB, Redis, Docker, Kubernetes, microservices, RabbitMQ, and Kafka",
                   },
                   {
                     id: "blockchain",
-                    title: "Blockchain",
+                    title: "Blockchain & Governance",
                     content:
-                      "Cardano (Blockfrost, Mesh JS), Hyperledger Fabric, and expertise in PoA/PoS consensus mechanisms",
+                      "Cardano, Hyperledger Fabric, PoA/PoS consensus, audit trails, access control, and risk-aware digital governance",
                   },
                 ].map((item) => (
                   <div key={item.id} className="border-b border-[#333333]">
@@ -1049,10 +1195,10 @@ function PortfolioHome() {
               className="flex flex-col items-start"
             >
               <p className="max-w-[450px] text-lg leading-relaxed text-[#A0A0A0]">
-                I thrive on designing efficient systems, optimizing database
-                queries, and creating secure API endpoints. When I'm not coding,
-                I'm analyzing system design patterns, diving into cloud-native
-                technologies, or ensuring server-side performance.
+                I help teams move from unclear technical ideas to reliable
+                software: APIs that hold up, AI workflows that can be evaluated,
+                and digital infrastructure with traceability, controls, and
+                operational clarity.
               </p>
               <motion.button
                 onMouseEnter={() => setIsHoveringButton(true)}
@@ -1062,17 +1208,7 @@ function PortfolioHome() {
                   boxShadow: "0 0 30px rgba(80, 200, 120, 0.4)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  if (window.innerWidth < 768) {
-                    window.open("/resume.pdf", "_blank");
-                  } else {
-                    setIsPdfLoading(true);
-                    setTimeout(() => {
-                      setIsPdfLoading(false);
-                      setIsResumeModalOpen(true);
-                    }, 800);
-                  }
-                }}
+                onClick={openResume}
                 className="mt-10 rounded-full bg-neon-mint px-10 py-4 text-sm font-bold text-[#111111] transition-all relative overflow-hidden"
               >
                 {isPdfLoading && (
@@ -1276,7 +1412,7 @@ function PortfolioHome() {
                     {EXPERIENCES[activeExp].tech.map((tool, toolIdx) => (
                       <span
                         key={toolIdx}
-                        className="text-[10px] md:text-xs font-mono font-bold text-white/40 uppercase tracking-[0.2em]"
+                        className="text-[10px] md:text-xs font-mono font-bold text-[#A0A0A0] uppercase tracking-[0.2em]"
                       >
                         {tool}
                         {toolIdx < EXPERIENCES[activeExp].tech.length - 1
@@ -1301,7 +1437,7 @@ function PortfolioHome() {
           {/* Section Header */}
           <SectionHeader
             label="//Explore Work"
-            title="A Showcase of My Latest Complex Systems"
+            title="Case Studies Built Around Business Impact"
           />
 
           {/* Projects Grid */}
@@ -1309,25 +1445,33 @@ function PortfolioHome() {
             {[
               {
                 title: "Enterprise LLM Insight Engine",
-                desc: "Architected a high-performance backend utilizing Retrieval-Augmented Generation (RAG) and vector databases to process enterprise data, reducing issue-to-merge lead time by 51%.",
+                role: "Backend Engineer",
+                built: "Backend features, RAG workflow integration, vector search, and issue-resolution flows for an enterprise LLM insight platform.",
+                impact: "Reduced median issue-to-merge lead time by 51.9%.",
                 tags: ["Python", "FastAPI", "Milvus", "SQL Server"],
                 img: "/images/llm-pertamina-project.png",
               },
               {
                 title: "SumbuPay Web3 Gateway",
-                desc: "Built the core backend infrastructure for a Web3 payment gateway, integrating complex MPC wallet workflows and QRIS to bridge fiat and decentralized ecosystems securely.",
+                role: "Backend Engineer & Co-Founder",
+                built: "Core backend foundations for Web3 payment flows, QRIS integration, and MPC wallet infrastructure.",
+                impact: "Created the technical base for a fiat-to-Web3 payment product roadmap.",
                 tags: ["Node.js", "TypeScript", "Web3", "PostgreSQL"],
                 img: "/images/SumbuPay-project.png",
               },
               {
                 title: "PharmaChain Distributed Network",
-                desc: "Engineered a highly complex Hyperledger Fabric prototype consisting of 2 independent networks, 6 organizations, and 30+ Docker containers with cross-chain identity sharing.",
+                role: "Blockchain Researcher",
+                built: "A Hyperledger Fabric prototype with 2 networks, 6 organizations, and 30+ containers for interoperable healthcare data exchange.",
+                impact: "Validated cross-network identity sharing and audit-friendly data flow patterns.",
                 tags: ["Hyperledger", "Docker", "IPFS", "Go"],
                 img: "/images/pharmachain-project.png",
               },
               {
                 title: "CAR-dano Inspection Engine",
-                desc: "Engineered a highly optimized backend for a blockchain-backed vehicle inspection platform. Halved operational turnaround times while maintaining 100% uptime and 2x faster response speeds for concurrent users.",
+                role: "Backend & Blockchain Engineer",
+                built: "A blockchain-backed vehicle inspection backend with Cardano anchoring, operational APIs, and data workflows.",
+                impact: "Cut inspection turnaround by 50% while maintaining 100% uptime.",
                 tags: ["Node.js", "Cardano", "PostgreSQL", "Prisma"],
                 img: "/images/CAR-dano-project.png",
               },
@@ -1357,12 +1501,28 @@ function PortfolioHome() {
 
                 {/* Content */}
                 <div className="flex flex-col gap-4">
+                  <div className="flex flex-wrap items-center gap-3 font-mono text-[10px] uppercase tracking-[0.18em] text-neon-mint">
+                    <span>{project.role}</span>
+                    <span className="text-white/20">/</span>
+                    <span>{project.tags[0]}</span>
+                  </div>
                   <h3 className="text-2xl font-bold text-white transition-colors group-hover:text-neon-mint">
                     {project.title}
                   </h3>
-                  <p className="text-[#A0A0A0] leading-relaxed line-clamp-2">
-                    {project.desc}
-                  </p>
+                  <div className="grid grid-cols-1 gap-3 text-sm leading-relaxed text-[#A0A0A0]">
+                    <p>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white">
+                        Built:
+                      </span>{" "}
+                      {project.built}
+                    </p>
+                    <p className="text-white">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-neon-mint">
+                        Impact:
+                      </span>{" "}
+                      {project.impact}
+                    </p>
+                  </div>
 
                   {/* Tech Tags */}
                   <div className="flex flex-wrap gap-3 mt-2">
@@ -1387,7 +1547,10 @@ function PortfolioHome() {
             viewport={{ once: true }}
             className="mt-[60px] flex justify-center"
           >
-            <motion.button
+            <motion.a
+              href="https://github.com/Maulana-anjari"
+              target="_blank"
+              rel="noopener noreferrer"
               onMouseEnter={() => setIsHoveringButton(true)}
               onMouseLeave={() => setIsHoveringButton(false)}
               whileHover={{
@@ -1398,7 +1561,7 @@ function PortfolioHome() {
               className="rounded-full bg-neon-mint px-10 py-5 text-sm font-bold text-[#111111] transition-all"
             >
               View More Projects
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
       </section>
@@ -1412,7 +1575,7 @@ function PortfolioHome() {
           {/* Section Header */}
           <SectionHeader
             label="//Service"
-            title="End-to-End Back-End Engineering Services"
+            title="How I Can Help Your Team Ship"
           />
 
           {/* Main Content Grid */}
@@ -1441,27 +1604,27 @@ function PortfolioHome() {
               {[
                 {
                   id: 1,
-                  title: "Custom Back End Development",
+                  title: "Ship reliable backend APIs",
                   num: "(01)",
-                  desc: "Build secure & maintainable server-side logic using modern patterns and rock-solid architectural foundations.",
+                  desc: "Design and implement API layers, database workflows, and service boundaries that are maintainable beyond the first release.",
                 },
                 {
                   id: 2,
-                  title: "API Design & Development",
+                  title: "Build LLM and RAG workflows",
                   num: "(02)",
-                  desc: "High-performance RESTful & gRPC APIs designed for maximum throughput, low latency, and developer-friendly documentation.",
+                  desc: "Connect private data, vector search, orchestration, and evaluation loops into AI workflows that teams can use and improve.",
                 },
                 {
                   id: 3,
-                  title: "Database Architecture & Optimization",
+                  title: "Prototype trust and audit systems",
                   num: "(03)",
-                  desc: "Expert-level schema design, indexing strategies, and performance tuning for PostgreSQL, MongoDB, and Redis.",
+                  desc: "Use blockchain, append-only records, and control-aware architecture where traceability and multi-party trust matter.",
                 },
                 {
                   id: 4,
-                  title: "Microservices & Cloud Deployment",
+                  title: "Improve reliability and governance",
                   num: "(04)",
-                  desc: "Transitioning monoliths to scalable microservices with Docker, Kubernetes, and automated CI/CD pipelines.",
+                  desc: "Strengthen access control, logging, observability, data flows, and operational handoff so systems are easier to audit and run.",
                 },
               ].map((service) => (
                 <div
@@ -1631,6 +1794,8 @@ function PortfolioHome() {
                 {/* Navigation Buttons */}
                 <div className="mt-12 flex items-center gap-4">
                   <motion.button
+                    type="button"
+                    aria-label="Previous testimonial"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="flex h-12 w-12 items-center justify-center rounded-full bg-[#222222] transition-colors hover:bg-[#333333]"
@@ -1871,17 +2036,15 @@ function PortfolioHome() {
       >
         {/* Massive Background Repeating Text */}
         <div className="absolute bottom-[2%] md:bottom-[-5%] left-0 w-full z-[20] pointer-events-none select-none overflow-hidden">
-          <h2
+          <div
             aria-hidden="true"
-            className="whitespace-nowrap font-black uppercase text-center text-[#252525]"
+            className="h-[clamp(4rem,14.4vw,16rem)] bg-center bg-no-repeat opacity-[0.08]"
             style={{
-              fontSize: "clamp(5rem, 18vw, 20rem)",
-              letterSpacing: "-0.05em",
-              lineHeight: 0.8,
+              backgroundSize: "auto 100%",
+              backgroundImage:
+                "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 260'%3E%3Ctext x='50%25' y='82%25' text-anchor='middle' font-family='Arial,sans-serif' font-size='260' font-weight='900' letter-spacing='-14' fill='%23FFFFFF'%3EBACKEND%3C/text%3E%3C/svg%3E\")",
             }}
-          >
-            BACKEND
-          </h2>
+          />
         </div>
 
         <div className="mx-auto max-w-7xl px-10 md:px-20 relative z-10 pt-[150px] pb-20">
@@ -1946,7 +2109,7 @@ function PortfolioHome() {
                     className="group relative z-10 flex h-[130px] w-[130px] items-center justify-center rounded-full bg-[#00FF66] shadow-[0_0_20px_rgba(0,255,102,0.3)]"
                   >
                     <span className="text-center text-sm font-bold text-black/90 px-4">
-                      Start Project
+                      Hire / Collaborate
                     </span>
                     <div className="absolute inset-0 rounded-full border border-black/5 scale-110 group-hover:scale-125 transition-transform duration-500" />
                   </motion.button>
@@ -1991,7 +2154,7 @@ function PortfolioHome() {
                   className="group relative z-10 flex h-[120px] w-[120px] items-center justify-center rounded-full bg-[#00FF66] shadow-[0_0_20px_rgba(0,255,102,0.3)]"
                 >
                   <span className="text-center text-sm font-bold text-black/90 px-4">
-                    Start Project
+                    Hire / Collaborate
                   </span>
                 </motion.button>
               </div>
@@ -2114,24 +2277,27 @@ function PortfolioHome() {
 
             {/* Right Side: Portrait */}
             <div className="relative flex items-end min-h-[400px] justify-center lg:justify-end">
-              <motion.img
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 0.7, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1 }}
-                src="/portrait.png"
-                alt="Maulana Anjari Footer"
-                width="900"
-                height="1200"
-                loading="lazy"
-                className="h-full w-auto object-cover grayscale brightness-75"
-                style={{
-                  maskImage:
-                    "linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
-                  WebkitMaskImage:
-                    "linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
-                }}
-              />
+              <picture className="flex h-full">
+                <source srcSet="/portrait.webp" type="image/webp" />
+                <motion.img
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 0.7, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1 }}
+                  src="/portrait.png"
+                  alt="Maulana Anjari Footer"
+                  width="900"
+                  height="1200"
+                  loading="lazy"
+                  className="h-full w-auto object-cover grayscale brightness-75"
+                  style={{
+                    maskImage:
+                      "linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+                  }}
+                />
+              </picture>
             </div>
           </div>
         </div>
