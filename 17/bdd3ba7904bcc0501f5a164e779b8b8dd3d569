@@ -1,0 +1,31 @@
+PORTFOLIO_REVIEW.md
+  s_fbc443ad1e4fd2::t_caba0988c37d6b 1-225
+src/App.tsx
+  s_fbc443ad1e4fd2::t_b352d11ad588c7 2112,2157
+  s_fbc443ad1e4fd2::t_6ee42fde15cb12 1415,1797-1798,2039,2041,2043-2045,2047
+  s_fbc443ad1e4fd2::t_bc80467e641ad3 1440,1448-1450,1456-1458,1464-1466,1472-1474,1504-1508,1512-1525,1550-1553,1564
+  s_fbc443ad1e4fd2::t_082d5aa5350dfc 851,2280
+  s_fbc443ad1e4fd2::t_fdf71e591d85e5 852-861,2281-2300
+  s_fbc443ad1e4fd2::t_f5b8cf55c6be42 1123,1125,1128-1129,1131,1134-1135,1137,1141,1143,1198-1201,1211
+  s_fbc443ad1e4fd2::t_1073faaa3b0c46 500
+  s_fbc443ad1e4fd2::t_8df375b8d778fc 412-424,428-430,434-435,440-441,451,468-470
+  s_fbc443ad1e4fd2::t_2a33877c6d0756 1578,1607,1609,1613,1615,1619,1621,1625,1627
+  s_fbc443ad1e4fd2::t_f5384c42583827 1016-1061,1064-1099
+  s_fbc443ad1e4fd2::t_5fb87c81b977b8 750,767-770,772-810
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "17bdd3ba7904bcc0501f5a164e779b8b8dd3d569",
+  "prompts": {},
+  "sessions": {
+    "s_fbc443ad1e4fd2": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e6ea9-d9d9-7f42-9abc-3eafdead348c",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
