@@ -1,0 +1,72 @@
+PORTFOLIO_REVIEW.md
+  s_14d241f0ee58a0::t_47b4f6278e69fc 9,11,13,15-19,21,23-30,32,34,36,38-44,46,48,50,52,54-62,64,66,68,70,72,74,76-80,82,84,86,88,90-92,94-100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,130-131,133,135,137,139,141,143,145,147,149,151,153,155,157,159,161,163,165,167,169,171,173,175-180,182-185,187,189,191-198,200,202,204-210,212,214-226,228-232,234,236,238-244,246,248
+src/App.tsx
+  s_14d241f0ee58a0::t_175d1058e3a8f7 1895-1898
+  s_14d241f0ee58a0::t_6d5f54bbc26d96 2019
+  s_14d241f0ee58a0::t_ae4ed89aa0c6f8 1470
+  s_14d241f0ee58a0::t_de999e22e6fd60 1622-1625
+  s_14d241f0ee58a0::t_a3b88c75714824 504
+  s_14d241f0ee58a0::t_fe4f51ee091221 1481
+  s_14d241f0ee58a0::t_e2c500097a6a1e 1459
+  s_14d241f0ee58a0::t_82675e524aece8 1448
+  s_14d241f0ee58a0::t_865e4deff5824a 1987
+  s_14d241f0ee58a0::t_06a29777c9dfe6 1942
+  s_14d241f0ee58a0::t_b8f647946f64fa 2300-2303
+  s_fbc443ad1e4fd2::t_39b03f6ce0aacc 1588
+  s_14d241f0ee58a0::t_51da6464d3fe2b 2440-2441
+  s_fbc443ad1e4fd2::t_0f69c06e902aae 1443,1446,1449,1454,1457,1460,1465,1468,1471,1476,1479,1482,1485,1493,1505-1509,1511,1514-1517,1521-1527,1529,1534-1535,1553-1562,1564
+server.ts
+  s_14d241f0ee58a0::t_c3650982e429a2 122
+index.html
+  s_14d241f0ee58a0::t_c540d0b2430bf4 72-73
+  s_14d241f0ee58a0::t_4ca9536eaf027a 86-88
+  s_14d241f0ee58a0::t_7c8e43625e34d8 58-63
+  s_14d241f0ee58a0::t_f28be508514ecc 84-85,89-91
+src/components/NotFound.tsx
+  s_14d241f0ee58a0::t_98ffe77f832456 31
+src/components/LazySyntaxHighlighter.tsx
+  s_14d241f0ee58a0::t_83791b92eaf84d 1
+  s_14d241f0ee58a0::t_7d2bf01097569c 2,76,95,102-104,110-111
+  s_14d241f0ee58a0::t_efdc4393ae0ece 78-84,105-109
+  s_14d241f0ee58a0::t_9f3ea1affa650e 9-75
+src/components/Blog.tsx
+  s_14d241f0ee58a0::t_97b9c5f874e4cc 77,285,319,375,406,526,690,795,830,864,882
+src/index.css
+  s_14d241f0ee58a0::t_2eb9af2d5c1375 17-20
+package.json
+  s_14d241f0ee58a0::t_51fa73e66d2f71 36
+  s_14d241f0ee58a0::t_a670d92bd84781 2
+posts/tashawwur-fikih-muamalat-ai.md
+  s_14d241f0ee58a0::t_381db60ee68c5f 20
+  s_14d241f0ee58a0::t_a9e24ac47607da 6
+src/components/ErrorBoundary.tsx
+  s_14d241f0ee58a0::t_1aeffd76bc401f 27
+api/posts/[slug].ts
+  s_14d241f0ee58a0::t_89dadf9f0c12d9 61
+tsconfig.json
+  s_14d241f0ee58a0::t_6dbdd6f7bd621a 13-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "d5afd7f6611e88249bfa9f57abe51e37d6006f0c",
+  "prompts": {},
+  "sessions": {
+    "s_14d241f0ee58a0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f12f090b-c9a8-48e9-8e67-8542710f373f",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    },
+    "s_fbc443ad1e4fd2": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e6ea9-d9d9-7f42-9abc-3eafdead348c",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
