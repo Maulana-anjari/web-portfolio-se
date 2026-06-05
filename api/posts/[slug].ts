@@ -58,6 +58,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const { data, content } = matter(fileContents);
 
+    res.setHeader('Cache-Control', 'public, max-age=300, stale-while-revalidate=3600');
     res.json({
       slug,
       frontmatter: data,

@@ -15,7 +15,6 @@ import {
   AnimatePresence,
   useInView,
   useMotionValue,
-  useSpring,
 } from "motion/react";
 import {
   BrowserRouter,
@@ -25,17 +24,13 @@ import {
 } from "react-router-dom";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 import {
-  ChevronsUpDown,
   ArrowUpRight,
   Zap,
   Code2,
   Server,
   Database,
-  Cloud,
   Box,
   Hexagon,
-  Network,
-  Share2,
   Terminal,
   Gauge,
   Leaf,
@@ -506,7 +501,7 @@ function PortfolioHome() {
           })}
         </script>
       </Helmet>
-      <main className="w-full bg-dark-charcoal text-white selection:bg-neon-mint selection:text-black cursor-none">
+      <main id="main-content" tabIndex={-1} className="w-full bg-dark-charcoal text-white selection:bg-neon-mint selection:text-black cursor-none">
         {/* Global Custom Cursor */}
         <GlobalCursor
           isHoveringProject={isHoveringProject}
@@ -1311,7 +1306,6 @@ function PortfolioHome() {
               className="relative min-w-0 min-h-[600px] lg:min-h-0 cursor-none group/exp-card"
               onMouseEnter={() => setIsHoveringProject(true)}
               onMouseLeave={() => setIsHoveringProject(false)}
-              onClick={() => window.open("#", "_blank")}
             >
               <AnimatePresence mode="wait">
                 <motion.div
@@ -1446,37 +1440,49 @@ function PortfolioHome() {
               {
                 title: "Enterprise LLM Insight Engine",
                 role: "Backend Engineer",
+                problem: "Enterprise insight workflows were slowed by fragmented issue context and manual technical handoffs.",
                 built: "Backend features, RAG workflow integration, vector search, and issue-resolution flows for an enterprise LLM insight platform.",
                 impact: "Reduced median issue-to-merge lead time by 51.9%.",
+                metric: "51.9% faster",
                 tags: ["Python", "FastAPI", "Milvus", "SQL Server"],
-                img: "/images/llm-pertamina-project.png",
+                img: "/images/llm-pertamina-project.webp",
+                cta: "Discuss LLM infrastructure",
               },
               {
                 title: "SumbuPay Web3 Gateway",
                 role: "Backend Engineer & Co-Founder",
+                problem: "A Web3 payment product needed backend foundations that could connect fiat payment flows with wallet infrastructure.",
                 built: "Core backend foundations for Web3 payment flows, QRIS integration, and MPC wallet infrastructure.",
                 impact: "Created the technical base for a fiat-to-Web3 payment product roadmap.",
+                metric: "Core platform",
                 tags: ["Node.js", "TypeScript", "Web3", "PostgreSQL"],
-                img: "/images/SumbuPay-project.png",
+                img: "/images/SumbuPay-project.webp",
+                cta: "Discuss Web3 payments",
               },
               {
                 title: "PharmaChain Distributed Network",
                 role: "Blockchain Researcher",
+                problem: "Healthcare data exchange needed a prototype for multi-organization trust, identity sharing, and audit-friendly interoperability.",
                 built: "A Hyperledger Fabric prototype with 2 networks, 6 organizations, and 30+ containers for interoperable healthcare data exchange.",
                 impact: "Validated cross-network identity sharing and audit-friendly data flow patterns.",
+                metric: "30+ containers",
                 tags: ["Hyperledger", "Docker", "IPFS", "Go"],
-                img: "/images/pharmachain-project.png",
+                img: "/images/pharmachain-project.webp",
+                cta: "Discuss trust systems",
               },
               {
                 title: "CAR-dano Inspection Engine",
                 role: "Backend & Blockchain Engineer",
+                problem: "Vehicle inspection workflows needed faster operations and verifiable records without sacrificing reliability.",
                 built: "A blockchain-backed vehicle inspection backend with Cardano anchoring, operational APIs, and data workflows.",
                 impact: "Cut inspection turnaround by 50% while maintaining 100% uptime.",
+                metric: "50% faster",
                 tags: ["Node.js", "Cardano", "PostgreSQL", "Prisma"],
-                img: "/images/CAR-dano-project.png",
+                img: "/images/CAR-dano-project.webp",
+                cta: "Discuss blockchain workflows",
               },
             ].map((project, idx) => (
-              <motion.div
+              <motion.article
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1484,7 +1490,7 @@ function PortfolioHome() {
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 onMouseEnter={() => setIsHoveringProject(true)}
                 onMouseLeave={() => setIsHoveringProject(false)}
-                className="group flex flex-col gap-6 cursor-none"
+                className="group flex flex-col gap-6 cursor-none rounded-[12px] border border-white/5 bg-[#151515] p-4 md:p-5 transition-colors hover:border-neon-mint/30"
               >
                 {/* Image Wrapper */}
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[12px] bg-[#1A1A1A]">
@@ -1496,28 +1502,37 @@ function PortfolioHome() {
                     loading="lazy"
                     className="h-full w-full object-cover grayscale-[0.5] transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#121212]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#121212]/90 via-[#121212]/10 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-95" />
+                  <div className="absolute left-4 top-4 rounded-full border border-neon-mint/25 bg-black/45 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-neon-mint backdrop-blur-md">
+                    {project.metric}
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/80">
+                    <span>{project.role}</span>
+                    <span className="text-neon-mint">/</span>
+                    <span>{project.tags[0]}</span>
+                  </div>
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col gap-4">
-                  <div className="flex flex-wrap items-center gap-3 font-mono text-[10px] uppercase tracking-[0.18em] text-neon-mint">
-                    <span>{project.role}</span>
-                    <span className="text-white/20">/</span>
-                    <span>{project.tags[0]}</span>
-                  </div>
+                <div className="flex flex-col gap-5 px-1 pb-1">
                   <h3 className="text-2xl font-bold text-white transition-colors group-hover:text-neon-mint">
                     {project.title}
                   </h3>
-                  <div className="grid grid-cols-1 gap-3 text-sm leading-relaxed text-[#A0A0A0]">
+                  <div className="grid grid-cols-1 gap-4 text-sm leading-relaxed text-[#A0A0A0]">
                     <p>
-                      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white">
+                      <span className="mb-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-white">
+                        Problem
+                      </span>
+                      {project.problem}
+                    </p>
+                    <p>
+                      <span className="mb-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-white">
                         Built:
                       </span>{" "}
                       {project.built}
                     </p>
-                    <p className="text-white">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-neon-mint">
+                    <p className="rounded-[8px] border border-neon-mint/15 bg-neon-mint/[0.04] p-4 text-white">
+                      <span className="mb-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-neon-mint">
                         Impact:
                       </span>{" "}
                       {project.impact}
@@ -1535,8 +1550,18 @@ function PortfolioHome() {
                       </span>
                     ))}
                   </div>
+
+                  <a
+                    href={`mailto:maulana17anjari@gmail.com?subject=${encodeURIComponent(project.cta)}`}
+                    onMouseEnter={() => setIsHoveringButton(true)}
+                    onMouseLeave={() => setIsHoveringButton(false)}
+                    className="mt-2 inline-flex w-fit items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[#A0A0A0] transition-colors hover:text-neon-mint"
+                  >
+                    {project.cta}
+                    <span aria-hidden="true">↗</span>
+                  </a>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
 
@@ -1560,7 +1585,7 @@ function PortfolioHome() {
               whileTap={{ scale: 0.95 }}
               className="rounded-full bg-neon-mint px-10 py-5 text-sm font-bold text-[#111111] transition-all"
             >
-              View More Projects
+              View GitHub Projects
             </motion.a>
           </motion.div>
         </div>
@@ -1594,6 +1619,10 @@ function PortfolioHome() {
                 width="1000"
                 height="750"
                 loading="lazy"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.style.display = "none";
+                }}
                 className="h-full w-full object-cover grayscale transition-transform duration-[800ms] ease-out group-hover:scale-[1.03] group-hover:grayscale-0"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-neon-mint/10 to-transparent mix-blend-overlay" />
@@ -1863,6 +1892,10 @@ function PortfolioHome() {
                   width="64"
                   height="64"
                   loading="lazy"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    target.style.display = "none";
+                  }}
                   className="h-16 w-16 rounded-[8px] object-cover grayscale brightness-75"
                 />
                 <div className="flex flex-col items-start">
@@ -1906,7 +1939,7 @@ function PortfolioHome() {
               { name: "Hyperledger", icon: Layers },
               { name: "Docker", icon: Box },
               { name: "Kubernetes", icon: Hexagon },
-            ].map((tech, idx) => (
+            ].map((tech) => (
               <div
                 key={tech.name}
                 onMouseEnter={() => setIsHoveringButton(true)}
@@ -1951,7 +1984,7 @@ function PortfolioHome() {
           {/* Blog Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {blogPosts.length > 0
-              ? blogPosts.map((post, idx) => (
+              ? blogPosts.map((post) => (
                   <Link
                     key={post.slug}
                     to={`/blog/${post.slug}`}
@@ -1983,7 +2016,7 @@ function PortfolioHome() {
                       <span className="rounded-full border border-[#00FF66]/20 bg-[#00FF66]/5 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#00FF66]">
                         {post.tags?.[0] || "//POST"}
                       </span>
-                      <span className="text-[#666666]">|</span>
+                      <span className="text-[#949494]">|</span>
                       <span className="text-xs text-[#A0A0A0]">
                         {new Date(post.date).toISOString().slice(0, 10)}
                       </span>
@@ -2264,14 +2297,10 @@ function PortfolioHome() {
                 </a>
               </div>
 
-              {/* Legal Bar */}
-              <div className="mt-20 pt-8 border-t border-[#333333] flex flex-wrap gap-x-8 gap-y-4 justify-between md:justify-start">
-                <Link
-                  to="/this-page-does-not-exist"
-                  className="text-[10px] tracking-[0.1em] text-[#A0A0A0] hover:text-white transition-colors"
-                >
-                  404
-                </Link>
+              <div className="mt-20 pt-8 border-t border-[#333333]">
+                <p className="text-[10px] tracking-[0.1em] text-[#A0A0A0]">
+                  &copy; {new Date().getFullYear()} Maulana Anjari Anggorokasih
+                </p>
               </div>
             </div>
 
@@ -2404,15 +2433,12 @@ function PortfolioHome() {
 }
 
 export default function App() {
-  const [isHoveringProject, setIsHoveringProject] = useState(false);
-  const [isHoveringButton, setIsHoveringButton] = useState(false);
-
   return (
     <HelmetProvider>
       <BrowserRouter>
         <GlobalCursor
-          isHoveringProject={isHoveringProject}
-          isHoveringButton={isHoveringButton}
+          isHoveringProject={false}
+          isHoveringButton={false}
         />
         <Routes>
           <Route path="/" element={<PortfolioHome />} />

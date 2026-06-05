@@ -74,7 +74,7 @@ const MermaidCodeBlock = ({ code }: { code: string }) => {
           <div className="w-3 h-3 rounded-full bg-[#27C93F] opacity-60" />
         </div>
         <div className="flex items-center gap-4">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#666666]">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#949494]">
             // SYSTEM_SCHEMA
           </span>
         </div>
@@ -282,7 +282,7 @@ export function BlogIndex() {
                   aria-pressed={activeCategory === category}
                   onClick={() => setActiveCategory(category)}
                   className={`relative text-xs md:text-sm font-mono uppercase tracking-[0.15em] transition-all duration-300 group
-                    ${activeCategory === category ? 'text-[#00FF66]' : 'text-[#666666] hover:text-[#00FF66]'}`}
+                    ${activeCategory === category ? 'text-[#00FF66]' : 'text-[#949494] hover:text-[#00FF66]'}`}
                 >
                   {category}
                   {activeCategory === category && (
@@ -316,7 +316,7 @@ export function BlogIndex() {
                 type="button"
                 aria-label={`Sort posts ${sortOrder === "DESC" ? "oldest first" : "newest first"}`}
                 onClick={() => setSortOrder(prev => prev === "DESC" ? "ASC" : "DESC")}
-                className="font-mono text-[10px] tracking-widest text-[#666666] hover:text-[#00FF66] transition-colors border border-white/10 rounded px-3 py-1 bg-white/5 active:scale-95"
+                className="font-mono text-[10px] tracking-widest text-[#949494] hover:text-[#00FF66] transition-colors border border-white/10 rounded px-3 py-1 bg-white/5 active:scale-95"
               >
                 [{sortOrder}]
               </button>
@@ -372,7 +372,7 @@ export function BlogIndex() {
                             </span>
                           ))}
                           {remainingTags > 0 && (
-                            <span className="text-[10px] font-mono text-[#666666] tracking-tighter">
+                            <span className="text-[10px] font-mono text-[#949494] tracking-tighter">
                               +{remainingTags}
                             </span>
                           )}
@@ -403,7 +403,7 @@ export function BlogIndex() {
                 animate={{ opacity: 1 }}
                 className="col-span-12 py-32 text-center"
               >
-                <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#666666] mb-4">
+                <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#949494] mb-4">
                   // 0 PROTOCOLS MATCH YOUR QUERY.
                 </p>
                 <button
@@ -523,7 +523,7 @@ export function BlogPost() {
         type="button"
         aria-label="Copy code to clipboard"
         onClick={handleCopy}
-        className="flex items-center gap-1.5 text-[#666666] hover:text-neon-mint transition-colors px-2 py-1 rounded"
+        className="flex items-center gap-1.5 text-[#949494] hover:text-neon-mint transition-colors px-2 py-1 rounded"
         title="Copy code"
       >
         <span className={`font-mono text-[10px] uppercase tracking-widest transition-all duration-300 ${copied ? 'opacity-100 translate-x-0 text-neon-mint' : 'opacity-0 translate-x-2'}`}>
@@ -687,7 +687,7 @@ export function BlogPost() {
           </Link>
 
           <header className="mb-20">
-            <div className="flex items-center gap-4 mb-6 font-mono text-xs uppercase tracking-widest text-[#666666]">
+            <div className="flex items-center gap-4 mb-6 font-mono text-xs uppercase tracking-widest text-[#949494]">
               <span className="flex items-center gap-1.5"><Calendar size={14} className="text-neon-mint/40" /> {post.frontmatter.date}</span>
               <span className="w-1 h-1 rounded-full bg-white/10" />
               <span className="flex items-center gap-1.5"><Clock size={14} className="text-neon-mint/40" /> {post.frontmatter.readingTime}</span>
@@ -792,7 +792,7 @@ export function BlogPost() {
                           <div className={`w-3 h-3 rounded-full ${isAlgorithm ? "bg-neon-mint" : "bg-[#27C93F]"} opacity-60`} />
                         </div>
                         <div className="flex items-center gap-4">
-                          <span className={`font-mono text-[10px] uppercase tracking-widest ${isAlgorithm ? "text-neon-mint" : "text-[#666666]"}`}>
+                          <span className={`font-mono text-[10px] uppercase tracking-widest ${isAlgorithm ? "text-neon-mint" : "text-[#949494]"}`}>
                             {isAlgorithm ? "Algorithm Protocol" : lang}
                           </span>
                           <CopyButton text={codeString} />
@@ -827,7 +827,7 @@ export function BlogPost() {
                       className="rounded-2xl w-full border border-white/5 shadow-[0_0_40px_rgba(0,255,102,0.1)] transition-all hover:shadow-[0_0_60px_rgba(0,255,102,0.15)]"
                     />
                     {alt && (
-                      <p className="text-center text-[10px] font-mono text-[#666666] mt-6 uppercase tracking-[0.3em]">
+                      <p className="text-center text-[10px] font-mono text-[#949494] mt-6 uppercase tracking-[0.3em]">
                         // fig. 01: {alt} ARCHITECTURE
                       </p>
                     )}
@@ -861,7 +861,7 @@ export function BlogPost() {
                   className={`block text-[10px] uppercase tracking-[0.2em] transition-all duration-300 hover:text-neon-mint ${
                     activeId === item.id 
                       ? "text-neon-mint border-l-2 border-neon-mint pl-4" 
-                      : `text-[#666666] border-l-2 border-transparent ${item.level === 3 ? "pl-8 opacity-70" : "pl-4"}`
+                      : `text-[#949494] border-l-2 border-transparent ${item.level === 3 ? "pl-8 opacity-70" : "pl-4"}`
                   }`}
                 >
                   {item.text}
@@ -879,7 +879,7 @@ export function BlogPost() {
                 ].map(social => (
                   <button 
                     key={social.id} 
-                    className="flex items-center gap-3 w-fit text-[10px] font-mono uppercase tracking-[0.2em] text-[#666666] border border-white/5 bg-white/5 py-2 px-4 rounded-full hover:text-neon-mint hover:border-neon-mint/30 hover:bg-neon-mint/5 transition-all text-left group"
+                    className="flex items-center gap-3 w-fit text-[10px] font-mono uppercase tracking-[0.2em] text-[#949494] border border-white/5 bg-white/5 py-2 px-4 rounded-full hover:text-neon-mint hover:border-neon-mint/30 hover:bg-neon-mint/5 transition-all text-left group"
                   >
                     <social.icon size={14} className="group-hover:scale-110 transition-transform" />
                     {social.name}

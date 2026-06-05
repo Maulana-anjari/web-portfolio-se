@@ -3,7 +3,7 @@ title: "Building Tashawwur: An AI Assistant for Deconstructing Modern Financial 
 date: "2026-04-11"
 excerpt: "How I built a production-ready Telegram bot using LangGraph, FastAPI, and Celery to bridge the gap between complex modern finance and Islamic jurisprudence."
 tags: ["AI", "Backend", "Python", "LangChain", "Blockchain"]
-img: "/images/blog/tashawwur-hero.png"
+img: "/images/blog/tashawwur-hero.webp"
 readingTime: "6 min read"
 --- 
 
@@ -17,7 +17,7 @@ The main problem isn't a lack of scholars, but the **difficulty laypeople face i
 
 Driven by this issue, I designed and built the **Tashawwur Fikih Muamalat Telegram Bot**. This project is not a "Fatwa-Issuing Bot." Rather, it is an **AI Assistant and Transaction Anatomy Expert** designed to bridge modern financial terminology with the language of Fiqh, preparing the facts so they can be easily consulted with religious scholars.
 
-![Illustration of an AI assistant analyzing modern financial transactions and Islamic finance contracts](/images/blog/tashawwur-hero.png)
+![Illustration of an AI assistant analyzing modern financial transactions and Islamic finance contracts](/images/blog/tashawwur-hero.webp)
 
 ## Core Capabilities
 

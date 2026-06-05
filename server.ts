@@ -3,11 +3,7 @@ import { createServer as createViteServer } from "vite";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { fileURLToPath } from 'url';
 import { rateLimit } from './src/rate-limit';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // Rate limit middleware for Express
 function rateLimitMiddleware(req: express.Request, res: express.Response, next: express.NextFunction) {
@@ -123,7 +119,7 @@ async function startServer() {
   } else {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
-    app.get("*", (req, res) => {
+    app.get("*", (_req, res) => {
       res.sendFile(path.join(distPath, "index.html"));
     });
   }

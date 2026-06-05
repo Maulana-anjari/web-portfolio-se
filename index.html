@@ -55,6 +55,12 @@
 
         <!-- Canonical Link -->
         <link rel="canonical" href="https://maulana.sumbu.xyz/" />
+        <style>
+          :focus-visible {
+            outline: 2px solid #00FF66;
+            outline-offset: 2px;
+          }
+        </style>
 
         <!-- Favicon -->
         <link
@@ -63,7 +69,8 @@
             href="/favicon-96x96.png"
             sizes="96x96"
         />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link
             rel="apple-touch-icon"
@@ -72,56 +79,16 @@
         />
         <link rel="manifest" href="/site.webmanifest" />
 
-        <!-- JSON-LD Schema Markup -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Person",
-                "name": "Maulana Anjari Anggorokasih",
-                "alternateName": "Maul",
-                "url": "https://maulana.sumbu.xyz",
-                "jobTitle": "Software Engineer",
-                "image": "https://maulana.sumbu.xyz/og-image.png",
-                "alumniOf": {
-                    "@type": "CollegeOrUniversity",
-                    "name": "Universitas Gadjah Mada",
-                    "sameAs": "https://www.ugm.ac.id/"
-                },
-                "award": "Bachelor of Information Technology (GPA 3.40/4.00)",
-                "hasCredential": {
-                    "@type": "EducationalOccupationalCredential",
-                    "credentialCategory": "degree",
-                    "educationalLevel": "Bachelor",
-                    "name": "Sarjana Teknik",
-                    "sameAs": "Bachelors of Engineering in Information Engineering"
-                },
-                "knowsAbout": [
-                    "Backend Development",
-                    "Blockchain Development",
-                    "Cardano",
-                    "Go",
-                    "Python"
-                ],
-                "worksFor": [
-                    {
-                        "@type": "Organization",
-                        "name": "LKFT UGM x PT Pertamina EP"
-                    },
-                    {
-                        "@type": "Organization",
-                        "name": "Sumbu Labs"
-                    }
-                ],
-                "sameAs": [
-                    "https://linkedin.com/in/maulana-anjari-anggorokasih",
-                    "https://github.com/Maulana-anjari",
-                    "https://www.instagram.com/maulana_anjari",
-                    "https://www.instagram.com/maul_foto.rar"
-                ]
-            }
-        </script>
     </head>
     <body>
+        <a
+          href="#main-content"
+          style="position: fixed; top: -100px; left: 16px; z-index: 10001; padding: 12px 24px; background: #00FF66; color: #111; font-weight: 700; font-size: 14px; border-radius: 9999px; text-decoration: none; transition: top 0.2s;"
+          onfocus="this.style.top='16px'"
+          onblur="this.style.top='-100px'"
+        >
+          Skip to main content
+        </a>
         <div id="root"></div>
         <script type="module" src="/src/main.tsx"></script>
     </body>

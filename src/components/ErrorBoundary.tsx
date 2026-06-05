@@ -24,7 +24,7 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-6">
           <div className="text-center max-w-md">
-            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#666666] mb-4 block">
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#949494] mb-4 block">
               // SYSTEM_EXCEPTION_CAUGHT
             </span>
             <div className="text-red-400 font-mono text-sm mb-4 border border-red-400/30 rounded px-4 py-3 bg-red-400/5 break-all">
