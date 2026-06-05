@@ -1,6 +1,9 @@
 {
   "name": "Maulana Anjari Portfolio",
   "short_name": "Maulana Anjari",
+  "description": "Backend & AI Engineer — reliable APIs, LLM workflows, blockchain-backed systems, and governed digital infrastructure.",
+  "start_url": "/",
+  "categories": ["portfolio", "technology", "engineering"],
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

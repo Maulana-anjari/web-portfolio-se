@@ -64,12 +64,25 @@ function GlobalCursor({
   const cursorY = useMotionValue(0);
 
   useEffect(() => {
+    let raf = 0;
+    let lastX = 0;
+    let lastY = 0;
     const handleMouseMove = (e: MouseEvent) => {
-      cursorX.set(e.clientX);
-      cursorY.set(e.clientY);
+      lastX = e.clientX;
+      lastY = e.clientY;
+      if (!raf) {
+        raf = requestAnimationFrame(() => {
+          cursorX.set(lastX);
+          cursorY.set(lastY);
+          raf = 0;
+        });
+      }
     };
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, [cursorX, cursorY]);
 
   return (
@@ -338,6 +351,7 @@ function PortfolioHome() {
   const [openService, setOpenService] = useState<number>(1);
   const [activeExp, setActiveExp] = useState(0);
   const [blogPosts, setBlogPosts] = useState<any[]>([]);
+  const [blogError, setBlogError] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef(null);
   const isStatsInView = useInView(statsRef, { once: true, margin: "-100px" });
@@ -366,7 +380,7 @@ function PortfolioHome() {
     fetch("/api/posts")
       .then((res) => res.json())
       .then((data) => setBlogPosts(data.slice(0, 3)))
-      .catch((err) => console.error("Error fetching blog posts:", err));
+      .catch(() => setBlogError(true));
 
     // Optional: Sync with native锚点 links
     const handleAnchorClick = (e: MouseEvent) => {
@@ -1820,7 +1834,7 @@ function PortfolioHome() {
                   throughout the project."
                 </motion.p>
 
-                {/* Navigation Buttons */}
+                {/* Navigation + CTA */}
                 <div className="mt-12 flex items-center gap-4">
                   <motion.button
                     type="button"
@@ -1847,18 +1861,10 @@ function PortfolioHome() {
                   </motion.button>
                   <motion.button
                     type="button"
-                    aria-label="Start a project by email"
-                    onClick={() => {
-                      window.location.href = "mailto:maulana17anjari@gmail.com?subject=Project%20Inquiry";
-                    }}
-                    onMouseEnter={() => setIsHoveringButton(true)}
-                    onMouseLeave={() => setIsHoveringButton(false)}
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: "0 0 20px rgba(0, 255, 102, 0.4)",
-                    }}
+                    aria-label="Next testimonial"
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex h-12 w-12 items-center justify-center rounded-full bg-[#00FF66] shadow-[0_0_15px_rgba(0,255,102,0.3)] transition-all"
+                    className="flex h-12 w-12 items-center justify-center rounded-full bg-[#222222] transition-colors hover:bg-[#333333]"
                   >
                     <svg
                       width="20"
@@ -1869,13 +1875,21 @@ function PortfolioHome() {
                     >
                       <path
                         d="M5 12H19M19 12L12 5M19 12L12 19"
-                        stroke="black"
+                        stroke="#A0A0A0"
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                     </svg>
                   </motion.button>
+                  <a
+                    href="mailto:maulana17anjari@gmail.com?subject=Project%20Inquiry"
+                    onMouseEnter={() => setIsHoveringButton(true)}
+                    onMouseLeave={() => setIsHoveringButton(false)}
+                    className="ml-2 rounded-full bg-[#00FF66] px-6 py-3 text-xs font-bold text-[#111111] transition-all hover:shadow-[0_0_20px_rgba(0,255,102,0.4)] active:scale-95"
+                  >
+                    Start Project
+                  </a>
                 </div>
               </div>
 
@@ -2031,7 +2045,28 @@ function PortfolioHome() {
                     </p>
                   </Link>
                 ))
-              : [1, 2, 3].map((_, idx) => (
+              : blogError
+                ? (
+                  <div className="col-span-full py-16 text-center">
+                    <p className="text-sm text-[#A0A0A0] mb-4 font-mono">
+                      // Failed to load posts
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setBlogError(false);
+                        fetch("/api/posts")
+                          .then((res) => res.json())
+                          .then((data) => setBlogPosts(data.slice(0, 3)))
+                          .catch(() => setBlogError(true));
+                      }}
+                      className="text-xs font-mono text-neon-mint hover:underline uppercase tracking-widest"
+                    >
+                      Retry
+                    </button>
+                  </div>
+                )
+                : [1, 2, 3].map((_, idx) => (
                   <div
                     key={idx}
                     className="flex flex-col gap-4 animate-pulse opacity-20"
