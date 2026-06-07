@@ -219,9 +219,123 @@ Perbaikan struktural jangka panjang.
 | 17 | Ekstrak shared rate limiter untuk `api/` functions | DRY | Low |
 | 18 | Tambah user-facing error state untuk blog fetch di home page | UX | Low |
 | 19 | Throttle GlobalCursor mousemove event | CPU perf | Low |
-| 20 | Ekstrak section besar dari PortfolioHome ke komponen lazy-loaded (Hero, Projects, Services, dll) | Maintainability | High |
+| 20 | Refactor PortfolioHome ke komponen lazy-loaded | Maintainability | High |
 | 21 | Tambah `start_url`, `description`, `categories` ke `site.webmanifest` | PWA | Low |
 | 22 | Preload font Inter + JetBrains Mono via `<link rel="preload">` | Perf | Low |
+
+#### Strategic Plan — Item #20: Refactor PortfolioHome
+
+**Current state:** `PortfolioHome` di [src/App.tsx](src/App.tsx) adalah satu fungsi sepanjang ~2,100 baris (dari line 344 sampai 2471). Semua 10 `useState` hooks, side effects (Lenis, blog fetch, click-outside), dan 15 section UI hidup dalam satu lingkup komponen.
+
+**Target:** Pecah menjadi komponen independen per section, masing-masing di-lazy-load, tanpa merusak animasi atau state hover cursor.
+
+##### Arsitektur Target
+
+```
+src/
+  App.tsx                    # ~100 baris — Router + GlobalCursor + HelmetProvider
+  components/
+    home/                     # Folder baru
+      HeroSection.tsx         # Hero + portrait + nav + glow + scroll indicator + socials
+      ProofStrip.tsx          # //Proof of Work bar
+      ProblemsSection.tsx     # //Problems I Solve — problem cards
+      SkillsSection.tsx       # //Skills accordion + bio + stats + RollingNumber
+      ExperienceSection.tsx   # //Experience — vertical tabs + detail card
+      ProjectsSection.tsx     # //Explore Work — case study grid
+      ServicesSection.tsx     # //Service — accordion + image
+      ProcessSection.tsx      # //Work Process — 3-step cards
+      TestimonialsSection.tsx # //Testimonials — quote + client
+      TechStackSection.tsx    # //Tech Stack — logo grid
+      BlogSection.tsx         # //Blogs — post cards + skeleton + error
+      FooterSection.tsx       # Footer CTA + links + portrait + resume modal
+    shared/                   # Pindahan dari App.tsx
+      GlobalCursor.tsx        # Custom cursor component
+      SymmetricalDivider.tsx  # Divider with accent
+      SectionHeader.tsx       # Section label + title + divider
+      RollingNumber.tsx       # Animated number
+      RouteLoader.tsx         # Loading fallback
+```
+
+##### State Migration Plan
+
+| State | Pemilik Saat Ini | Pemilik Baru | Catatan |
+|-------|-----------------|-------------|---------|
+| `isMenuOpen` | PortfolioHome | `HeroSection` | Menu floating button ada di hero |
+| `isResumeModalOpen` | PortfolioHome | `FooterSection` | Resume modal hanya dibuka dari footer |
+| `isPdfLoading` | PortfolioHome | `FooterSection` | Loading spinner sebelum modal |
+| `isHoveringProject` | PortfolioHome | **CursorContext** | Shared via React Context |
+| `isHoveringButton` | PortfolioHome | **CursorContext** | Shared via React Context |
+| `openAccordion` | PortfolioHome | `SkillsSection` | Accordion skills |
+| `openService` | PortfolioHome | `ServicesSection` | Accordion services |
+| `activeExp` | PortfolioHome | `ExperienceSection` | Active experience tab |
+| `blogPosts` | PortfolioHome | `BlogSection` | Blog data fetch |
+| `blogError` | PortfolioHome | `BlogSection` | Blog error state |
+
+##### Cursor Context (paling kritis)
+
+Custom cursor ada di level `App` (luar Routes) dan menerima `isHoveringProject` + `isHoveringButton` sebagai props. Saat ini state hover hanya dikontrol oleh `PortfolioHome`. Setelah refactor, **semua section perlu bisa trigger hover state**.
+
+Solusi: **React Context** `CursorContext` yang menyediakan `setIsHoveringProject` / `setIsHoveringButton`, di-wrap di level `App`, dikonsumsi oleh `GlobalCursor` dan semua section.
+
+```tsx
+// src/context/CursorContext.tsx
+const CursorContext = createContext({
+  setIsHoveringProject: (v: boolean) => {},
+  setIsHoveringButton: (v: boolean) => {},
+});
+```
+
+##### Lazy Loading Strategy
+
+Setiap section di-wrap dengan `React.lazy()` + `Suspense` dengan fallback placeholder kosong (height-preserving div) untuk menjaga layout stability:
+
+```tsx
+const HeroSection = lazy(() => import('./components/home/HeroSection'));
+const ExperienceSection = lazy(() => import('./components/home/ExperienceSection'));
+// ... etc
+
+<Suspense fallback={<div style={{ height: '100vh' }} />}>
+  <HeroSection />
+</Suspense>
+```
+
+##### Efek Samping (Side Effects)
+
+| Effect | Sekarang di | Pindah ke |
+|--------|-----------|----------|
+| Lenis smooth scroll init | `PortfolioHome.useLayoutEffect` | `HeroSection` (pertama render) atau custom hook `useLenis()` |
+| Blog posts fetch | `PortfolioHome.useLayoutEffect` | `BlogSection.useEffect` |
+| Anchor click sync (Lenis) | `PortfolioHome.useLayoutEffect` | Custom hook `useLenis()` |
+| Menu click-outside handler | `PortfolioHome.useEffect` | `HeroSection` |
+| Global mousemove (cursor) | `GlobalCursor` (sudah terpisah) | Tetap di `GlobalCursor` |
+
+##### Execution Steps
+
+| Step | Task | Risk | Estimasi |
+|------|------|------|----------|
+| 1 | **Buat folder structure** — `src/components/home/`, `src/components/shared/`, `src/context/` | None | 5 menit |
+| 2 | **Ekstrak shared components** — GlobalCursor, SymmetricalDivider, SectionHeader, RollingNumber, RouteLoader ke `shared/` | Low | 20 menit |
+| 3 | **Buat CursorContext** — lift hover state ke context di App level | Medium | 15 menit |
+| 4 | **Ekstrak 1 section paling sederhana** — `ProofStrip` → validasi pattern | Low | 15 menit |
+| 5 | **Ekstrak sections tanpa shared state** — ProblemsSection, ProcessSection, TestimonialsSection, TechStackSection | Low | 30 menit |
+| 6 | **Ekstrak sections dengan local state** — SkillsSection (accordion), ServicesSection (accordion), BlogSection (fetch + error + skeleton) | Medium | 30 menit |
+| 7 | **Ekstrak sections dengan shared cursor state** — ExperienceSection (isHoveringProject), ProjectsSection (isHoveringProject), TestimonialsSection (isHoveringButton) | Medium | 20 menit |
+| 8 | **Ekstrak HeroSection** — paling kompleks: menu, openResume, CTA buttons, Lenis init, portrait, glow, scroll indicator | High | 30 menit |
+| 9 | **Ekstrak FooterSection** — resume modal, openResume, CTA buttons, contact links, portrait | High | 25 menit |
+| 10 | **Final assembly di App.tsx** — semua section di-suspend + lazy-load, pastikan scroll position dan animasi tetap mulus | Medium | 15 menit |
+
+##### Risk Mitigation
+
+- **Jangan ubah behavior**: Animasi, timing, easing, dan conditional rendering harus identik.
+- **Build after each step**: Setiap step selesai → `npm run build` + `npx tsc --noEmit` untuk memastikan tidak ada yang rusak.
+- **Jangan rename props**: Semua prop dari section header, data array, dan handler tetap sama nama dan typenya.
+- **Git commit per step**: Rollback mudah jika satu step gagal.
+
+##### Rollback Plan
+
+Jika refactor gagal di tengah jalan, cukup `git checkout -- src/App.tsx` untuk mengembalikan PortfolioHome utuh. Komponen baru yang sudah diekstrak tidak akan dipakai oleh App.tsx original.
+
+**Total estimasi:** 3-4 jam (1 sesi fokus).
 
 ### Fase 5: Enhancement (Opsional/Nanti)
 
