@@ -48,22 +48,71 @@ interface ToCItem {
 }
 
 const MermaidCodeBlock = ({ code }: { code: string }) => {
-  const keywords = ['graph', 'TD', 'LR', 'BT', 'RL', 'subgraph', 'end', 'style', 'direction', 'classDef', 'class', 'click'];
-  
-  const renderLine = (line: string) => {
-    // Regex to capture keywords, symbols and everything else
-    const tokens = line.split(/(\[|\]|\(|\)|\{|\}|-->|---|==>|->|<-|--|==|\s+)/);
-    
-    return tokens.map((token, i) => {
-      if (keywords.includes(token)) {
-        return <span key={i} className="text-[#6B7280]">{token}</span>;
-      }
-      if (/(\[|\]|\(|\)|\{|\}|-->|---|==>|->|<-|--|==)/.test(token)) {
-        return <span key={i} className="text-[#00FF66]">{token}</span>;
-      }
-      return <span key={i} className="text-white">{token}</span>;
-    });
-  };
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [svg, setSvg] = useState<string | null>(null);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    import("mermaid")
+      .then((mermaid) => {
+        if (cancelled) return;
+        mermaid.default.initialize({
+          startOnLoad: false,
+          theme: "dark",
+          fontSize: 16,
+          themeVariables: {
+            primaryColor: "#00FF66",
+            primaryTextColor: "#E0E0E0",
+            primaryBorderColor: "#00FF66",
+            lineColor: "#00FF66",
+            secondaryColor: "#1A1A1A",
+            tertiaryColor: "#0F0F0F",
+            background: "#0F0F0F",
+            mainBkg: "#1A1A1A",
+            nodeBorder: "#00FF66",
+            clusterBkg: "#1A1A1A",
+            clusterBorder: "#333333",
+            titleColor: "#00FF66",
+            edgeLabelBackground: "#0F0F0F",
+            nodeTextColor: "#E0E0E0",
+            fontSize: "16px",
+          },
+        });
+        const id = `mermaid-${Math.random().toString(36).slice(2, 8)}`;
+        return mermaid.default.render(id, code);
+      })
+      .then((result) => {
+        if (cancelled && result) return;
+        if (result) setSvg(result.svg);
+      })
+      .catch(() => {
+        if (!cancelled) setError(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [code]);
+
+  if (error) {
+    return (
+      <div className="my-10 rounded-xl overflow-hidden border border-red-400/20 shadow-2xl">
+        <div className="bg-[#1A1A1A] px-4 py-2 flex items-center justify-between border-b border-[#333333]">
+          <div className="flex gap-2">
+            <div className="w-3 h-3 rounded-full bg-[#FF5F56] opacity-60" />
+            <div className="w-3 h-3 rounded-full bg-[#FFBD2E] opacity-60" />
+            <div className="w-3 h-3 rounded-full bg-[#27C93F] opacity-60" />
+          </div>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#949494]">
+            // DIAGRAM_PARSE_ERROR
+          </span>
+        </div>
+        <pre className="bg-[#0F0F0F] p-10 font-mono text-xs leading-[1.6] overflow-x-auto text-[#949494]">
+          {code}
+        </pre>
+      </div>
+    );
+  }
 
   return (
     <div className="my-10 rounded-xl overflow-hidden border border-[#00FF66]/20 shadow-2xl group/code">
@@ -73,17 +122,26 @@ const MermaidCodeBlock = ({ code }: { code: string }) => {
           <div className="w-3 h-3 rounded-full bg-[#FFBD2E] opacity-60" />
           <div className="w-3 h-3 rounded-full bg-[#27C93F] opacity-60" />
         </div>
-        <div className="flex items-center gap-4">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#949494]">
-            // SYSTEM_SCHEMA
-          </span>
-        </div>
+        <span className="font-mono text-[10px] uppercase tracking-widest text-[#949494]">
+          // SYSTEM_SCHEMA
+        </span>
       </div>
-      <pre className="bg-[#0F0F0F] p-10 font-mono text-xs leading-[1.6] overflow-x-auto">
-        {code.split('\n').map((line, i) => (
-          <div key={i} className="min-h-[1.6em]">{renderLine(line)}</div>
-        ))}
-      </pre>
+      <div
+        ref={containerRef}
+        className="bg-[#0F0F0F] p-4 md:p-8 flex justify-center overflow-x-auto"
+      >
+        {svg ? (
+          <div
+            dangerouslySetInnerHTML={{ __html: svg }}
+            className="w-full [&_svg]:w-full [&_svg]:h-auto [&_svg]:min-h-[200px]"
+          />
+        ) : (
+          <div className="flex items-center gap-3 text-[#949494] font-mono text-xs py-8">
+            <div className="h-3 w-3 rounded-full bg-neon-mint animate-pulse" />
+            Rendering diagram...
+          </div>
+        )}
+      </div>
     </div>
   );
 };
