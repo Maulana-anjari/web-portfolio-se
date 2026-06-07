@@ -1,4 +1,4 @@
-import { Suspense, lazy, useState, useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 import { CursorProvider, useCursor } from "./context/CursorContext";
@@ -37,19 +37,8 @@ function SectionFallback({ height = "400px" }: { height?: string }) {
 
 function PortfolioHome() {
   const { isHoveringProject, isHoveringButton } = useCursor();
-  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
-  const [isPdfLoading, setIsPdfLoading] = useState(false);
-
   const openResume = () => {
-    if (window.innerWidth < 768) {
-      window.open("/resume.pdf", "_blank");
-      return;
-    }
-    setIsPdfLoading(true);
-    setTimeout(() => {
-      setIsPdfLoading(false);
-      setIsResumeModalOpen(true);
-    }, 800);
+    window.open("/resume.pdf", "_blank");
   };
 
   return (
@@ -138,7 +127,7 @@ function PortfolioHome() {
           <ProblemsSection />
         </Suspense>
         <Suspense fallback={<SectionFallback height="700px" />}>
-          <SkillsSection isPdfLoading={isPdfLoading} onOpenResume={openResume} />
+          <SkillsSection onOpenResume={openResume} />
         </Suspense>
         <Suspense fallback={<SectionFallback height="800px" />}>
           <ExperienceSection />
@@ -162,10 +151,7 @@ function PortfolioHome() {
           <BlogSection />
         </Suspense>
         <Suspense fallback={<SectionFallback height="800px" />}>
-          <FooterSection
-            isResumeModalOpen={isResumeModalOpen}
-            onCloseResumeModal={() => setIsResumeModalOpen(false)}
-          />
+          <FooterSection />
         </Suspense>
       </main>
     </>

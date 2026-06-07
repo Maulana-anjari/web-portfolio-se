@@ -4,11 +4,10 @@ import RollingNumber from "../shared/RollingNumber";
 import { useCursor } from "../../context/CursorContext";
 
 interface SkillsSectionProps {
-  isPdfLoading: boolean;
   onOpenResume: () => void;
 }
 
-export default function SkillsSection({ isPdfLoading, onOpenResume }: SkillsSectionProps) {
+export default function SkillsSection({ onOpenResume }: SkillsSectionProps) {
   const [openAccordion, setOpenAccordion] = useState<string | null>("backend");
   const { setIsHoveringButton } = useCursor();
   const statsRef = useRef(null);
@@ -127,15 +126,6 @@ export default function SkillsSection({ isPdfLoading, onOpenResume }: SkillsSect
               onClick={onOpenResume}
               className="mt-10 rounded-full bg-neon-mint px-10 py-4 text-sm font-bold text-[#111111] transition-all relative overflow-hidden"
             >
-              {isPdfLoading && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="absolute inset-0 bg-neon-mint flex items-center justify-center"
-                >
-                  <div className="h-4 w-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                </motion.div>
-              )}
               My Resume
             </motion.button>
           </motion.div>

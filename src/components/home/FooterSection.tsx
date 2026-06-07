@@ -1,22 +1,12 @@
-import { motion, AnimatePresence } from "motion/react";
-import { X, Download } from "lucide-react";
+import { motion } from "motion/react";
 import SymmetricalDivider from "../shared/SymmetricalDivider";
 import { useCursor } from "../../context/CursorContext";
 
-interface FooterSectionProps {
-  isResumeModalOpen: boolean;
-  onCloseResumeModal: () => void;
-}
-
-export default function FooterSection({
-  isResumeModalOpen,
-  onCloseResumeModal,
-}: FooterSectionProps) {
+export default function FooterSection() {
   const { setIsHoveringButton } = useCursor();
 
   return (
-    <>
-      <footer
+    <footer
         id="contact"
         className="relative w-full bg-[#121212] overflow-hidden"
       >
@@ -260,99 +250,5 @@ export default function FooterSection({
           </div>
         </div>
       </footer>
-
-      {/* Resume Modal */}
-      <AnimatePresence>
-        {isResumeModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onCloseResumeModal}
-            className="fixed inset-0 z-[2000] flex items-center justify-center p-4 md:p-10"
-            style={{
-              background: "rgba(0, 0, 0, 0.8)",
-              backdropFilter: "blur(20px)",
-              WebkitBackdropFilter: "blur(20px)",
-            }}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 50 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8, y: 50 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl h-[90vh] bg-[#0A0A0A] rounded-xl border border-[#00FF66]/20 flex flex-col overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-            >
-              <div
-                className="absolute inset-0 pointer-events-none opacity-[0.05]"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-                }}
-              />
-              <div className="h-12 border-b border-white/10 flex items-center justify-between px-6 bg-black/40 relative z-10">
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#00FF66] font-bold">
-                  // RESUME_VIEWER_V1.0
-                </span>
-                <div className="flex items-center gap-6">
-                  <a
-                    href="/resume.pdf"
-                    download
-                    className="text-white hover:text-[#00FF66] transition-colors"
-                    title="Download Resume"
-                  >
-                    <Download size={18} />
-                  </a>
-                  <button
-                    onClick={onCloseResumeModal}
-                    className="text-white hover:text-[#00FF66] transition-colors"
-                  >
-                    <X size={20} />
-                  </button>
-                </div>
-              </div>
-
-              <div className="flex-grow bg-[#111111] relative z-10 flex flex-col">
-                <object
-                  data="/resume.pdf"
-                  type="application/pdf"
-                  className="w-full h-full flex-grow"
-                >
-                  <div className="flex flex-col items-center justify-center h-full p-10 text-center gap-6">
-                    <div className="w-16 h-16 rounded-full bg-[#00FF66]/10 flex items-center justify-center">
-                      <Download size={32} className="text-[#00FF66]" />
-                    </div>
-                    <div>
-                      <p className="text-white text-lg font-medium">
-                        Unable to display PDF directly
-                      </p>
-                      <p className="text-gray-400 text-sm mt-1 max-w-sm">
-                        It seems your browser or an extension (like an ad-blocker) is blocking the PDF viewer.
-                      </p>
-                    </div>
-                    <div className="flex gap-4">
-                      <a
-                        href="/resume.pdf"
-                        target="_blank"
-                        className="px-8 py-3 bg-[#00FF66] text-black font-bold rounded-full transition-transform hover:scale-105 active:scale-95"
-                      >
-                        Open PDF in New Tab
-                      </a>
-                      <a
-                        href="/resume.pdf"
-                        download
-                        className="px-8 py-3 border border-[#00FF66]/30 text-white font-bold rounded-full transition-transform hover:bg-white/5 active:scale-95"
-                      >
-                        Download PDF
-                      </a>
-                    </div>
-                  </div>
-                </object>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
   );
 }
