@@ -1,0 +1,37 @@
+PORTFOLIO_REVIEW.md
+  s_14d241f0ee58a0::t_d1881f20880a49 116,118
+  s_14d241f0ee58a0::t_e697153eb7a84e 50,52
+  s_14d241f0ee58a0::t_0adac1f82abe34 145,147
+  s_14d241f0ee58a0::t_b81ec11186c76f 110
+  s_14d241f0ee58a0::t_20835a7538c14c 135
+  s_14d241f0ee58a0::t_24bdeac8ba17f1 128
+  s_14d241f0ee58a0::t_5cda9255bd0757 151
+  s_14d241f0ee58a0::t_cf0f4e195d50fa 36,38-44
+  s_14d241f0ee58a0::t_32fe86a5651291 86,88
+  s_14d241f0ee58a0::t_c28f3ed5b0d43a 102
+  s_14d241f0ee58a0::t_a907e695fce858 106
+  s_14d241f0ee58a0::t_4f38aaff79b481 139
+  s_14d241f0ee58a0::t_69aaa54c539e22 155
+  s_14d241f0ee58a0::t_2a47f3ba55dc22 159
+  s_14d241f0ee58a0::t_33b93e1efc8812 122
+  s_14d241f0ee58a0::t_32698cd9f2cc06 163
+  s_14d241f0ee58a0::t_5e7d88c3da9ccb 350,352-358,360,362-369
+  s_14d241f0ee58a0::t_6a1bec24716516 66
+  s_14d241f0ee58a0::t_b3e40082e40ee1 72
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "5b5f1cdc9953cd61f9cd001296b042d05d943eae",
+  "prompts": {},
+  "sessions": {
+    "s_14d241f0ee58a0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f12f090b-c9a8-48e9-8e67-8542710f373f",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
