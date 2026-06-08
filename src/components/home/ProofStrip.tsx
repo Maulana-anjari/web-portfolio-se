@@ -9,8 +9,8 @@ export default function ProofStrip() {
           <div className="flex flex-wrap gap-x-5 gap-y-3 text-xs md:text-sm font-semibold text-[#D1D5DB]">
             {[
               "Pertamina EP",
+              "Kemdiktisaintek",
               "Sumbu Labs",
-              "UGM",
               "51.9% faster issue-to-merge",
               "50% faster inspection turnaround",
               "100% uptime on inspection platform",

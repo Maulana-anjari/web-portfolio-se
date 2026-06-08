@@ -44,18 +44,18 @@ function PortfolioHome() {
   return (
     <>
       <Helmet>
-        <title>Maulana Anjari | Backend & AI Engineer - Portfolio</title>
-        <meta name="description" content="Backend & AI Engineer building reliable APIs, LLM workflows, blockchain-backed systems, and governed digital infrastructure. Experienced across Pertamina EP, Sumbu Labs, and UGM." />
-        <meta name="keywords" content="Maulana Anjari, Backend AI Engineer, LLM Infrastructure Engineer, RAG Engineer, Blockchain Developer Indonesia, Digital Governance, IT Audit, Cardano, FastAPI, Go Developer, Sumbu Labs" />
+        <title>Maulana Anjari | Backend Engineer - Portfolio</title>
+        <meta name="description" content="Backend Engineer building reliable production systems, APIs that scale, and distributed infrastructure. Experienced across Pertamina EP, Kemdiktisaintek, and Sumbu Labs." />
+        <meta name="keywords" content="Maulana Anjari, Backend Engineer, Distributed Systems Engineer, AI Integration, Blockchain Infrastructure, Go Developer, Python Developer, Sumbu Labs" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://maulana.sumbu.xyz/" />
-        <meta property="og:title" content="Maulana Anjari | Backend & AI Engineer" />
-        <meta property="og:description" content="Reliable APIs, LLM workflows, blockchain-backed systems, and governed digital infrastructure." />
+        <meta property="og:title" content="Maulana Anjari | Backend Engineer" />
+        <meta property="og:description" content="Backend Engineer building reliable production systems, distributed infrastructure, and AI-powered workflows." />
         <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://maulana.sumbu.xyz/" />
-        <meta name="twitter:title" content="Maulana Anjari | Backend & AI Engineer" />
-        <meta name="twitter:description" content="Backend systems, LLM workflows, blockchain infrastructure, and risk-aware digital governance." />
+        <meta name="twitter:title" content="Maulana Anjari | Backend Engineer" />
+        <meta name="twitter:description" content="Backend systems, distributed infrastructure, AI-powered workflows, and risk-aware digital governance." />
         <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.png" />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -64,7 +64,7 @@ function PortfolioHome() {
             "name": "Maulana Anjari Anggorokasih",
             "alternateName": "Maul",
             "url": "https://maulana.sumbu.xyz",
-            "jobTitle": "Backend & AI Engineer",
+            "jobTitle": "Backend Engineer",
             "image": "https://maulana.sumbu.xyz/og-image.png",
             "alumniOf": {
               "@type": "CollegeOrUniversity",
@@ -80,8 +80,8 @@ function PortfolioHome() {
               "sameAs": "Bachelors of Engineering in Information Engineering",
             },
             "knowsAbout": [
-              "Backend Development", "AI Engineering", "LLM Infrastructure",
-              "Digital Governance", "Blockchain Development", "Cardano", "Go", "Python",
+              "Backend Development", "Distributed Systems", "AI Integration",
+              "Digital Governance", "Blockchain Infrastructure", "Go", "Python",
             ],
             "worksFor": [
               { "@type": "Organization", "name": "LKFT UGM x PT Pertamina EP" },
@@ -101,7 +101,7 @@ function PortfolioHome() {
             "@type": "WebSite",
             "name": "Maulana Anjari - Portfolio",
             "url": "https://maulana.sumbu.xyz",
-            "description": "Backend & AI Engineer building reliable APIs, LLM workflows, blockchain-backed systems, and governed digital infrastructure",
+            "description": "Backend Engineer building reliable APIs, production systems, distributed infrastructure, and AI-powered workflows",
             "potentialAction": {
               "@type": "SearchAction",
               "target": "https://maulana.sumbu.xyz/blog?search={search_term_string}",

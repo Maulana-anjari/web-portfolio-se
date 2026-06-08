@@ -10,7 +10,7 @@ export default function ProblemsSection() {
               //Problems I Solve
             </span>
             <h2 className="mt-10 max-w-xl text-4xl md:text-6xl font-black leading-[0.95] tracking-tighter text-white uppercase">
-              From technical build to governed execution.
+              Production systems, delivered across environments.
             </h2>
           </div>
 

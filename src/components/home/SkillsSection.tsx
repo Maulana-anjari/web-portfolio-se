@@ -110,10 +110,10 @@ export default function SkillsSection({ onOpenResume }: SkillsSectionProps) {
             className="flex flex-col items-start"
           >
             <p className="max-w-[450px] text-lg leading-relaxed text-[#A0A0A0]">
-              I help teams move from unclear technical ideas to reliable
-              software: APIs that hold up, AI workflows that can be evaluated,
-              and digital infrastructure with traceability, controls, and
-              operational clarity.
+              I design and ship backend systems that teams can run with confidence
+              — APIs built for scale, AI integrations with evaluation guardrails,
+              and distributed infrastructure where traceability, access control,
+              and operational clarity come standard.
             </p>
             <motion.button
               onMouseEnter={() => setIsHoveringButton(true)}

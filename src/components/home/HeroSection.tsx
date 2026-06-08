@@ -232,57 +232,69 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="hidden md:block text-sm font-medium tracking-[0.2em] uppercase align-left pointer-events-auto"
+            className="hidden md:block text-sm font-medium tracking-[0.2em] uppercase pointer-events-auto"
           >
-            MAULANA ANJARI ANGGOROKASIH
+            Portfolio
           </motion.div>
         </nav>
 
         {/* 3. LAYER: CENTER CONTENT (TYPOGRAPHY) */}
-        <div className="absolute top-[12%] md:top-[20%] left-0 w-full z-40 px-6 md:px-10 bg-gradient-to-b from-[#0A0A0A]/60 via-[#0A0A0A]/20 to-transparent md:from-transparent md:via-transparent pt-12 md:pt-0 pointer-events-none">
+        <div className="absolute top-[8%] md:top-[18%] left-0 w-full z-40 px-6 md:px-10 bg-gradient-to-b from-[#0A0A0A]/60 via-[#0A0A0A]/20 to-transparent md:from-transparent md:via-transparent pt-8 md:pt-0 pointer-events-none">
           <div className="flex flex-col items-start text-left w-full max-w-full overflow-hidden pointer-events-auto">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mb-2 text-base md:text-xl font-medium text-white/90"
+              className="mb-1 text-base md:text-xl font-medium text-white/90"
             >
-              Backend & AI Engineer for reliable systems
+              Backend Engineer & Startup Builder
             </motion.p>
             <motion.h1
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
-              className="font-[900] leading-none tracking-tighter text-neon-mint uppercase whitespace-nowrap w-full"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, type: "spring", stiffness: 85 }}
+              className="font-[900] leading-[0.78] tracking-tighter text-neon-mint uppercase w-full"
               style={{
-                fontSize: "clamp(1.8rem, 9vw, 15.5rem)",
+                fontSize: "clamp(2.2rem, 6vw, 10rem)",
                 fontFamily: "'Inter', sans-serif",
-                textShadow: "0 0 40px rgba(80, 200, 120, 0.1)",
+                textShadow: "0 0 40px rgba(80, 200, 120, 0.15)",
               }}
             >
-              MAULANA ANJARI
+              BUILDING
+              <br />
+              PRODUCTION
+              <br />
+              BACKEND SYSTEMS
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.75 }}
-              className="mt-5 max-w-[480px] text-sm md:text-lg leading-relaxed text-white/70 md:text-white/65"
+              transition={{ delay: 0.65 }}
+              className="mt-1 text-base md:text-3xl font-bold text-white/70 tracking-tight"
             >
-              I build production-ready APIs, LLM workflows, and blockchain-backed infrastructure with strong awareness of reliability, risk, controls, and auditability.
+              Maulana Anjari Anggorokasih
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.85 }}
+              className="mt-3 max-w-[520px] text-sm md:text-lg leading-relaxed text-white/70 md:text-white/65"
+            >
+              I build scalable APIs, distributed systems, and backend infrastructure that power real products across enterprise, startup, and research environments.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.95 }}
-              className="mt-6 flex flex-wrap items-center gap-3 pointer-events-auto"
+              className="mt-4 flex flex-wrap items-center gap-3 pointer-events-auto"
             >
               <a
-                href="mailto:maulana17anjari@gmail.com?subject=Backend%20%26%20AI%20Engineer%20Opportunity"
+                href="mailto:maulana17anjari@gmail.com?subject=Backend%20Engineer%20Opportunity"
                 onMouseEnter={() => setIsHoveringButton(true)}
                 onMouseLeave={() => setIsHoveringButton(false)}
                 className="rounded-full bg-neon-mint px-5 py-3 text-xs md:px-6 md:text-sm font-bold text-[#111111] transition-all hover:shadow-[0_0_30px_rgba(0,255,102,0.35)]"
               >
-                Hire Me
+                Let's Talk
               </a>
               <button
                 type="button"
@@ -331,7 +343,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 1 }}
-          className="absolute bottom-0 left-1/2 z-30 flex w-full max-w-4xl -translate-x-1/2 items-end justify-center pointer-events-none"
+          className="absolute bottom-0 right-0 z-20 flex items-end justify-end pointer-events-none"
         >
           <div className="relative">
             <picture className="block">
@@ -342,7 +354,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
                 width="900"
                 height="1200"
                 referrerPolicy="no-referrer"
-                className="mask-gradient-bottom h-auto max-h-[70vh] md:max-h-[75vh] w-auto origin-bottom object-cover grayscale-[0.3] transition-all duration-700 hover:grayscale-0"
+                className="mask-gradient-bottom h-auto max-h-[75vh] md:max-h-[85vh] w-auto origin-bottom object-cover grayscale-[0.3] transition-all duration-700 hover:grayscale-0"
               />
             </picture>
           </div>
@@ -403,10 +415,17 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.6 }}
-              className="bg-black/30 backdrop-blur-md p-4 rounded-lg md:bg-transparent md:backdrop-blur-none md:p-0"
+              className="bg-black/30 backdrop-blur-md p-4 rounded-lg md:bg-black/20 md:backdrop-blur-md md:p-3 text-right"
             >
-              <p className="text-xs md:text-sm leading-relaxed text-white/70 md:text-white/50">
-                I build backend systems, RAG pipelines, and blockchain workflows for teams that need reliable APIs, auditable data flows, and measurable technical impact.
+              <p className="text-xs md:text-sm font-semibold leading-relaxed text-white/60 tracking-wide">
+                Enterprise Systems
+                <br />
+                Startup Products
+                <br />
+                Research Platforms
+              </p>
+              <p className="mt-2 text-[10px] md:text-xs text-neon-mint font-mono uppercase tracking-[0.16em]">
+                Building systems that ship.
               </p>
             </motion.div>
             <div className="flex items-center gap-4 text-xs font-semibold">
