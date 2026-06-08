@@ -1,0 +1,51 @@
+src/components/home/HeroSection.tsx
+  s_f2f1ef0b997716::t_7d03941eddec84 275
+  s_f2f1ef0b997716::t_1a8383e6283ca4 289
+  s_f2f1ef0b997716::t_f8998437302ad6 297
+  s_f2f1ef0b997716::t_6601839633d1ed 357
+  s_f2f1ef0b997716::t_074cf4f5c4758c 281
+  s_f2f1ef0b997716::t_1e49cd32688b3e 242
+  s_f2f1ef0b997716::t_0708d9f1d02c07 292
+  s_f2f1ef0b997716::t_623a20c7232851 346
+  s_f2f1ef0b997716::t_07a6908015bb82 253-255,260,263-267,272,276-280,283
+  s_f2f1ef0b997716::t_8d7c5725cd1567 273
+  s_f2f1ef0b997716::t_fedb15024e6a2e 250
+  s_f2f1ef0b997716::t_4214731da65924 235,237
+  s_f2f1ef0b997716::t_a4f8223122b7b0 256,258
+  s_f2f1ef0b997716::t_a27d2433473ebd 248
+  s_f2f1ef0b997716::t_cbc363299feb5c 418
+  s_f2f1ef0b997716::t_cc0767db11d065 420-428
+src/components/home/ProblemsSection.tsx
+  s_f2f1ef0b997716::t_dee453ba8085ac 13
+src/App.tsx
+  s_f2f1ef0b997716::t_70cec82d9949d1 47-49
+  s_f2f1ef0b997716::t_399fd010537703 52-53
+  s_f2f1ef0b997716::t_2c63a370bfa5a8 57-58
+  s_f2f1ef0b997716::t_6e6edeec091f45 83-84
+  s_f2f1ef0b997716::t_5b790510af7e07 104
+  s_f2f1ef0b997716::t_52a76b35458bd5 67
+src/components/home/ProjectsSection.tsx
+  s_f2f1ef0b997716::t_d12ddd5b2dcf9b 22,25,30-41,52,55-56,63
+index.html
+  s_f2f1ef0b997716::t_2c88ac31c808a2 49
+src/components/home/ProofStrip.tsx
+  s_f2f1ef0b997716::t_a745aa0a4beb87 12
+src/components/home/SkillsSection.tsx
+  s_f2f1ef0b997716::t_58b7ae0f90c09f 113-116
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "4bc309e719c9b1d01f3e8ad8c89a852e2423a88f",
+  "prompts": {},
+  "sessions": {
+    "s_f2f1ef0b997716": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_157f01c15ffeI9pR9OJoGj96xp",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
