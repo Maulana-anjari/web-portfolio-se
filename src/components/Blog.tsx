@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Helmet } from "react-helmet-async";
 import LazySyntaxHighlighter from "./LazySyntaxHighlighter";
+import FloatingMenu from "./shared/FloatingMenu";
 import {
   Calendar,
   Clock,
@@ -324,6 +325,7 @@ export function BlogIndex() {
         <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.png" />
       </Helmet>
       <div className="min-h-screen bg-[#0A0A0A] pt-32 pb-48 px-6 md:px-20">
+        <FloatingMenu items={[{ name: "Home", href: "/", isExternal: true }, { name: "Projects", href: "/projects", isExternal: true }]} />
         <div className="max-w-7xl mx-auto">
           <header className="mb-32">
           <Link to="/" className="inline-flex items-center gap-2 text-neon-mint/60 hover:text-neon-mint transition-all mb-16 group relative py-1">
@@ -789,6 +791,7 @@ export function BlogPost() {
         </script>
       </Helmet>
       <div className="min-h-screen bg-[#0A0A0A] text-[#E0E0E0] selection:bg-neon-mint selection:text-black scroll-smooth">
+        <FloatingMenu items={[{ name: "All Posts", href: "/blog", isExternal: true }, { name: "Home", href: "/", isExternal: true }]} />
         {/* Progress Bar */}
         <motion.div
           className="fixed top-0 left-0 right-0 h-[3px] bg-neon-mint z-[100] origin-left shadow-[0_0_10px_#00FF66]"

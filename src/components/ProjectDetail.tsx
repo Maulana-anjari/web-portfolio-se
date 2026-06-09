@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import { Helmet } from "react-helmet-async";
 import LazySyntaxHighlighter from "./LazySyntaxHighlighter";
 import { useCursor } from "../context/CursorContext";
+import FloatingMenu from "./shared/FloatingMenu";
 import {
   ArrowLeft,
   Copy,
@@ -342,6 +343,7 @@ export default function ProjectDetail() {
       </Helmet>
 
       <div className="min-h-screen bg-[#0A0A0A] text-[#E0E0E0] selection:bg-amber-400 selection:text-black scroll-smooth">
+        <FloatingMenu items={[{ name: "All Projects", href: "/projects", isExternal: true }, { name: "Home", href: "/", isExternal: true }]} />
         <motion.div
           className="fixed top-0 left-0 right-0 h-[3px] bg-amber-400 z-[100] origin-left shadow-[0_0_10px_#F59E0B]"
           style={{ scaleX }}

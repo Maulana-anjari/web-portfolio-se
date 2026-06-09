@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowLeft } from "lucide-react";
 import { useCursor } from "../context/CursorContext";
+import FloatingMenu from "./shared/FloatingMenu";
+
+const PROJECTS_MENU = [
+  { name: "Home", href: "/", isExternal: true },
+  { name: "Blog", href: "/blog", isExternal: true },
+];
 
 interface ProjectMeta {
   slug: string;
@@ -56,6 +62,7 @@ export default function ProjectsList() {
       </Helmet>
 
       <main className="min-h-screen bg-[#0A0A0A] pt-32 pb-24 px-6 md:px-20">
+        <FloatingMenu items={PROJECTS_MENU} />
         <div className="max-w-5xl mx-auto">
           <Link to="/" className="inline-flex items-center gap-2 text-amber-400/60 hover:text-amber-400 transition-all mb-16 group relative py-1">
             <ArrowLeft size={16} className="group-hover:-translate-x-2 transition-transform duration-300" />
