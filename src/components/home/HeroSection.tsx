@@ -152,9 +152,11 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
                     [
                       { name: "About", href: "/#about", isExternal: false },
                       { name: "Snapshot", href: "/#snapshot", isExternal: false },
+                      { name: "Why I Build", href: "/#systems", isExternal: false },
+                      { name: "Problems", href: "/#problems", isExternal: false },
                       { name: "Experience", href: "/#experience", isExternal: false },
-                      { name: "Systems", href: "/#systems", isExternal: false },
                       { name: "Project", href: "/#work", isExternal: false },
+                      { name: "Mission Map", href: "/#mission-map", isExternal: false },
                       { name: "Services", href: "/#services", isExternal: false },
                       { name: "Process", href: "/#process", isExternal: false },
                       { name: "Testimonials", href: "/#testimonials", isExternal: false },

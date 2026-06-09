@@ -11,6 +11,11 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://maulana.sumbu.xyz/projects</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://maulana.sumbu.xyz/blog/backend-super-skills-ai-agents</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -79,6 +84,41 @@
   <url>
     <loc>https://maulana.sumbu.xyz/blog/when-does-problem-need-blockchain</loc>
     <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maulana.sumbu.xyz/projects/car-dano</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maulana.sumbu.xyz/projects/find-it</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maulana.sumbu.xyz/projects/kemdiktisaintek</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maulana.sumbu.xyz/projects/pertamina-llm</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maulana.sumbu.xyz/projects/pharmachain</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maulana.sumbu.xyz/projects/sumbupay</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maulana.sumbu.xyz/projects/technocorner</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

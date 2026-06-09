@@ -15,10 +15,12 @@ const SkillsSection = lazy(() => import("./components/home/SkillsSection"));
 const ExperienceSection = lazy(() => import("./components/home/ExperienceSection"));
 const SystemsSection = lazy(() => import("./components/home/SystemsSection"));
 const ProjectsSection = lazy(() => import("./components/home/ProjectsSection"));
+const MissionMapSection = lazy(() => import("./components/home/MissionMapSection"));
 const ServicesSection = lazy(() => import("./components/home/ServicesSection"));
 const ProcessSection = lazy(() => import("./components/home/ProcessSection"));
 const TestimonialsSection = lazy(() => import("./components/home/TestimonialsSection"));
 const TechStackSection = lazy(() => import("./components/home/TechStackSection"));
+const VisionSection = lazy(() => import("./components/home/VisionSection"));
 const BlogSection = lazy(() => import("./components/home/BlogSection"));
 const FooterSection = lazy(() => import("./components/home/FooterSection"));
 
@@ -130,6 +132,9 @@ function PortfolioHome() {
         <Suspense fallback={<SectionFallback height="400px" />}>
           <ExecutiveSummarySection />
         </Suspense>
+        <Suspense fallback={<SectionFallback height="600px" />}>
+          <SystemsSection />
+        </Suspense>
         <Suspense fallback={<SectionFallback height="500px" />}>
           <ProblemsSection />
         </Suspense>
@@ -139,11 +144,11 @@ function PortfolioHome() {
         <Suspense fallback={<SectionFallback height="800px" />}>
           <ExperienceSection />
         </Suspense>
-        <Suspense fallback={<SectionFallback height="600px" />}>
-          <SystemsSection />
-        </Suspense>
         <Suspense fallback={<SectionFallback height="800px" />}>
           <ProjectsSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback height="600px" />}>
+          <MissionMapSection />
         </Suspense>
         <Suspense fallback={<SectionFallback height="600px" />}>
           <ServicesSection />
@@ -156,6 +161,9 @@ function PortfolioHome() {
         </Suspense>
         <Suspense fallback={<SectionFallback height="400px" />}>
           <TechStackSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback height="400px" />}>
+          <VisionSection />
         </Suspense>
         <Suspense fallback={<SectionFallback height="600px" />}>
           <BlogSection />
