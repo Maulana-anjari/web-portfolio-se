@@ -113,7 +113,7 @@ export default function ServicesSection() {
                           onMouseLeave={() => setIsHoveringButton(false)}
                           className="inline-block text-neon-mint text-sm font-semibold tracking-wide hover:underline underline-offset-4"
                         >
-                          Hire Me ↗
+                          Let's Talk ↗
                         </a>
                       </div>
                     </motion.div>

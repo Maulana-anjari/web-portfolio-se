@@ -36,7 +36,7 @@ export default function FooterSection() {
                 className="font-black text-white leading-[0.9] tracking-tighter uppercase whitespace-nowrap"
                 style={{ fontSize: "clamp(32px, 8vw, 80px)" }}
               >
-                Ready to Elevate
+                Ready to Build Reliable
               </h2>
 
               <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-10 my-1 md:my-2">
@@ -82,7 +82,7 @@ export default function FooterSection() {
                     className="group relative z-10 flex h-[130px] w-[130px] items-center justify-center rounded-full bg-[#00FF66] shadow-[0_0_20px_rgba(0,255,102,0.3)]"
                   >
                     <span className="text-center text-sm font-bold text-black/90 px-4">
-                      Hire / Collaborate
+                      Let's Collaborate
                     </span>
                     <div className="absolute inset-0 rounded-full border border-black/5 scale-110 group-hover:scale-125 transition-transform duration-500" />
                   </motion.button>

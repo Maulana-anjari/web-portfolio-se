@@ -9,9 +9,11 @@ import { NotFound } from "./components/NotFound";
 // Lazy-loaded sections
 const HeroSection = lazy(() => import("./components/home/HeroSection"));
 const ProofStrip = lazy(() => import("./components/home/ProofStrip"));
+const ExecutiveSummarySection = lazy(() => import("./components/home/ExecutiveSummarySection"));
 const ProblemsSection = lazy(() => import("./components/home/ProblemsSection"));
 const SkillsSection = lazy(() => import("./components/home/SkillsSection"));
 const ExperienceSection = lazy(() => import("./components/home/ExperienceSection"));
+const SystemsSection = lazy(() => import("./components/home/SystemsSection"));
 const ProjectsSection = lazy(() => import("./components/home/ProjectsSection"));
 const ServicesSection = lazy(() => import("./components/home/ServicesSection"));
 const ProcessSection = lazy(() => import("./components/home/ProcessSection"));
@@ -27,6 +29,8 @@ const BlogIndex = lazy(() =>
 const BlogPost = lazy(() =>
   import("./components/Blog").then((m) => ({ default: m.BlogPost })),
 );
+const ProjectsList = lazy(() => import("./components/ProjectsList"));
+const ProjectDetail = lazy(() => import("./components/ProjectDetail"));
 
 /** Height-preserving placeholder during section lazy-load */
 function SectionFallback({ height = "400px" }: { height?: string }) {
@@ -50,12 +54,12 @@ function PortfolioHome() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://maulana.sumbu.xyz/" />
         <meta property="og:title" content="Maulana Anjari | Backend Engineer" />
-        <meta property="og:description" content="Backend Engineer building reliable production systems, distributed infrastructure, and AI-powered workflows." />
+        <meta property="og:description" content="Backend Engineer building reliable production systems, distributed infrastructure, and LLM-integrated workflows." />
         <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://maulana.sumbu.xyz/" />
         <meta name="twitter:title" content="Maulana Anjari | Backend Engineer" />
-        <meta name="twitter:description" content="Backend systems, distributed infrastructure, AI-powered workflows, and risk-aware digital governance." />
+        <meta name="twitter:description" content="Backend systems, distributed infrastructure, LLM-integrated workflows, and risk-aware digital governance." />
         <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.png" />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -101,7 +105,7 @@ function PortfolioHome() {
             "@type": "WebSite",
             "name": "Maulana Anjari - Portfolio",
             "url": "https://maulana.sumbu.xyz",
-            "description": "Backend Engineer building reliable APIs, production systems, distributed infrastructure, and AI-powered workflows",
+            "description": "Backend Engineer building reliable APIs, production systems, distributed infrastructure, and LLM-integrated workflows",
             "potentialAction": {
               "@type": "SearchAction",
               "target": "https://maulana.sumbu.xyz/blog?search={search_term_string}",
@@ -123,6 +127,9 @@ function PortfolioHome() {
         <Suspense fallback={<SectionFallback height="80px" />}>
           <ProofStrip />
         </Suspense>
+        <Suspense fallback={<SectionFallback height="400px" />}>
+          <ExecutiveSummarySection />
+        </Suspense>
         <Suspense fallback={<SectionFallback height="500px" />}>
           <ProblemsSection />
         </Suspense>
@@ -131,6 +138,9 @@ function PortfolioHome() {
         </Suspense>
         <Suspense fallback={<SectionFallback height="800px" />}>
           <ExperienceSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback height="600px" />}>
+          <SystemsSection />
         </Suspense>
         <Suspense fallback={<SectionFallback height="800px" />}>
           <ProjectsSection />
@@ -188,6 +198,22 @@ export default function App() {
               element={
                 <Suspense fallback={<RouteLoader />}>
                   <BlogPost />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/projects"
+              element={
+                <Suspense fallback={<RouteLoader />}>
+                  <ProjectsList />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/projects/:slug"
+              element={
+                <Suspense fallback={<RouteLoader />}>
+                  <ProjectDetail />
                 </Suspense>
               }
             />

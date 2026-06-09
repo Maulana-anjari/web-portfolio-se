@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 
 const SITE_URL = 'https://maulana.sumbu.xyz';
 const POSTS_DIR = path.join(process.cwd(), 'posts');
+const PROJECTS_DIR = path.join(process.cwd(), 'projects');
 
 interface SitemapPage {
   url: string;
@@ -17,6 +18,17 @@ function getPostSlugs() {
   return fs.readdirSync(POSTS_DIR)
     .filter((filename) => filename.endsWith('.md'))
     .map((filename) => filename.replace('.md', ''));
+}
+
+function getProjectSlugs() {
+  if (!fs.existsSync(PROJECTS_DIR)) return [];
+  return fs.readdirSync(PROJECTS_DIR)
+    .filter((filename) => filename.endsWith('.md'))
+    .map((filename) => {
+      const fileContents = fs.readFileSync(path.join(PROJECTS_DIR, filename), 'utf8');
+      const { data } = matter(fileContents);
+      return data.slug || filename.replace('.md', '');
+    });
 }
 
 function getPostData(slug: string) {
@@ -53,6 +65,11 @@ function generateSitemap() {
       priority: '0.9',
       changefreq: 'weekly',
     },
+    {
+      url: '/projects',
+      priority: '0.9',
+      changefreq: 'weekly',
+    },
   ];
 
   const postSlugs = getPostSlugs();
@@ -66,7 +83,14 @@ function generateSitemap() {
     };
   });
 
-  const allPages = [...staticPages, ...blogPages];
+  const projectSlugs = getProjectSlugs();
+  const projectPages: SitemapPage[] = projectSlugs.map((slug) => ({
+    url: `/projects/${slug}`,
+    priority: '0.8',
+    changefreq: 'monthly',
+  }));
+
+  const allPages = [...staticPages, ...blogPages, ...projectPages];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

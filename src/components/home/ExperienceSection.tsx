@@ -79,7 +79,7 @@ export default function ExperienceSection() {
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           label="//Experience"
-          title="My Professional Journey & Impact"
+          title="Where I Have Shipped"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(250px,25%)_1fr] gap-10 lg:gap-12 min-h-[600px]">

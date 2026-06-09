@@ -22,7 +22,7 @@ export default function ProblemsSection() {
               },
               {
                 title: "LLM and RAG infrastructure",
-                copy: "Build retrieval pipelines, vector search, evaluation loops, and backend integrations for production-ready AI workflows.",
+                copy: "Build retrieval pipelines, vector search, evaluation loops, and backend integrations for production-ready LLM workflows.",
               },
               {
                 title: "Blockchain-backed trust systems",

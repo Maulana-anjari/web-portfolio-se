@@ -23,7 +23,7 @@ export default function ProcessSection() {
             {
               num: "02",
               title: "Develop & Test",
-              desc: "Implement core logic, write robust unit & integration tests, and ensure maximum code coverage.",
+              desc: "Implement core logic, write robust unit & integration tests, and ensure thorough test coverage.",
             },
             {
               num: "03",

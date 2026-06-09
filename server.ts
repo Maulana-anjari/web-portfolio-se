@@ -29,14 +29,21 @@ function securityHeadersMiddleware(_req: express.Request, res: express.Response,
   next();
 }
 
-// Helper to resolve posts directory (dev or production)
-function getPostsDirectory() {
-  let postsDir = path.join(process.cwd(), "posts");
-  // In production, posts are copied to dist/posts during build
-  if (process.env.NODE_ENV === "production" && !fs.existsSync(postsDir)) {
-    postsDir = path.join(process.cwd(), "dist", "posts");
+// Helper to resolve content directories (dev or production)
+function getContentDir(name: string) {
+  let dir = path.join(process.cwd(), name);
+  if (process.env.NODE_ENV === "production" && !fs.existsSync(dir)) {
+    dir = path.join(process.cwd(), "dist", name);
   }
-  return postsDir;
+  return dir;
+}
+
+function getPostsDirectory() {
+  return getContentDir("posts");
+}
+
+function getProjectsDirectory() {
+  return getContentDir("projects");
 }
 
 async function startServer() {
@@ -106,6 +113,76 @@ async function startServer() {
     } catch (error) {
       console.error("Error reading post:", error);
       res.status(500).json({ error: "Failed to load post" });
+    }
+  });
+
+  // Project API Routes
+  app.get("/api/projects", rateLimitMiddleware, (_req, res) => {
+    try {
+      const projectsDirectory = getProjectsDirectory();
+      if (!fs.existsSync(projectsDirectory)) {
+        return res.json([]);
+      }
+      const filenames = fs.readdirSync(projectsDirectory);
+      const projects = filenames
+        .filter((filename) => filename.endsWith(".md"))
+        .map((filename) => {
+          const filePath = path.join(projectsDirectory, filename);
+          const fileContents = fs.readFileSync(filePath, "utf8");
+          const { data } = matter(fileContents);
+          return {
+            slug: data.slug || filename.replace(".md", ""),
+            title: data.title,
+            role: data.role,
+            company: data.company,
+            period: data.period,
+            tags: data.tags || [],
+            image: data.image || "",
+            metric: data.metric || "",
+            order: data.order || 99,
+            excerpt: data.excerpt || "",
+          };
+        })
+        .sort((a: any, b: any) => a.order - b.order);
+
+      res.json(projects);
+    } catch (error) {
+      console.error("Error reading projects:", error);
+      res.status(500).json({ error: "Failed to load projects" });
+    }
+  });
+
+  app.get("/api/projects/:slug", rateLimitMiddleware, (req, res) => {
+    try {
+      const { slug } = req.params;
+      if (!/^[a-zA-Z0-9_-]+$/.test(slug)) {
+        return res.status(400).json({ error: 'Invalid slug' });
+      }
+      const projectsDirectory = getProjectsDirectory();
+      const files = fs.readdirSync(projectsDirectory).filter(f => f.endsWith(".md"));
+
+      for (const file of files) {
+        const filePath = path.join(projectsDirectory, file);
+        const fileContents = fs.readFileSync(filePath, "utf8");
+        const { data, content } = matter(fileContents);
+        if (data.slug === slug || file.replace(".md", "") === slug) {
+          return res.json({
+            slug: data.slug || file.replace(".md", ""),
+            title: data.title,
+            role: data.role,
+            company: data.company,
+            period: data.period,
+            tags: data.tags || [],
+            image: data.image || "",
+            metric: data.metric || "",
+            content,
+          });
+        }
+      }
+      res.status(404).json({ error: "Project not found" });
+    } catch (error) {
+      console.error("Error reading project:", error);
+      res.status(500).json({ error: "Failed to load project" });
     }
   });
 

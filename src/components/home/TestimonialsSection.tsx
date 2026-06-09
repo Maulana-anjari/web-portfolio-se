@@ -13,7 +13,7 @@ export default function TestimonialsSection() {
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           label="//Testimonials"
-          title="What Clients Say About My Technical Expertise"
+          title="What Collaborators Say About My Work"
         />
 
         <div className="relative">
@@ -92,7 +92,7 @@ export default function TestimonialsSection() {
                   onMouseLeave={() => setIsHoveringButton(false)}
                   className="ml-2 rounded-full bg-[#00FF66] px-6 py-3 text-xs font-bold text-[#111111] transition-all hover:shadow-[0_0_20px_rgba(0,255,102,0.4)] active:scale-95"
                 >
-                  Start Project
+                  Work Together
                 </a>
               </div>
             </div>

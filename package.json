@@ -9,7 +9,7 @@
     "start": "node server.ts",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "copy:posts": "mkdir -p dist && cp -r posts dist/ || true",
+    "copy:posts": "mkdir -p dist && cp -r posts dist/ && cp -r projects dist/ || true",
     "lint": "tsc --noEmit"
   },
   "dependencies": {

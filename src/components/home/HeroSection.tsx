@@ -151,19 +151,23 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
                   {(
                     [
                       { name: "About", href: "/#about", isExternal: false },
+                      { name: "Snapshot", href: "/#snapshot", isExternal: false },
                       { name: "Experience", href: "/#experience", isExternal: false },
+                      { name: "Systems", href: "/#systems", isExternal: false },
                       { name: "Project", href: "/#work", isExternal: false },
                       { name: "Services", href: "/#services", isExternal: false },
                       { name: "Process", href: "/#process", isExternal: false },
                       { name: "Testimonials", href: "/#testimonials", isExternal: false },
                       { name: "Tech Stack", href: "/#tech-stack", isExternal: false },
                       { name: "Blog", href: "/blog", isExternal: true },
+                      { name: "Projects", href: "/projects", isExternal: true },
                       { name: "Contact", href: "/#contact", isExternal: false },
                     ] as const
                   ).map((item, idx) => {
                     const isActive =
                       window.location.pathname + window.location.hash === item.href ||
-                      (item.href === "/blog" && window.location.pathname.startsWith("/blog"));
+                      (item.href === "/blog" && window.location.pathname.startsWith("/blog")) ||
+                      (item.href === "/projects" && window.location.pathname.startsWith("/projects"));
                     return (
                       <motion.div
                         key={item.name}

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence, useMotionValue } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
+import { useCursor } from "../../context/CursorContext";
 
 export default function GlobalCursor({
   isHoveringProject,
@@ -11,6 +12,13 @@ export default function GlobalCursor({
 }) {
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
+  const { accentColor } = useCursor();
+
+  const dotColor = accentColor === "amber" ? "#F59E0B" : "#50C878";
+  const borderColor = accentColor === "amber"
+    ? "1px solid rgba(245, 158, 11, 0.2)"
+    : "1px solid rgba(80, 200, 120, 0.2)";
+  const arrowClass = accentColor === "amber" ? "text-amber-400" : "text-neon-mint";
 
   useEffect(() => {
     let raf = 0;
@@ -50,9 +58,9 @@ export default function GlobalCursor({
           ? "rgba(20, 20, 20, 0.9)"
           : isHoveringButton
             ? "#111111"
-            : "#50C878",
+            : dotColor,
         border: isHoveringProject
-          ? "1px solid rgba(80, 200, 120, 0.2)"
+          ? borderColor
           : "0px solid transparent",
       }}
       transition={{
@@ -71,7 +79,7 @@ export default function GlobalCursor({
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
             <ArrowUpRight
-              className="h-14 w-14 text-neon-mint"
+              className={`h-14 w-14 ${arrowClass}`}
               strokeWidth={2.5}
             />
           </motion.div>

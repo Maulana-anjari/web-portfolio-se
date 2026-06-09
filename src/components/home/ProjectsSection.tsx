@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 import SectionHeader from "../shared/SectionHeader";
 import { useCursor } from "../../context/CursorContext";
 
@@ -20,6 +21,7 @@ export default function ProjectsSection() {
           {[
             {
               title: "Enterprise Operational Insight Platform",
+              slug: "pertamina-llm",
               role: "Backend Engineer",
               problem: "Enterprise insight workflows were slowed by fragmented issue context and manual technical handoffs.",
               built: "Backend features, RAG workflow integration, vector search, and issue-resolution flows for an enterprise operational insight platform.",
@@ -27,10 +29,10 @@ export default function ProjectsSection() {
               metric: "51.9% faster",
               tags: ["Python", "FastAPI", "Milvus", "SQL Server"],
               img: "/images/llm-pertamina-project.webp",
-              cta: "Discuss backend infrastructure",
             },
             {
               title: "Vehicle Inspection Operations Platform",
+              slug: "car-dano",
               role: "Backend Engineer",
               problem: "Vehicle inspection workflows needed faster operations and verifiable records without sacrificing reliability.",
               built: "A vehicle inspection backend with Cardano anchoring, operational APIs, and data workflows.",
@@ -38,10 +40,10 @@ export default function ProjectsSection() {
               metric: "50% faster",
               tags: ["Node.js", "Cardano", "PostgreSQL", "Prisma"],
               img: "/images/CAR-dano-project.webp",
-              cta: "Discuss inspection infrastructure",
             },
             {
               title: "SumbuPay Web3 Gateway",
+              slug: "sumbupay",
               role: "Backend Engineer & Co-Founder",
               problem: "A Web3 payment product needed backend foundations that could connect fiat payment flows with wallet infrastructure.",
               built: "Core backend foundations for Web3 payment flows, QRIS integration, and MPC wallet infrastructure.",
@@ -49,10 +51,10 @@ export default function ProjectsSection() {
               metric: "Core platform",
               tags: ["Node.js", "TypeScript", "Web3", "PostgreSQL"],
               img: "/images/SumbuPay-project.webp",
-              cta: "Discuss payment infrastructure",
             },
             {
               title: "Healthcare Data Interoperability Platform",
+              slug: "pharmachain",
               role: "Backend Engineer & Researcher",
               problem: "Healthcare data exchange needed a prototype for multi-organization trust, identity sharing, and audit-friendly interoperability.",
               built: "A Hyperledger Fabric prototype with 2 networks, 6 organizations, and 30+ containers for interoperable healthcare data exchange.",
@@ -60,7 +62,6 @@ export default function ProjectsSection() {
               metric: "30+ containers",
               tags: ["Hyperledger", "Docker", "IPFS", "Go"],
               img: "/images/pharmachain-project.webp",
-              cta: "Discuss distributed systems",
             },
           ].map((project, idx) => (
             <motion.article
@@ -129,15 +130,15 @@ export default function ProjectsSection() {
                   ))}
                 </div>
 
-                <a
-                  href={`mailto:maulana17anjari@gmail.com?subject=${encodeURIComponent(project.cta)}`}
+                <Link
+                  to={`/projects/${project.slug}`}
                   onMouseEnter={() => setIsHoveringButton(true)}
                   onMouseLeave={() => setIsHoveringButton(false)}
-                  className="mt-2 inline-flex w-fit items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[#A0A0A0] transition-colors hover:text-neon-mint"
+                  className="mt-2 inline-flex w-fit items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[#A0A0A0] transition-colors hover:text-neon-mint cursor-none"
                 >
-                  {project.cta}
+                  View Case Study
                   <span aria-hidden="true">↗</span>
-                </a>
+                </Link>
               </div>
             </motion.article>
           ))}
@@ -147,8 +148,16 @@ export default function ProjectsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-[60px] flex justify-center"
+          className="mt-[60px] flex flex-col items-center gap-8"
         >
+          <Link
+            to="/projects"
+            onMouseEnter={() => setIsHoveringButton(true)}
+            onMouseLeave={() => setIsHoveringButton(false)}
+            className="font-mono text-xs uppercase tracking-[0.2em] text-neon-mint/70 hover:text-neon-mint transition-colors cursor-none"
+          >
+            View all projects →
+          </Link>
           <motion.a
             href="https://github.com/Maulana-anjari"
             target="_blank"
