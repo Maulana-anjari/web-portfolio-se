@@ -563,7 +563,7 @@ export function BlogPost() {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-    fetch(`/api/posts/${slug}`, { signal: controller.signal })
+    fetch(`/api/posts?slug=${slug}`, { signal: controller.signal })
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();

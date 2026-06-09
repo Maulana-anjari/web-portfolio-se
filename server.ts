@@ -56,6 +56,23 @@ async function startServer() {
   app.get("/api/posts", rateLimitMiddleware, (req, res) => {
     try {
       const postsDirectory = getPostsDirectory();
+
+      // Query param detail: /api/posts?slug=foo
+      const slug = req.query.slug as string | undefined;
+      if (slug) {
+        if (!/^[a-zA-Z0-9_-]+$/.test(slug)) {
+          return res.status(400).json({ error: 'Invalid slug' });
+        }
+        const filePath = path.join(postsDirectory, `${slug}.md`);
+        if (!fs.existsSync(filePath)) {
+          return res.status(404).json({ error: "Post not found" });
+        }
+        const fileContents = fs.readFileSync(filePath, "utf8");
+        const { data, content } = matter(fileContents);
+        return res.json({ slug, frontmatter: data, content });
+      }
+
+      // List all posts
       if (!fs.existsSync(postsDirectory)) {
         return res.json([]);
       }
@@ -91,41 +108,44 @@ async function startServer() {
     }
   });
 
-  app.get("/api/posts/:slug", rateLimitMiddleware, (req, res) => {
-    try {
-      const { slug } = req.params;
-      // Prevent path traversal: only allow alphanumeric, dash, and underscore
-      if (!/^[a-zA-Z0-9_-]+$/.test(slug)) {
-        return res.status(400).json({ error: 'Invalid slug' });
-      }
-      const postsDirectory = getPostsDirectory();
-      const filePath = path.join(postsDirectory, `${slug}.md`);
-      if (!fs.existsSync(filePath)) {
-        return res.status(404).json({ error: "Post not found" });
-      }
-      const fileContents = fs.readFileSync(filePath, "utf8");
-      const { data, content } = matter(fileContents);
-      res.json({
-        slug,
-        frontmatter: data,
-        content,
-      });
-    } catch (error) {
-      console.error("Error reading post:", error);
-      res.status(500).json({ error: "Failed to load post" });
-    }
-  });
-
   // Project API Routes
-  app.get("/api/projects", rateLimitMiddleware, (_req, res) => {
+  app.get("/api/projects", rateLimitMiddleware, (req, res) => {
     try {
       const projectsDirectory = getProjectsDirectory();
       if (!fs.existsSync(projectsDirectory)) {
         return res.json([]);
       }
-      const filenames = fs.readdirSync(projectsDirectory);
-      const projects = filenames
-        .filter((filename) => filename.endsWith(".md"))
+      const files = fs.readdirSync(projectsDirectory).filter(f => f.endsWith(".md"));
+
+      // Query param detail: /api/projects?slug=foo
+      const slug = req.query.slug as string | undefined;
+      if (slug) {
+        if (!/^[a-zA-Z0-9_-]+$/.test(slug)) {
+          return res.status(400).json({ error: 'Invalid slug' });
+        }
+        for (const file of files) {
+          const filePath = path.join(projectsDirectory, file);
+          const fileContents = fs.readFileSync(filePath, "utf8");
+          const { data, content } = matter(fileContents);
+          if (data.slug === slug || file.replace(".md", "") === slug) {
+            return res.json({
+              slug: data.slug || file.replace(".md", ""),
+              title: data.title,
+              role: data.role,
+              company: data.company,
+              period: data.period,
+              tags: data.tags || [],
+              image: data.image || "",
+              metric: data.metric || "",
+              content,
+            });
+          }
+        }
+        return res.status(404).json({ error: "Project not found" });
+      }
+
+      // List all projects
+      const projects = files
         .map((filename) => {
           const filePath = path.join(projectsDirectory, filename);
           const fileContents = fs.readFileSync(filePath, "utf8");
@@ -149,40 +169,6 @@ async function startServer() {
     } catch (error) {
       console.error("Error reading projects:", error);
       res.status(500).json({ error: "Failed to load projects" });
-    }
-  });
-
-  app.get("/api/projects/:slug", rateLimitMiddleware, (req, res) => {
-    try {
-      const { slug } = req.params;
-      if (!/^[a-zA-Z0-9_-]+$/.test(slug)) {
-        return res.status(400).json({ error: 'Invalid slug' });
-      }
-      const projectsDirectory = getProjectsDirectory();
-      const files = fs.readdirSync(projectsDirectory).filter(f => f.endsWith(".md"));
-
-      for (const file of files) {
-        const filePath = path.join(projectsDirectory, file);
-        const fileContents = fs.readFileSync(filePath, "utf8");
-        const { data, content } = matter(fileContents);
-        if (data.slug === slug || file.replace(".md", "") === slug) {
-          return res.json({
-            slug: data.slug || file.replace(".md", ""),
-            title: data.title,
-            role: data.role,
-            company: data.company,
-            period: data.period,
-            tags: data.tags || [],
-            image: data.image || "",
-            metric: data.metric || "",
-            content,
-          });
-        }
-      }
-      res.status(404).json({ error: "Project not found" });
-    } catch (error) {
-      console.error("Error reading project:", error);
-      res.status(500).json({ error: "Failed to load project" });
     }
   });
 

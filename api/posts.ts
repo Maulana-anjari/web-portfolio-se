@@ -20,6 +20,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.json([]);
     }
 
+    const slug = req.query.slug as string | undefined;
+
+    // Single post detail: /api/posts?slug=foo
+    if (slug) {
+      if (!/^[a-zA-Z0-9_-]+$/.test(slug)) {
+        return res.status(400).json({ error: 'Invalid slug' });
+      }
+      const filePath = path.join(postsDirectory, `${slug}.md`);
+      if (!fs.existsSync(filePath)) {
+        return res.status(404).json({ error: 'Post not found' });
+      }
+      const fileContents = fs.readFileSync(filePath, 'utf8');
+      const { data, content } = matter(fileContents);
+      res.setHeader('Cache-Control', 'public, max-age=300, stale-while-revalidate=3600');
+      return res.json({ slug, frontmatter: data, content });
+    }
+
+    // List all posts
     const filenames = fs.readdirSync(postsDirectory);
     const posts = filenames
       .filter((filename) => filename.endsWith('.md'))
@@ -34,7 +52,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       })
       .sort((a: any, b: any) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
 
-    // Optional pagination: /api/posts?page=1&limit=10
     const page = parseInt(req.query.page as string, 10);
     const limit = parseInt(req.query.limit as string, 10);
 
