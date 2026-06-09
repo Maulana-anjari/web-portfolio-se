@@ -34,20 +34,6 @@
       ]
     }
   ],
-  "functions": {
-    "api/posts.ts": {
-      "includeFiles": "posts/*.md"
-    },
-    "api/posts/[slug].ts": {
-      "includeFiles": "posts/*.md"
-    },
-    "api/projects.ts": {
-      "includeFiles": "projects/*.md"
-    },
-    "api/projects/[slug].ts": {
-      "includeFiles": "projects/*.md"
-    }
-  },
   "rewrites": [
     {
       "source": "/api/:path*",
