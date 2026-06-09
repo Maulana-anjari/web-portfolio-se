@@ -1,0 +1,21 @@
+package.json
+  s_f2f1ef0b997716::t_b273907ebfd683 6-8
+api/test.ts
+  s_f2f1ef0b997716::t_924d50869f36e2 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "0d01bdddc0cec365f3f21bba74f5897411f1682c",
+  "prompts": {},
+  "sessions": {
+    "s_f2f1ef0b997716": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_157f01c15ffeI9pR9OJoGj96xp",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
