@@ -2,17 +2,16 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import matter from 'gray-matter';
 import fs from 'fs';
 import path from 'path';
+import { rateLimit } from '../src/rate-limit';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const hasGrayMatter = typeof matter === 'function';
-  const hasFs = typeof fs.readFileSync === 'function';
-  const cwd = process.cwd();
-  const cwdFiles = fs.readdirSync(cwd);
-  const hasPosts = cwdFiles.includes('posts');
-  
-  let postsDir = path.join(cwd, 'posts');
-  let postsExist = false;
-  try { postsExist = fs.existsSync(postsDir); } catch(e) {}
-
-  res.json({ ok: true, hasGrayMatter, hasFs, hasPosts, postsExist, cwd, cwdFiles });
+  const testFile = path.join(process.cwd(), 'posts', 'backend-super-skills-ai-agents.md');
+  const fileExists = fs.existsSync(testFile);
+  let parsed: any = null;
+  if (fileExists) {
+    const raw = fs.readFileSync(testFile, 'utf-8');
+    parsed = matter(raw).data.title || 'no title';
+  }
+  const hasRateLimit = typeof rateLimit === 'function';
+  res.json({ ok: true, fileExists, parsed, hasRateLimit });
 }
