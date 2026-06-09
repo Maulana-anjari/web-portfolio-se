@@ -34,6 +34,20 @@
       ]
     }
   ],
+  "functions": {
+    "api/posts.ts": {
+      "includeFiles": "posts/**"
+    },
+    "api/posts/[slug].ts": {
+      "includeFiles": "posts/**"
+    },
+    "api/projects.ts": {
+      "includeFiles": "projects/**"
+    },
+    "api/projects/[slug].ts": {
+      "includeFiles": "projects/**"
+    }
+  },
   "rewrites": [
     {
       "source": "/api/:path*",

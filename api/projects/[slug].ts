@@ -5,7 +5,9 @@ import matter from 'gray-matter';
 import { rateLimit } from '../../src/rate-limit';
 
 function getProjectsDirectory() {
-  return path.join(process.cwd(), "projects");
+  const dir = path.join(process.cwd(), "projects");
+  if (!fs.existsSync(dir)) return path.join(process.cwd(), "dist", "projects");
+  return dir;
 }
 
 function getClientIp(req: VercelRequest): string {
