@@ -36,16 +36,16 @@
   ],
   "functions": {
     "api/posts.ts": {
-      "includeFiles": "posts/**"
+      "includeFiles": "posts/*.md"
     },
     "api/posts/[slug].ts": {
-      "includeFiles": "posts/**"
+      "includeFiles": "posts/*.md"
     },
     "api/projects.ts": {
-      "includeFiles": "projects/**"
+      "includeFiles": "projects/*.md"
     },
     "api/projects/[slug].ts": {
-      "includeFiles": "projects/**"
+      "includeFiles": "projects/*.md"
     }
   },
   "rewrites": [
