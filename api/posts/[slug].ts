@@ -2,7 +2,6 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { rateLimit } from '../_lib/rate-limit';
 
 function getPostsDirectory() {
   const dir = path.join(process.cwd(), "posts");
@@ -10,20 +9,9 @@ function getPostsDirectory() {
   return dir;
 }
 
-function getClientIp(req: VercelRequest): string {
-  const forwarded = req.headers['x-forwarded-for'];
-  if (typeof forwarded === 'string') return forwarded.split(',')[0].trim();
-  if (Array.isArray(forwarded)) return forwarded[0].split(',')[0].trim();
-  return req.socket.remoteAddress || 'unknown';
-}
-
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
-  }
-
-  if (!rateLimit(getClientIp(req))) {
-    return res.status(429).json({ error: 'Too many requests' });
   }
 
   const { slug } = req.query;
