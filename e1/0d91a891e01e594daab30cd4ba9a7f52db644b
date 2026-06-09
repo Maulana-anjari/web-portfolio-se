@@ -1,0 +1,118 @@
+projects/sumbupay-web3-payment-infrastructure.md
+  s_f2f1ef0b997716::t_0abee92f28d74c 9
+  s_f2f1ef0b997716::t_c1b4f16a36683f 10
+  s_f2f1ef0b997716::t_4017216be1c993 1-8,11-13
+src/components/home/HeroSection.tsx
+  s_f2f1ef0b997716::t_bf3ba1aca79809 169-170
+  s_f2f1ef0b997716::t_d916f6b4605335 163
+  s_f2f1ef0b997716::t_370958f92be508 154,156
+index.html
+  s_f2f1ef0b997716::t_ed2d01ff9e57c0 22
+  s_f2f1ef0b997716::t_03cba53271de86 49
+  s_f2f1ef0b997716::t_26ac05406122e0 33
+  s_f2f1ef0b997716::t_d6dae3a17dd600 18
+projects/technocorner-registration-platform.md
+  s_f2f1ef0b997716::t_4e3f411eb69bb5 9
+  s_f2f1ef0b997716::t_19a8f3ea68719e 10
+  s_f2f1ef0b997716::t_4017216be1c993 1-8,11-13
+src/components/home/SystemsSection.tsx
+  s_f2f1ef0b997716::t_e3cee6e76225dd 1-83
+src/components/home/TestimonialsSection.tsx
+  s_f2f1ef0b997716::t_2885594bbe8b69 95
+  s_f2f1ef0b997716::t_256673aa39ec52 16
+api/projects/[slug].ts
+  s_f2f1ef0b997716::t_d0ba994e8c423d 1-65
+src/App.tsx
+  s_f2f1ef0b997716::t_4a75dfc1f72d68 108
+  s_f2f1ef0b997716::t_f7faab91c53476 130-132
+  s_f2f1ef0b997716::t_bd207840926773 32-33
+  s_f2f1ef0b997716::t_196a9de95d1087 142-144
+  s_f2f1ef0b997716::t_b3727545f27c25 57
+  s_f2f1ef0b997716::t_4bcb066ab7e5d8 12,16
+  s_f2f1ef0b997716::t_607b5999e9f81d 62
+  s_f2f1ef0b997716::t_7280c6a4e5dbae 204-219
+src/components/home/ProjectsSection.tsx
+  s_f2f1ef0b997716::t_665e0df3a3b642 133-134,137,139,141
+  s_f2f1ef0b997716::t_bd9ce97ca434f8 24,35,46,57
+  s_f2f1ef0b997716::t_22240d3306620a 151,153-160
+  s_f2f1ef0b997716::t_e6b260548dbbb2 2
+scripts/generate-sitemap.ts
+  s_f2f1ef0b997716::t_cacd04a7886812 23-33
+  s_f2f1ef0b997716::t_9f3d45605c2db9 7
+  s_f2f1ef0b997716::t_c5c6c39159b127 68-72
+  s_f2f1ef0b997716::t_bf74eae6135f69 86,88-93
+  s_f2f1ef0b997716::t_8d44dc6db13bd7 87
+src/components/home/ExperienceSection.tsx
+  s_f2f1ef0b997716::t_0c6d9a10cfb429 82
+src/components/home/ExecutiveSummarySection.tsx
+  s_f2f1ef0b997716::t_1b81407a755cde 1-66
+src/components/ProjectsList.tsx
+  s_f2f1ef0b997716::t_81d95bff15c071 1-23,25-36,42-154
+  s_f2f1ef0b997716::t_acb34d28904216 24,37-41
+src/components/home/ProcessSection.tsx
+  s_f2f1ef0b997716::t_435daf156e524d 26
+src/context/CursorContext.tsx
+  s_f2f1ef0b997716::t_295116c7cf80c8 6,9,15,18,24,31,34
+api/projects.ts
+  s_f2f1ef0b997716::t_be2c82cede5e32 1-38,40-49,51-61
+  s_f2f1ef0b997716::t_9ddfdc722be4f3 39,50
+projects/car-dano-cardano-backend.md
+  s_f2f1ef0b997716::t_4df50f40254d73 9
+  s_f2f1ef0b997716::t_d77b3b6034d665 10
+  s_f2f1ef0b997716::t_4017216be1c993 1-8,11-13
+projects/pertamina-llm-insight-platform.md
+  s_f2f1ef0b997716::t_5fc93b4d41d772 10
+  s_f2f1ef0b997716::t_4017216be1c993 1-8,11-13
+  s_f2f1ef0b997716::t_1ff860feafe91f 9
+src/components/home/ProblemsSection.tsx
+  s_f2f1ef0b997716::t_b5ed6e92b256d8 25
+src/components/shared/GlobalCursor.tsx
+  s_f2f1ef0b997716::t_a544792b9f7ecc 82
+  s_f2f1ef0b997716::t_4e3dfcf5d37481 61,63
+  s_f2f1ef0b997716::t_36a8460ccd4466 4,15-21
+src/components/home/FooterSection.tsx
+  s_f2f1ef0b997716::t_80cb9e95485415 39
+  s_f2f1ef0b997716::t_3f6de81f33bfc1 85
+src/components/ProjectDetail.tsx
+  s_f2f1ef0b997716::t_d14f3c270b5207 1-7,9-164,166-174,180-559
+  s_f2f1ef0b997716::t_9581d9695c8a73 8
+  s_f2f1ef0b997716::t_54ea5220d9f3a0 165
+  s_f2f1ef0b997716::t_712ac713f7510b 175-179
+projects/kemdiktisaintek-nft-certificate.md
+  s_f2f1ef0b997716::t_4017216be1c993 1-8,11-13
+  s_f2f1ef0b997716::t_6dd4a940de2d55 9
+  s_f2f1ef0b997716::t_471578c9695daa 10
+src/components/home/ServicesSection.tsx
+  s_f2f1ef0b997716::t_728ea80865ca9f 116
+package.json
+  s_f2f1ef0b997716::t_19c23f1c1946b2 12
+projects/pharma-chain-hyperledger-fabric.md
+  s_f2f1ef0b997716::t_4017216be1c993 1-8,11-13
+  s_f2f1ef0b997716::t_54229dd8fc97ff 9
+  s_f2f1ef0b997716::t_071913e000eac8 10
+server.ts
+  s_f2f1ef0b997716::t_050a35ac107388 32-36,38-46
+  s_f2f1ef0b997716::t_b9783d460ba7bf 119,121-131,133-142,144-188
+  s_f2f1ef0b997716::t_96a671ba5aa2ed 120
+  s_f2f1ef0b997716::t_66a0efb348b9a3 132,143
+projects/find-it-registration-platform.md
+  s_f2f1ef0b997716::t_4017216be1c993 1-8,11-13
+  s_f2f1ef0b997716::t_05af9335e1caea 9
+  s_f2f1ef0b997716::t_06d166d4d044bb 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "e10d91a891e01e594daab30cd4ba9a7f52db644b",
+  "prompts": {},
+  "sessions": {
+    "s_f2f1ef0b997716": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_157f01c15ffeI9pR9OJoGj96xp",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
