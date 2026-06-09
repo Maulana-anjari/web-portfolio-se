@@ -1,5 +1,5 @@
-export default async function handler() {
-  return new Response(JSON.stringify({ ok: true, node: process.version, cwd: process.cwd() }), {
-    headers: { "Content-Type": "application/json" },
-  });
+import { VercelRequest, VercelResponse } from '@vercel/node';
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  res.json({ ok: true, node: process.version });
 }
