@@ -1,0 +1,20 @@
+vercel.json
+  s_f2f1ef0b997716::t_70f1855ea3f39b 15-18
+  s_f2f1ef0b997716::t_c1179bff663f15 50,54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "51163e84232daab63e2561c00b996598776ef7fd",
+  "prompts": {},
+  "sessions": {
+    "s_f2f1ef0b997716": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_157f01c15ffeI9pR9OJoGj96xp",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
