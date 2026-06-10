@@ -183,30 +183,31 @@ Client (Widget / Chat UI)
 
 ## Concrete Actions (PR-Level Traceability)
 
-<table>
-<tr><th>PR</th><th>Date</th><th>Action</th></tr>
-<tr><td>#1</td><td>8 Jan 2026</td><td>Failure analysis API routes + data schemas</td></tr>
-<tr><td>#5</td><td>18 Jan 2026</td><td>Unified multi-vector Milvus + SQL Server integration</td></tr>
-<tr><td>#17</td><td>29 Jan 2026</td><td>Chat search & retrieval pipeline testing</td></tr>
-<tr><td>#19</td><td>31 Jan 2026</td><td>SQL Server schema overhaul (well table + indexing)</td></tr>
-<tr><td>#20</td><td>1 Feb 2026</td><td>Alembic migration fix for SQL Server init</td></tr>
-<tr><td>#23</td><td>5 Feb 2026</td><td>Private chat sharing + LLM output standardization</td></tr>
-<tr><td>#28</td><td>19 Feb 2026</td><td>Test suite restructuring</td></tr>
-<tr><td>#40</td><td>8 Mar 2026</td><td>Fix 404 masked as 500 in chat routing</td></tr>
-<tr><td>#41</td><td>8 Mar 2026</td><td>Prevent client from overwriting server-owned state version</td></tr>
-<tr><td>#69</td><td>17 Mar 2026</td><td>Excel upload verifier workflow with staging/approval</td></tr>
-<tr><td>#90</td><td>25 Mar 2026</td><td>Fix widget connection to backend/LLM</td></tr>
-<tr><td>#91</td><td>26 Mar 2026</td><td>Single-pass suggestion with regression guards</td></tr>
-<tr><td>#92</td><td>26 Mar 2026</td><td>CI paths-filter permission fix</td></tr>
-<tr><td>#93</td><td>16 Apr 2026</td><td>Pressure columns + production events table</td></tr>
-<tr><td>#96</td><td>16 Apr 2026</td><td>Drilling events summarization flow</td></tr>
-<tr><td>#97</td><td>16 Apr 2026</td><td>Production summary caching flow</td></tr>
-<tr><td>#98</td><td>16 Apr 2026</td><td>RBAC routing and Excel template restriction</td></tr>
-<tr><td>#99</td><td>20 Apr 2026</td><td>Backend widget tool-call contract</td></tr>
-<tr><td>#100</td><td>20 Apr 2026</td><td>Widget history persistence API</td></tr>
-<tr><td>#101</td><td>20 Apr 2026</td><td>Multi-function widget output support</td></tr>
-<tr><td>#102</td><td>20 Apr 2026</td><td>User-level chat response caching</td></tr>
-</table>
+
+| PR | Date | Action |
+| --- | --- | --- |
+| #1 | 8 Jan 2026 | Failure analysis API routes + data schemas |
+| #5 | 18 Jan 2026 | Unified multi-vector Milvus + SQL Server integration |
+| #17 | 29 Jan 2026 | Chat search & retrieval pipeline testing |
+| #19 | 31 Jan 2026 | SQL Server schema overhaul (well table + indexing) |
+| #20 | 1 Feb 2026 | Alembic migration fix for SQL Server init |
+| #23 | 5 Feb 2026 | Private chat sharing + LLM output standardization |
+| #28 | 19 Feb 2026 | Test suite restructuring |
+| #40 | 8 Mar 2026 | Fix 404 masked as 500 in chat routing |
+| #41 | 8 Mar 2026 | Prevent client from overwriting server-owned state version |
+| #69 | 17 Mar 2026 | Excel upload verifier workflow with staging/approval |
+| #90 | 25 Mar 2026 | Fix widget connection to backend/LLM |
+| #91 | 26 Mar 2026 | Single-pass suggestion with regression guards |
+| #92 | 26 Mar 2026 | CI paths-filter permission fix |
+| #93 | 16 Apr 2026 | Pressure columns + production events table |
+| #96 | 16 Apr 2026 | Drilling events summarization flow |
+| #97 | 16 Apr 2026 | Production summary caching flow |
+| #98 | 16 Apr 2026 | RBAC routing and Excel template restriction |
+| #99 | 20 Apr 2026 | Backend widget tool-call contract |
+| #100 | 20 Apr 2026 | Widget history persistence API |
+| #101 | 20 Apr 2026 | Multi-function widget output support |
+| #102 | 20 Apr 2026 | User-level chat response caching |
+
 
 ---
 

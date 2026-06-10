@@ -931,7 +931,19 @@ export function BlogPost() {
                     </div>
                   );
                 },
-                img: ({ src, alt }) => (
+                img: ({ src, alt }) => {
+                  const isShield = src?.includes('img.shields.io');
+                  if (isShield) {
+                    return (
+                      <img
+                        src={getSafeImageSrc(src)}
+                        alt={alt}
+                        loading="lazy"
+                        className="inline-block h-7 my-1"
+                      />
+                    );
+                  }
+                  return (
                   <div className="my-12">
                     <img
                       src={getSafeImageSrc(src)}
@@ -952,8 +964,9 @@ export function BlogPost() {
                         // fig. 01: {alt} ARCHITECTURE
                       </p>
                     )}
-                  </div>
-                ),
+                    </div>
+                  );
+                },
                 strong: ({ children }) => <strong className="text-neon-mint font-bold">{children}</strong>,
                 blockquote: ({ children }) => (
                   <blockquote className="border-l-4 border-neon-mint pl-8 my-10 italic text-[#AAAAAA] text-xl bg-neon-mint/5 py-4 rounded-r-xl">
