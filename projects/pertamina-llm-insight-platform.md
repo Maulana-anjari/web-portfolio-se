@@ -59,12 +59,10 @@ The existing backend lacked a coherent integration architecture: no RBAC, no cac
 - **Stack**: Python, FastAPI, SQL Server 2022, Milvus, Redis, RBAC.
 - **Result**: 26 PRs shipped with 92.3% merge rate; median merge-to-deploy lead time of ~7 minutes; 42% of commits classified as fixes demonstrating production responsiveness.
 
-<pre>
-<img src="https://img.shields.io/badge/191-commits_all--branch-0ea5e9?style=for-the-badge" alt="191 commits all-branch" />
-<img src="https://img.shields.io/badge/~125K-LoC_inserted-10b981?style=for-the-badge" alt="~125K LoC inserted" />
-<img src="https://img.shields.io/badge/26-PRs_(24_merged)-8b5cf6?style=for-the-badge" alt="26 PRs, 24 merged" />
-<img src="https://img.shields.io/badge/31-peak_commits/day-f59e0b?style=for-the-badge" alt="31 peak commits/day" />
-</pre>
+![191 commits all-branch](https://img.shields.io/badge/191-commits_all--branch-0ea5e9?style=for-the-badge)
+![~125K LoC inserted](https://img.shields.io/badge/~125K-LoC_inserted-10b981?style=for-the-badge)
+![26 PRs, 24 merged](https://img.shields.io/badge/26-PRs_(24_merged)-8b5cf6?style=for-the-badge)
+![31 peak commits/day](https://img.shields.io/badge/31-peak_commits/day-f59e0b?style=for-the-badge)
 
 ### Sub-Problem: Production Caching & LLM Pipeline Stability
 
@@ -73,11 +71,9 @@ The existing backend lacked a coherent integration architecture: no RBAC, no cac
 - **Stack**: Redis, FastAPI, LLM pipeline, Python async workers.
 - **Result**: Eliminated redundant LLM calls for identical queries; widgets became stateful with persisted history; suggestion pipeline reduced regression risk through guarded single-pass architecture.
 
-<pre>
-<img src="https://img.shields.io/badge/Redis-caching_for_chat_%2B_widgets-dc2626?style=for-the-badge" alt="Redis caching for chat and widgets" />
-<img src="https://img.shields.io/badge/LLM-pipeline_stability_guards-7c3aed?style=for-the-badge" alt="LLM pipeline stability guards" />
-<img src="https://img.shields.io/badge/19/24-PRs_merged_<1hr-059669?style=for-the-badge" alt="19/24 PRs merged under 1 hour" />
-</pre>
+![Redis caching for chat and widgets](https://img.shields.io/badge/Redis-caching_for_chat_%2B_widgets-dc2626?style=for-the-badge)
+![LLM pipeline stability guards](https://img.shields.io/badge/LLM-pipeline_stability_guards-7c3aed?style=for-the-badge)
+![19/24 PRs merged under 1 hour](https://img.shields.io/badge/19/24-PRs_merged_<1hr-059669?style=for-the-badge)
 
 ### Sub-Problem: Enterprise RBAC & Domain Workflow Enforcement
 
@@ -86,10 +82,8 @@ The existing backend lacked a coherent integration architecture: no RBAC, no cac
 - **Stack**: FastAPI middleware, SQL Server RBAC tables, role-based middleware routing.
 - **Result**: Multi-role access enforcement in production; geologists, engineers, and managers operated within role-scoped views. Verification workflow introduced a staging/approval pipeline reducing data entry errors.
 
-<pre>
-<img src="https://img.shields.io/badge/RBAC-multi--role_enterprise_workflows-111827?style=for-the-badge" alt="RBAC multi-role enterprise workflows" />
-<img src="https://img.shields.io/badge/SQL_Server_2022-schema_%2B_indexing_overhaul-2563eb?style=for-the-badge" alt="SQL Server 2022 schema and indexing overhaul" />
-</pre>
+![RBAC multi-role enterprise workflows](https://img.shields.io/badge/RBAC-multi--role_enterprise_workflows-111827?style=for-the-badge)
+![SQL Server 2022 schema and indexing overhaul](https://img.shields.io/badge/SQL_Server_2022-schema_%2B_indexing_overhaul-2563eb?style=for-the-badge)
 
 ---
 

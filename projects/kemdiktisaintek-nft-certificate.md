@@ -44,11 +44,9 @@ Kemdiktisaintek needed a digital platform for LAM institutions to manage accredi
 
 ### 📊 Metric callouts
 
-<p align="left">
-  <img src="https://img.shields.io/badge/30-commits-0ea5e9?style=for-the-badge" alt="30 commits" />
-  <img src="https://img.shields.io/badge/5%2C513-LOC_~24%25_codebase-111827?style=for-the-badge" alt="5,513 LOC, ~24% codebase" />
-  <img src="https://img.shields.io/badge/8-PRs_merged-10b981?style=for-the-badge" alt="8 PRs merged" />
-</p>
+![30 commits](https://img.shields.io/badge/30-commits-0ea5e9?style=for-the-badge)
+![5,513 LOC, ~24% codebase](https://img.shields.io/badge/5%2C513-LOC_~24%25_codebase-111827?style=for-the-badge)
+![8 PRs merged](https://img.shields.io/badge/8-PRs_merged-10b981?style=for-the-badge)
 
 ### 🧩 Sub-Problem: bulk data ingestion from Excel files
 

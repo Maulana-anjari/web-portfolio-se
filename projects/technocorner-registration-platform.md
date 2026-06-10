@@ -70,11 +70,9 @@ The platform went live for ~200 teams and ran through the event with ongoing mai
 
 ### Metric Callouts
 
-<p align="left">
-  <img src="https://img.shields.io/badge/94.3%25-backend_ownership_(66/70_commits)-0ea5e9?style=for-the-badge" alt="94.3% backend ownership" />
-  <img src="https://img.shields.io/badge/173_total-commits_(BE+FE)-111827?style=for-the-badge" alt="173 total commits" />
-  <img src="https://img.shields.io/badge/5-competition_tracks-10b981?style=for-the-badge" alt="5 competition tracks" />
-</p>
+![94.3% backend ownership](https://img.shields.io/badge/94.3%25-backend_ownership_(66/70_commits)-0ea5e9?style=for-the-badge)
+![173 total commits](https://img.shields.io/badge/173_total-commits_(BE+FE)-111827?style=for-the-badge)
+![5 competition tracks](https://img.shields.io/badge/5-competition_tracks-10b981?style=for-the-badge)
 
 ## Stack
 

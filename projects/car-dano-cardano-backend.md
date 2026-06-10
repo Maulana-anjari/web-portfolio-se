@@ -69,11 +69,9 @@ The client — PT Inspeksi Mobil Jogja — ran manual inspection workflows with 
 
 ### Metric Callouts
 
-<p align="left">
-  <img src="https://img.shields.io/badge/194_commits-62%25_codebase-0ea5e9?style=for-the-badge" alt="194 commits, 62% codebase" />
-  <img src="https://img.shields.io/badge/100%25-faster_response_time-111827?style=for-the-badge" alt="100% faster response time" />
-  <img src="https://img.shields.io/badge/100%25-uptime_20_users-10b981?style=for-the-badge" alt="100% uptime, 20 concurrent users" />
-</p>
+![194 commits, 62% codebase](https://img.shields.io/badge/194_commits-62%25_codebase-0ea5e9?style=for-the-badge)
+![100% faster response time](https://img.shields.io/badge/100%25-faster_response_time-111827?style=for-the-badge)
+![100% uptime, 20 concurrent users](https://img.shields.io/badge/100%25-uptime_20_users-10b981?style=for-the-badge)
 
 ## Stack
 

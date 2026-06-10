@@ -72,14 +72,12 @@ There was no existing backend. No scaffolding. No prior institutional codebase t
 
 ### 📊 Metric callouts
 
-<p align="left">
-  <img src="https://img.shields.io/badge/89%25-codebase_ownership-10b981?style=for-the-badge" alt="89% codebase ownership" />
-  <img src="https://img.shields.io/badge/28+-API_endpoints-0ea5e9?style=for-the-badge" alt="28+ API endpoints" />
-  <img src="https://img.shields.io/badge/45-day_sprint-f59e0b?style=for-the-badge" alt="45-day sprint" />
-  <img src="https://img.shields.io/badge/6-event_categories-8b5cf6?style=for-the-badge" alt="6 event categories" />
-  <img src="https://img.shields.io/badge/14-PRs_merged-ec4899?style=for-the-badge" alt="14 PRs merged" />
-  <img src="https://img.shields.io/badge/~200–300-teams_served-111827?style=for-the-badge" alt="~200-300 teams served" />
-</p>
+![89% codebase ownership](https://img.shields.io/badge/89%25-codebase_ownership-10b981?style=for-the-badge)
+![28+ API endpoints](https://img.shields.io/badge/28+-API_endpoints-0ea5e9?style=for-the-badge)
+![45-day sprint](https://img.shields.io/badge/45-day_sprint-f59e0b?style=for-the-badge)
+![6 event categories](https://img.shields.io/badge/6-event_categories-8b5cf6?style=for-the-badge)
+![14 PRs merged](https://img.shields.io/badge/14-PRs_merged-ec4899?style=for-the-badge)
+![~200-300 teams served](https://img.shields.io/badge/~200–300-teams_served-111827?style=for-the-badge)
 
 ---
 

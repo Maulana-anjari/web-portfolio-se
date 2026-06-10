@@ -57,12 +57,10 @@ Healthcare data exchange between independent organizations (hospitals, insurers)
 - **Stack:** Hyperledger Fabric 2.2.x, Node.js (`fabric-network`), Docker Compose, Bash automation scripts.
 - **Result:** Two networks interoperating in a controlled testbed — `GetKey` from Org1 (hospital channel) relayed to `UploadIdentity` on Org4 (insurance channel), with SHA-256 chained state hashing for integrity verification between transactions.
 
-<p align="left">
-  <img src="https://img.shields.io/badge/2-independent_Fabric_networks-0ea5e9?style=for-the-badge" alt="2 independent Fabric networks" />
-  <img src="https://img.shields.io/badge/6-organizations-111827?style=for-the-badge" alt="6 organizations" />
-  <img src="https://img.shields.io/badge/30%2B-Docker_containers-10b981?style=for-the-badge" alt="30+ Docker containers" />
-  <img src="https://img.shields.io/badge/154-HLF_config_files-f97316?style=for-the-badge" alt="154 HLF config files" />
-</p>
+![2 independent Fabric networks](https://img.shields.io/badge/2-independent_Fabric_networks-0ea5e9?style=for-the-badge)
+![6 organizations](https://img.shields.io/badge/6-organizations-111827?style=for-the-badge)
+![30+ Docker containers](https://img.shields.io/badge/30%2B-Docker_containers-10b981?style=for-the-badge)
+![154 HLF config files](https://img.shields.io/badge/154-HLF_config_files-f97316?style=for-the-badge)
 
 ---
 
@@ -73,12 +71,10 @@ Healthcare data exchange between independent organizations (hospitals, insurers)
 - **Stack:** IPFS (Kubo + IPFS Cluster), Helia (`@helia/unixfs`), Node.js `crypto` module (AES-256-CBC), MongoDB (Mongoose), PostgreSQL (pg).
 - **Result:** ~40% reduction in cross-network data retrieval latency via off-chain relay architecture. Data integrity preserved through cryptographic verification without ledger bloat.
 
-<p align="left">
-  <img src="https://img.shields.io/badge/12-node-IPFS_cluster-8b5cf6?style=for-the-badge" alt="12-node IPFS cluster" />
-  <img src="https://img.shields.io/badge/AES--256--CBC-encryption-ef4444?style=for-the-badge" alt="AES-256-CBC encryption" />
-  <img src="https://img.shields.io/badge/MongoDB-|_PostgreSQL-3b82f6?style=for-the-badge" alt="MongoDB + PostgreSQL" />
-  <img src="https://img.shields.io/badge/~40%25-latency_reduction-22c55e?style=for-the-badge" alt="~40% latency reduction" />
-</p>
+![12-node IPFS cluster](https://img.shields.io/badge/12-node-IPFS_cluster-8b5cf6?style=for-the-badge)
+![AES-256-CBC encryption](https://img.shields.io/badge/AES--256--CBC-encryption-ef4444?style=for-the-badge)
+![MongoDB + PostgreSQL](https://img.shields.io/badge/MongoDB-|_PostgreSQL-3b82f6?style=for-the-badge)
+![~40% latency reduction](https://img.shields.io/badge/~40%25-latency_reduction-22c55e?style=for-the-badge)
 
 ---
 

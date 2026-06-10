@@ -72,11 +72,9 @@ The challenge is not just technical — it's existential for a two-person startu
 
 ### 📊 Metric callouts
 
-<p align="left">
-  <img src="https://img.shields.io/badge/IDR_50M-startup_funding_secured-0ea5e9?style=for-the-badge" alt="IDR 50M startup funding secured" />
-  <img src="https://img.shields.io/badge/QRIS+MPC-architecture_designed-111827?style=for-the-badge" alt="QRIS and MPC architecture designed" />
-  <img src="https://img.shields.io/badge/Prisma+PostgreSQL-compliance--first_schema-10b981?style=for-the-badge" alt="Prisma PostgreSQL compliance-first schema" />
-</p>
+![IDR 50M startup funding secured](https://img.shields.io/badge/IDR_50M-startup_funding_secured-0ea5e9?style=for-the-badge)
+![QRIS and MPC architecture designed](https://img.shields.io/badge/QRIS+MPC-architecture_designed-111827?style=for-the-badge)
+![Prisma PostgreSQL compliance-first schema](https://img.shields.io/badge/Prisma+PostgreSQL-compliance--first_schema-10b981?style=for-the-badge)
 
 ---
 
