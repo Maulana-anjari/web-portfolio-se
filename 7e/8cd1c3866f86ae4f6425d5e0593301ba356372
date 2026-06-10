@@ -1,0 +1,22 @@
+src/components/home/VisionSection.tsx
+  s_f2f1ef0b997716::t_713545cf492165 16
+src/components/shared/SectionHeader.tsx
+  s_f2f1ef0b997716::t_12bc3024d764e9 8,13,39
+  s_f2f1ef0b997716::t_3e4916e3192610 38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "7e8cd1c3866f86ae4f6425d5e0593301ba356372",
+  "prompts": {},
+  "sessions": {
+    "s_f2f1ef0b997716": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_157f01c15ffeI9pR9OJoGj96xp",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
