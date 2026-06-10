@@ -319,7 +319,7 @@ export default function ProjectDetail() {
       <Helmet>
         <title>{project.title} — Maulana Anjari</title>
         <meta name="description" content={`Case study: ${project.title}. ${project.role} at ${project.company}.`} />
-        <meta name="keywords" content={project.tags.join(', ')} />
+        <meta name="keywords" content={(project.tags || []).join(', ')} />
         <link rel="canonical" href={projectUrl} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={projectUrl} />
@@ -370,7 +370,7 @@ export default function ProjectDetail() {
               </h1>
               <p className="text-[#9CA3AF] text-lg mb-6">{project.role} · {project.company}</p>
               <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag: string) => (
+                {(project.tags || []).map((tag: string) => (
                   <span key={tag} className="text-[10px] font-mono uppercase tracking-widest text-amber-400/80 border border-amber-400/15 px-3 py-1 rounded-full bg-amber-400/5">
                     {tag}
                   </span>

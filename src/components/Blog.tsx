@@ -762,7 +762,7 @@ export function BlogPost() {
       <Helmet>
         <title>{post.frontmatter.title} | Maulana Anjari</title>
         <meta name="description" content={post.frontmatter.excerpt} />
-        <meta name="keywords" content={post.frontmatter.tags.join(', ')} />
+        <meta name="keywords" content={(post.frontmatter.tags || []).join(', ')} />
         <link rel="canonical" href={postUrl} />
 
         <meta property="og:type" content="article" />
@@ -774,7 +774,7 @@ export function BlogPost() {
         <meta property="article:modified_time" content={post.frontmatter.modified || post.frontmatter.date} />
         <meta property="article:author" content="Maulana Anjari Anggorokasih" />
         <meta property="article:section" content="Technology" />
-        {post.frontmatter.tags.map((tag: string) => (
+        {(post.frontmatter.tags || []).map((tag: string) => (
           <meta key={tag} property="article:tag" content={tag} />
         ))}
 
@@ -817,7 +817,7 @@ export function BlogPost() {
               {post.frontmatter.title}
             </h1>
             <div className="flex flex-wrap gap-2">
-              {post.frontmatter.tags.map((tag: string) => (
+              {(post.frontmatter.tags || []).map((tag: string) => (
                 <span key={tag} className="text-[10px] font-mono uppercase tracking-widest text-[#888888] border border-white/5 px-3 py-1 rounded-full bg-white/5 flex items-center gap-2">
                   <Tag size={10} /> {tag}
                 </span>
