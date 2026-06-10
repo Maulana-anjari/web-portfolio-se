@@ -1,6 +1,6 @@
 import { useLayoutEffect } from "react";
 import Lenis from "lenis";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useCursor } from "../../context/CursorContext";
 import FloatingMenu from "../shared/FloatingMenu";
 
@@ -27,6 +27,8 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onOpenResume }: HeroSectionProps) {
   const { setIsHoveringButton } = useCursor();
+  const { scrollY } = useScroll();
+  const portraitY = useTransform(scrollY, [0, 1000], [0, -120]);
 
   // Initialize Lenis for smooth scrolling
   useLayoutEffect(() => {
@@ -201,6 +203,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
           id="portrait-container"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
+          style={{ y: portraitY }}
           transition={{ delay: 0.6, duration: 1 }}
           className="absolute bottom-0 right-0 z-20 flex items-end justify-end pointer-events-none"
         >

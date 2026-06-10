@@ -18,7 +18,7 @@ export default function TestimonialsSection() {
 
         <div className="relative">
           <span
-            className="absolute -top-12 left-0 z-0 select-none font-serif font-black leading-none text-[#00FF66]/10"
+            className="absolute -top-12 left-0 z-0 select-none font-serif font-black leading-none text-amber-400/15"
             style={{ fontSize: "20rem" }}
           >
             &ldquo;
@@ -90,7 +90,7 @@ export default function TestimonialsSection() {
                   href="mailto:maulana17anjari@gmail.com?subject=Project%20Inquiry"
                   onMouseEnter={() => setIsHoveringButton(true)}
                   onMouseLeave={() => setIsHoveringButton(false)}
-                  className="ml-2 rounded-full bg-[#00FF66] px-6 py-3 text-xs font-bold text-[#111111] transition-all hover:shadow-[0_0_20px_rgba(0,255,102,0.4)] active:scale-95"
+                  className="ml-2 rounded-full bg-amber-400 px-6 py-3 text-xs font-bold text-[#111111] transition-all hover:shadow-[0_0_20px_rgba(245,158,11,0.5)] active:scale-95"
                 >
                   Work Together
                 </a>

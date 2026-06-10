@@ -72,7 +72,7 @@ export default function ProjectsSection() {
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               onMouseEnter={() => setIsHoveringProject(true)}
               onMouseLeave={() => setIsHoveringProject(false)}
-              className="group flex flex-col gap-6 cursor-none rounded-[12px] border border-white/5 bg-[#151515] p-4 md:p-5 transition-colors hover:border-neon-mint/30"
+              className="group flex flex-col gap-6 cursor-none rounded-[12px] border border-white/5 bg-[#151515] p-4 md:p-5 transition-colors duration-300 hover:border-neon-mint/40 hover:shadow-[0_0_24px_rgba(80,200,120,0.12)]"
             >
               <div className="relative aspect-[16/10] overflow-hidden rounded-[12px] bg-[#1A1A1A]">
                 <img
@@ -81,7 +81,7 @@ export default function ProjectsSection() {
                   width="960"
                   height="600"
                   loading="lazy"
-                  className="h-full w-full object-cover grayscale-[0.5] transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                  className="h-full w-full object-cover grayscale-[0.5] transition-all duration-700 group-hover:grayscale-0"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#121212]/90 via-[#121212]/10 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-95" />
                 <div className="absolute left-4 top-4 rounded-full border border-neon-mint/25 bg-black/45 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-neon-mint backdrop-blur-md">

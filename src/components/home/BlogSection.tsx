@@ -118,7 +118,7 @@ export default function BlogSection() {
             to="/blog"
             onMouseEnter={() => setIsHoveringButton(true)}
             onMouseLeave={() => setIsHoveringButton(false)}
-            className="rounded-full bg-[#00FF66] px-10 py-5 text-sm font-bold text-[#111111] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,102,0.45)]"
+             className="rounded-full bg-amber-400 px-10 py-5 text-sm font-bold text-[#111111] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(245,158,11,0.45)]"
           >
             Explore Full Archive
           </Link>

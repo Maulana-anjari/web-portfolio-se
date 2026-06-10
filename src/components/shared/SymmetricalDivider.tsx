@@ -29,7 +29,7 @@ export default function SymmetricalDivider({
           scaleX: { duration: 0.8, ease: [0.65, 0, 0.35, 1] },
           opacity: { duration: 0.4 },
         }}
-        className="flex-grow h-[1px] bg-[#333333] origin-center"
+        className="flex-grow h-[1px] bg-[#555555] origin-center"
       />
       <motion.span
         initial={{ opacity: 0 }}
