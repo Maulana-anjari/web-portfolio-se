@@ -760,7 +760,7 @@ export function BlogPost() {
   return (
     <>
       <Helmet>
-        <title>{post.frontmatter.title} | Maulana Anjari</title>
+        <title>{post.frontmatter.title || "Post"} | Maulana Anjari</title>
         <meta name="description" content={post.frontmatter.excerpt} />
         <meta name="keywords" content={(post.frontmatter.tags || []).join(', ')} />
         <link rel="canonical" href={postUrl} />

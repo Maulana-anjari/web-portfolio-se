@@ -317,14 +317,14 @@ export default function ProjectDetail() {
   return (
     <>
       <Helmet>
-        <title>{project.title} — Maulana Anjari</title>
-        <meta name="description" content={`Case study: ${project.title}. ${project.role} at ${project.company}.`} />
+        <title>{project.title || "Project"} — Maulana Anjari</title>
+        <meta name="description" content={`Case study: ${project.title || "Project"}. ${project.role || "Engineer"} at ${project.company || "Organization"}.`} />
         <meta name="keywords" content={(project.tags || []).join(', ')} />
         <link rel="canonical" href={projectUrl} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={projectUrl} />
-        <meta property="og:title" content={`${project.title} — Maulana Anjari`} />
-        <meta property="og:description" content={`Case study: ${project.role} at ${project.company}.`} />
+        <meta property="og:title" content={`${project.title || "Project"} — Maulana Anjari`} />
+        <meta property="og:description" content={`Case study: ${project.role || "Engineer"} at ${project.company || "Organization"}.`} />
         <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${project.title} — Maulana Anjari`} />
@@ -334,7 +334,7 @@ export default function ProjectDetail() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": project.title,
+            "headline": project.title || "Project",
             "description": `${project.role} at ${project.company}.`,
             "author": { "@type": "Person", "name": "Maulana Anjari Anggorokasih", "url": siteUrl },
             "url": projectUrl,
@@ -366,7 +366,7 @@ export default function ProjectDetail() {
                 <span>{project.period}</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-black text-white leading-tight mb-6 tracking-tighter">
-                {project.title}
+                {project.title || ""}
               </h1>
               <p className="text-[#9CA3AF] text-lg mb-6">{project.role} · {project.company}</p>
               <div className="flex flex-wrap gap-2">
