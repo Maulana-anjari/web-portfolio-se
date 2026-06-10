@@ -5,12 +5,12 @@ export default function SectionHeader({
   label,
   title,
   accentColor = "var(--color-neon-mint)",
-  titleColor,
+  highlightTitle,
 }: {
   label: string;
   title: string;
   accentColor?: string;
-  titleColor?: string;
+  highlightTitle?: boolean;
 }) {
   return (
     <div className="w-full mb-12">
@@ -36,9 +36,13 @@ export default function SectionHeader({
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="text-4xl md:text-5xl font-bold max-w-xl leading-tight md:text-right"
-          style={{ color: titleColor || accentColor }}
+          style={{ color: accentColor }}
         >
-          {title}
+          {highlightTitle ? (
+            <span className="bg-neon-mint/15 px-3 py-1 rounded">{title}</span>
+          ) : (
+            title
+          )}
         </motion.h2>
       </div>
       <SymmetricalDivider

@@ -13,7 +13,7 @@ export default function VisionSection() {
           label="//Long-Term Vision"
           title="Beyond Software"
           accentColor="#1A1A1A"
-          titleColor="#00CC44"
+          highlightTitle
         />
 
         <div className="space-y-8">
