@@ -1,0 +1,25 @@
+projects/pertamina-llm-insight-platform.md
+  s_f2f1ef0b997716::t_987a92b3e53538 186-210
+src/components/ProjectDetail.tsx
+  s_f2f1ef0b997716::t_39d9e91a37546b 497-509
+  s_f2f1ef0b997716::t_39b2743cb671b6 531-533
+src/components/Blog.tsx
+  s_f2f1ef0b997716::t_af540d874feeca 934-946
+  s_f2f1ef0b997716::t_c4822c8c255700 967-969
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "9414d08be3512cfcd246cf15abad626cb7718516",
+  "prompts": {},
+  "sessions": {
+    "s_f2f1ef0b997716": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_157f01c15ffeI9pR9OJoGj96xp",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
