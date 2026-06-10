@@ -1,0 +1,28 @@
+# Maulana Anjari — Portfolio
+I am a Software Engineer & Startup Builder building systems that reduce friction, improve transparency, and expand access to resources.
+
+## About
+- [Maulana Anjari](https://maulana.sumbu.xyz): Portfolio homepage with bio, skills, experience, and project highlights.
+
+## Blog Posts
+- [How Playing Bridge Shaped My Thinking as an Engineer](https://maulana.sumbu.xyz/blog/bridge-shaped-engineer-thinking): Pattern recognition and probabilistic thinking — a reflection on how a card game taught precision and systems thinking.
+- [Backend Super-Skills for AI Agents](https://maulana.sumbu.xyz/blog/backend-super-skills-ai-agents): What backend engineers can teach the agentic workflow era.
+- [Ensuring Data Integrity: Vehicle Record Immutability on Cardano](https://maulana.sumbu.xyz/blog/cardano-vehicle-immutability): Building a decentralized vehicle inspection ecosystem with NestJS, Cardano, and IPFS.
+- [Interoperable Healthcare Blockchain with Hyperledger Fabric](https://maulana.sumbu.xyz/blog/interoperable-healthcare-blockchain): Cross-network identity sharing and hybrid on-chain/off-chain architecture.
+- [PoA vs PoS: A Performance Analysis](https://maulana.sumbu.xyz/blog/poa-vs-pos-performance-analysis): Benchmarking blockchain consensus mechanisms.
+- [Scaling Backend with Node.js and Express](https://maulana.sumbu.xyz/blog/scaling-backend-node-express): Patterns for production-grade Node.js services.
+- [When Does a Problem Need Blockchain?](https://maulana.sumbu.xyz/blog/when-does-problem-need-blockchain): A decision framework for whether blockchain is the right tool.
+- [Web3 Government: Kemdikbudristek NFT Certificates](https://maulana.sumbu.xyz/blog/web3-government-kemdikbudristek): Blockchain-backed academic accreditation.
+- [Blockchain Night Login](https://maulana.sumbu.xyz/blog/blockchain-night-login): A technical deep dive.
+- [Managing Stakeholders in Student Initiatives](https://maulana.sumbu.xyz/blog/managing-stakeholders-student-initiatives): Leadership lessons from organizing national competitions.
+- [Teaching Assistant Leadership](https://maulana.sumbu.xyz/blog/teaching-assistant-leadership): Mentorship and team coordination at scale.
+- [Tashawwur Fikih Muamalat AI](https://maulana.sumbu.xyz/blog/tashawwur-fikih-muamalat-ai): Fiqh and AI — Islamic jurisprudence meets modern systems.
+
+## Project Case Studies
+- [Enterprise LLM Insight Platform — PT Pertamina EP](https://maulana.sumbu.xyz/projects/pertamina-llm): Enterprise insight platform with RAG pipelines across SQL Server, Milvus, and Redis, serving 5 production use cases.
+- [CAR-dano: Vehicle Inspection Platform](https://maulana.sumbu.xyz/projects/car-dano): Blockchain-backed inspection platform on Cardano. 67 API endpoints, 100% uptime, 60K ADA funding.
+- [SumbuPay Web3 Payment Infrastructure](https://maulana.sumbu.xyz/projects/sumbupay): QRIS + MPC wallet dual-rail architecture. IDR 50M startup grant.
+- [PharmaChain: Healthcare Data Interoperability](https://maulana.sumbu.xyz/projects/pharmachain): 2 independent Hyperledger Fabric networks, 30+ containers, encrypted IPFS storage.
+- [Technocorner Registration Platform](https://maulana.sumbu.xyz/projects/technocorner): National competition platform. 200+ teams, full-stack Express.js + Next.js.
+- [Find-IT Registration Platform](https://maulana.sumbu.xyz/projects/find-it): First backend delivery. 45-day sprint, 89% solo-authored.
+- [Kemdiktisaintek NFT Certificate Platform](https://maulana.sumbu.xyz/projects/kemdiktisaintek): Ministry-level blockchain accreditation platform.
