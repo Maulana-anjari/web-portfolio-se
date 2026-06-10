@@ -47,6 +47,68 @@ function getProjectsDirectory() {
   return getContentDir("projects");
 }
 
+/** Inject blog post meta into index.html for SSR-lite */
+function injectBlogMeta(distPath: string) {
+  return (req: express.Request, res: express.Response) => {
+    const slug = req.params.slug;
+    if (!/^[a-zA-Z0-9_-]+$/.test(slug)) {
+      return res.sendFile(path.join(distPath, "index.html"));
+    }
+    const postsDir = getPostsDirectory();
+    const filePath = path.join(postsDir, `${slug}.md`);
+    if (!fs.existsSync(filePath)) {
+      return res.sendFile(path.join(distPath, "index.html"));
+    }
+    const raw = fs.readFileSync(filePath, "utf-8");
+    const { data } = matter(raw);
+    const title = data.title || slug;
+    const excerpt = data.excerpt || title;
+
+    let html = fs.readFileSync(path.join(distPath, "index.html"), "utf-8");
+    html = html.replace(/<title>.*?<\/title>/, `<title>${title} | Maulana Anjari</title>`);
+    html = html.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${excerpt}"`);
+    html = html.replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${title} | Maulana Anjari"`);
+    html = html.replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${excerpt}"`);
+    html = html.replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="https://maulana.sumbu.xyz/blog/${slug}"`);
+    html = html.replace(/<meta name="twitter:title" content="[^"]*"/, `<meta name="twitter:title" content="${title} | Maulana Anjari"`);
+    html = html.replace(/<meta name="twitter:description" content="[^"]*"/, `<meta name="twitter:description" content="${excerpt}"`);
+    res.send(html);
+  };
+}
+
+/** Inject project meta into index.html for SSR-lite */
+function injectProjectMeta(distPath: string) {
+  return (req: express.Request, res: express.Response) => {
+    const slug = req.params.slug;
+    if (!/^[a-zA-Z0-9_-]+$/.test(slug)) {
+      return res.sendFile(path.join(distPath, "index.html"));
+    }
+    const projectsDir = getProjectsDirectory();
+    const files = fs.readdirSync(projectsDir).filter(f => f.endsWith(".md"));
+    let found: any = null;
+    for (const file of files) {
+      const raw = fs.readFileSync(path.join(projectsDir, file), "utf-8");
+      const { data: d } = matter(raw);
+      if (d.slug === slug) { found = d; break; }
+    }
+    if (!found) {
+      return res.sendFile(path.join(distPath, "index.html"));
+    }
+    const title = found.title || slug;
+    const excerpt = found.excerpt || `${found.role} at ${found.company}`;
+
+    let html = fs.readFileSync(path.join(distPath, "index.html"), "utf-8");
+    html = html.replace(/<title>.*?<\/title>/, `<title>${title} — Maulana Anjari</title>`);
+    html = html.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${excerpt}"`);
+    html = html.replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${title} — Maulana Anjari"`);
+    html = html.replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${excerpt}"`);
+    html = html.replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="https://maulana.sumbu.xyz/projects/${slug}"`);
+    html = html.replace(/<meta name="twitter:title" content="[^"]*"/, `<meta name="twitter:title" content="${title} — Maulana Anjari"`);
+    html = html.replace(/<meta name="twitter:description" content="[^"]*"/, `<meta name="twitter:description" content="${excerpt}"`);
+    res.send(html);
+  };
+}
+
 async function startServer() {
   const app = express();
   const PORT = 3000;
@@ -183,6 +245,12 @@ async function startServer() {
   } else {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
+
+    // SSR-lite: inject meta tags for blog & project detail pages
+    // so Googlebot sees titles/descriptions without JS
+    app.get("/blog/:slug", injectBlogMeta(distPath));
+    app.get("/projects/:slug", injectProjectMeta(distPath));
+
     app.get("*", (_req, res) => {
       res.sendFile(path.join(distPath, "index.html"));
     });

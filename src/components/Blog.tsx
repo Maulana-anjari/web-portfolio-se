@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Helmet } from "react-helmet-async";
@@ -168,7 +168,8 @@ export function BlogIndex() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [activeCategory, setActiveCategory] = useState(searchParams.get("tag") || "All");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchInput, setSearchInput] = useState("");
   const [sortOrder, setSortOrder] = useState<"DESC" | "ASC">("DESC");
@@ -307,15 +308,15 @@ export function BlogIndex() {
   return (
     <>
       <Helmet>
-        <title>Blog | Maulana Anjari - Backend Engineer</title>
-        <meta name="description" content="Technical blog about backend architectures, blockchain protocols, and agentic workflows by Maulana Anjari. Insights on Go, Python, Cardano, and scalable systems." />
+        <title>{activeCategory !== "All" ? `${activeCategory} Articles | Maulana Anjari` : "Blog | Maulana Anjari - Backend Engineer"}</title>
+        <meta name="description" content={activeCategory !== "All" ? `Technical articles about ${activeCategory.toLowerCase()} by Maulana Anjari. Deep dives into architecture, patterns, and production experience.` : "Technical blog about backend architectures, blockchain protocols, and agentic workflows by Maulana Anjari. Insights on Go, Python, Cardano, and scalable systems."} />
         <meta name="keywords" content="Backend, Blockchain, Cardano, Go, Python, Distributed Systems, Microservices, Web3" />
-        <link rel="canonical" href="https://maulana.sumbu.xyz/blog" />
+        <link rel="canonical" href={`https://maulana.sumbu.xyz/blog${activeCategory !== "All" ? `?tag=${activeCategory}` : ""}`} />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://maulana.sumbu.xyz/blog" />
-        <meta property="og:title" content="Blog | Maulana Anjari - Backend Engineer" />
-        <meta property="og:description" content="Technical blog about backend architectures, blockchain protocols, and agentic workflows." />
+        <meta property="og:url" content={`https://maulana.sumbu.xyz/blog${activeCategory !== "All" ? `?tag=${activeCategory}` : ""}`} />
+        <meta property="og:title" content={activeCategory !== "All" ? `${activeCategory} Articles | Maulana Anjari` : "Blog | Maulana Anjari - Backend Engineer"} />
+        <meta property="og:description" content={activeCategory !== "All" ? `Technical articles about ${activeCategory.toLowerCase()} by Maulana Anjari.` : "Technical blog about backend architectures, blockchain protocols, and agentic workflows."} />
         <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
@@ -363,7 +364,7 @@ export function BlogIndex() {
                   key={category}
                   type="button"
                   aria-pressed={activeCategory === category}
-                  onClick={() => setActiveCategory(category)}
+                   onClick={() => { setActiveCategory(category); setSearchParams(category === "All" ? {} : { tag: category }); }}
                   className={`relative text-xs md:text-sm font-mono uppercase tracking-[0.15em] transition-all duration-300 group
                     ${activeCategory === category ? 'text-[#00FF66]' : 'text-[#949494] hover:text-[#00FF66]'}`}
                 >
@@ -490,7 +491,7 @@ export function BlogIndex() {
                   // 0 PROTOCOLS MATCH YOUR QUERY.
                 </p>
                 <button
-                  onClick={() => { setSearchInput(""); setSearchQuery(""); setActiveCategory("All"); }}
+                   onClick={() => { setSearchInput(""); setSearchQuery(""); setActiveCategory("All"); setSearchParams({}); }}
                   className="text-[10px] font-mono text-neon-mint hover:underline"
                 >
                   Clear all filters
