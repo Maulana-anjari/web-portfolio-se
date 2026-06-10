@@ -6,6 +6,7 @@ export default function VisionSection() {
     <section
       id="vision"
       className="relative w-full bg-dark-charcoal py-[100px] pb-[120px] px-10 md:px-20 z-10 border-t border-white/5"
+      aria-label="Long-Term Vision"
     >
       <div className="mx-auto max-w-4xl">
         <SectionHeader

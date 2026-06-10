@@ -34,6 +34,7 @@ export default function ExecutiveSummarySection() {
     <section
       id="snapshot"
       className="relative w-full bg-[#121212] py-[100px] pb-[120px] px-10 md:px-20 z-10 border-t border-white/5"
+      aria-label="Quick Snapshot"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader

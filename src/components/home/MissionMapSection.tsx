@@ -45,6 +45,7 @@ export default function MissionMapSection() {
     <section
       id="mission-map"
       className="relative w-full bg-[#121212] py-[100px] pb-[120px] px-10 md:px-20 z-10 border-t border-white/5"
+      aria-label="Mission in Practice"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader

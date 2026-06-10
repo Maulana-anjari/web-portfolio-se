@@ -34,6 +34,7 @@ export default function SystemsSection() {
     <section
       id="systems"
       className="relative w-full bg-dark-charcoal py-[100px] pb-[120px] px-10 md:px-20 z-10 border-t border-white/5"
+      aria-label="Why I Build"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
