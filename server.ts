@@ -16,9 +16,10 @@ function rateLimitMiddleware(req: express.Request, res: express.Response, next: 
 }
 
 function securityHeadersMiddleware(_req: express.Request, res: express.Response, next: express.NextFunction) {
+  const isDev = process.env.NODE_ENV !== 'production';
   res.setHeader(
     'Content-Security-Policy',
-    "default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https:; frame-src 'self' https://giscus.app; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; form-action 'self'",
+    `default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https:${isDev ? ' ws:' : ''}; frame-src 'self' https://giscus.app; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; form-action 'self'`,
   );
   res.setHeader('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
   res.setHeader('X-Frame-Options', 'SAMEORIGIN');
