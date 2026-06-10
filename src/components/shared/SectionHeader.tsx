@@ -39,7 +39,7 @@ export default function SectionHeader({
           style={{ color: accentColor }}
         >
           {highlightTitle ? (
-            <span className="bg-neon-mint/15 px-3 py-1 rounded">{title}</span>
+            <span className="bg-neon-mint px-3 py-1 rounded text-black">{title}</span>
           ) : (
             title
           )}
