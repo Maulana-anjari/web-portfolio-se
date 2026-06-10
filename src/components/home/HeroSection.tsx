@@ -77,11 +77,11 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
         {/* 1. LAYER: GLOW EFFECT */}
         <div
           id="glow-bg"
-          className="pointer-events-none absolute left-1/2 top-1/2 z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          className="pointer-events-none absolute right-0 bottom-0 z-10 h-[800px] w-[800px] translate-x-[20%] translate-y-[20%] rounded-full"
           style={{
-            background: "radial-gradient(circle, rgba(80, 200, 120, 0.45) 0%, transparent 70%)",
-            filter: "blur(150px)",
-            opacity: 0.6,
+            background: "radial-gradient(circle, rgba(80, 200, 120, 0.35) 0%, transparent 70%)",
+            filter: "blur(120px)",
+            opacity: 0.7,
           }}
         />
 
