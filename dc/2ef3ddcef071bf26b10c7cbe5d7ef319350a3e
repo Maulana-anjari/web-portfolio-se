@@ -1,0 +1,19 @@
+.gitignore
+  s_f2f1ef0b997716::t_4f7f5c65dcd744 9-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "dc2ef3ddcef071bf26b10c7cbe5d7ef319350a3e",
+  "prompts": {},
+  "sessions": {
+    "s_f2f1ef0b997716": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_157f01c15ffeI9pR9OJoGj96xp",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
