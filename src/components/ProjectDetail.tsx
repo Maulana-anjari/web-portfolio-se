@@ -502,7 +502,7 @@ export default function ProjectDetail() {
                           src={src}
                           alt={alt}
                           loading="lazy"
-                          className="inline-block h-7 my-1"
+                          className="inline-block h-7 w-auto my-1"
                         />
                       );
                     }
