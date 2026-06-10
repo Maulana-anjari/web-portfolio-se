@@ -576,7 +576,8 @@ export function BlogPost() {
 
         // Generate ToC
         const headings: ToCItem[] = [];
-        const lines = data.content.split("\n");
+        const content = data.content || '';
+        const lines = content.split("\n");
         lines.forEach((line: string) => {
           // Robust regex for headings, handling potential carriage returns
           const match = line.match(/^(#{2,3})\s+(.+?)\s*\r?$/);
@@ -961,7 +962,7 @@ export function BlogPost() {
                 )
               }}
             >
-              {post.content}
+              {post.content || ""}
             </ReactMarkdown>
           </div>
         </div>

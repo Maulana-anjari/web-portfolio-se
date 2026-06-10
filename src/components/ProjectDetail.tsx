@@ -195,7 +195,8 @@ export default function ProjectDetail() {
         setLoading(false);
 
         const headings: ToCItem[] = [];
-        const lines = data.content.split("\n");
+        const content = data.content || '';
+        const lines = content.split("\n");
         lines.forEach((line: string) => {
           const match = line.match(/^(#{2,3})\s+(.+?)\s*\r?$/);
           if (match) {
@@ -524,7 +525,7 @@ export default function ProjectDetail() {
                   )
                 }}
               >
-                {project.content}
+                {project.content || ""}
               </ReactMarkdown>
             </div>
           </div>
