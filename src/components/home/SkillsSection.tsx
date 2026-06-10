@@ -146,7 +146,7 @@ export default function SkillsSection({ onOpenResume }: SkillsSectionProps) {
             { num: "97+", label: "API Endpoints Optimized" },
           ].map((stat, idx) => (
             <div key={idx} className="group flex flex-col">
-              <span className="text-6xl md:text-7xl font-bold h-[1.2em] flex items-center">
+              <span className="text-6xl md:text-7xl font-bold h-[1.2em] flex items-center text-amber-400">
                 <RollingNumber value={stat.num} isInView={isStatsInView} />
               </span>
               <span className="mt-4 text-sm font-medium tracking-wide text-neon-mint uppercase">

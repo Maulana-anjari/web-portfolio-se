@@ -52,7 +52,7 @@ export default function ExecutiveSummarySection() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="group rounded-xl border border-white/5 bg-[#151515] p-6 hover:border-neon-mint/20 transition-colors duration-300"
             >
-              <item.icon className="h-5 w-5 text-neon-mint mb-4 opacity-60 group-hover:opacity-100 transition-opacity" />
+              <item.icon className={`h-5 w-5 mb-4 opacity-60 group-hover:opacity-100 transition-opacity ${idx < 2 ? 'text-neon-mint' : 'text-amber-400'}`} />
               <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#6B7280] mb-2">
                 {item.label}
               </p>

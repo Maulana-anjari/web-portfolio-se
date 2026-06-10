@@ -174,7 +174,7 @@ export default function ExperienceSection() {
                     {[
                       {
                         label: EXPERIENCES[activeExp].category,
-                        icon: <Building2 size={14} className="text-neon-mint" />,
+                        icon: <Building2 size={14} className="text-amber-400" />,
                       },
                       {
                         label: EXPERIENCES[activeExp].industry,
@@ -190,7 +190,11 @@ export default function ExperienceSection() {
                     ].map((tag, tIdx) => (
                       <span
                         key={tIdx}
-                        className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-neon-mint/20 bg-neon-mint/5 text-white text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-neon-mint/10 hover:border-neon-mint/30"
+                        className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-white text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
+                          tIdx === 0
+                            ? 'border-amber-400/20 bg-amber-400/5 hover:bg-amber-400/10 hover:border-amber-400/30'
+                            : 'border-neon-mint/20 bg-neon-mint/5 hover:bg-neon-mint/10 hover:border-neon-mint/30'
+                        }`}
                       >
                         {tag.icon}
                         {tag.label}

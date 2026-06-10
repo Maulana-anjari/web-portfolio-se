@@ -45,7 +45,7 @@ export default function ProblemsSection() {
                   <h3 className="text-xl font-bold text-white">
                     {problem.title}
                   </h3>
-                  <span className="font-mono text-[10px] text-neon-mint">
+                  <span                   className={`font-mono text-[10px] ${idx % 2 === 0 ? 'text-neon-mint' : 'text-amber-400'}`}>
                     0{idx + 1}
                   </span>
                 </div>
