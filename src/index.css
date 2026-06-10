@@ -11,6 +11,16 @@
 html {
   scroll-behavior: smooth;
   background-color: #0A0A0A;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
 }
 
 @layer base {
@@ -22,6 +32,7 @@ html {
   body {
     @apply bg-dark-charcoal text-white font-sans antialiased overflow-x-hidden p-0 m-0;
     background-color: #0A0A0A;
+    touch-action: manipulation;
   }
 }
 

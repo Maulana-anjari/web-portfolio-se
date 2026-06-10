@@ -139,7 +139,7 @@ const MermaidCodeBlock = ({ code }: { code: string }) => {
         ) : (
           <div className="flex items-center gap-3 text-[#949494] font-mono text-xs py-8">
             <div className="h-3 w-3 rounded-full bg-neon-mint animate-pulse" />
-            Rendering diagram...
+            Rendering diagram…
           </div>
         )}
       </div>
@@ -674,7 +674,7 @@ export function BlogPost() {
     return (
       <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
         <div className="text-neon-mint animate-pulse font-mono tracking-tighter text-xl">
-          LOADING_POST...
+          LOADING_POST…
         </div>
       </div>
     );

@@ -294,7 +294,7 @@ export default function ProjectDetail() {
     return (
       <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
         <div className="text-amber-400 animate-pulse font-mono tracking-tighter text-xl">
-          LOADING_PROJECT...
+          LOADING_PROJECT…
         </div>
       </div>
     );

@@ -113,6 +113,7 @@ export default function ProjectsList() {
                     {project.image && (
                       <div className="md:w-48 h-32 rounded-xl overflow-hidden flex-shrink-0 bg-[#1A1A1A]">
                         <img src={project.image} alt={project.title}
+                             width="192" height="128" loading="lazy"
                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       </div>
                     )}
