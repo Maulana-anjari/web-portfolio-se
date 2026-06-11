@@ -163,6 +163,7 @@ export default function ProjectDetail() {
   const [activeId, setActiveId] = useState<string>("");
   const [toc, setToc] = useState<ToCItem[]>([]);
   const contentRef = useRef<HTMLDivElement>(null);
+  const figCounter = useRef(0);
   const { setAccentColor } = useCursor();
 
   const { scrollYProgress } = useScroll();
@@ -397,6 +398,7 @@ export default function ProjectDetail() {
               [&_pre]:my-10 [&_pre]:rounded-xl [&_pre]:overflow-hidden
               [&_p_img]:inline-block
             ">
+              {figCounter.current = 0}
               <ReactMarkdown 
                 remarkPlugins={[remarkGfm]}
                 components={{
@@ -508,7 +510,7 @@ export default function ProjectDetail() {
                       );
                     }
                     return (
-                    <div className="my-12">
+                    <figure className="my-12">
                       <img
                         src={getSafeImageSrc(src)}
                         alt={alt}
@@ -524,11 +526,11 @@ export default function ProjectDetail() {
                         className="rounded-2xl w-full border border-white/5 shadow-[0_0_40px_rgba(245,158,11,0.08)] transition-all hover:shadow-[0_0_60px_rgba(245,158,11,0.12)]"
                       />
                       {alt && (
-                        <p className="text-center text-[10px] font-mono text-[#949494] mt-6 uppercase tracking-[0.3em]">
-                          // fig. 01: {alt} ARCHITECTURE
-                        </p>
+                        <figcaption className="text-center text-[9px] font-mono text-[#6B7280] mt-2 uppercase tracking-[0.25em]">
+                          // fig. {String(++figCounter.current).padStart(2, '0')}: {alt}
+                        </figcaption>
                       )}
-                    </div>
+                    </figure>
                   );
                 },
                 strong: ({ children }) => <strong className="text-amber-300 font-bold">{children}</strong>,
