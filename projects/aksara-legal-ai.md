@@ -13,6 +13,8 @@ order: 11
 
 # Aksara AI — Legal Compliance Co-pilot for Indonesian MSMEs
 
+![Aksara AI solution dashboard — compliance checklist and permit roadmap](/images/aksara-legal-ai-solution-dashboard-checklist.webp)
+
 ## Repository
 
 https://github.com/Sumbu-Labs/Aksara-Legal-AI
