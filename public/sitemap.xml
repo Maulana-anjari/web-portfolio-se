@@ -88,6 +88,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://maulana.sumbu.xyz/projects/aksara-legal-ai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://maulana.sumbu.xyz/projects/car-dano</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
