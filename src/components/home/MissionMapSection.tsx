@@ -17,8 +17,7 @@ const MISSIONS = [
     label: "Improve Transparency",
     projects: [
       { name: "CAR-dano", desc: "Verifiable vehicle inspection records on Cardano" },
-      { name: "DChain", desc: "Tamper-proof credential verification" },
-      { name: "Kemdiktisaintek", desc: "Accreditation integrity for higher education" },
+      { name: "DChain", desc: "National blockchain infrastructure for academic certificate integrity" },
     ],
   },
   {

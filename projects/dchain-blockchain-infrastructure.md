@@ -189,6 +189,12 @@ Kontribusi akademis bersifat individu dan independen:
 - **Menganalisis data** dari 300+ iterasi uji coba menggunakan robust statistics (median) dan menghasilkan visualisasi komparatif (radar chart, time-series, hockey-stick curves)
 - **Kesimpulan**: PoA tetap paling optimal untuk DChain saat ini karena karakteristik user-interactive dan beban read-heavy
 
+## Challenges
+
+- **Learning DChain from scratch**: DChain adalah platform blockchain yang belum pernah digunakan siapa pun di tim. Menghabiskan bulan pertama (Sep 2024) mempelajari arsitektur, mekanisme konsensus, dan pola integrasi web3 sebelum menulis kode. Ini menunda kontribusi kode tetapi membangun fondasi untuk pekerjaan integrasi blockchain yang bermakna.
+- **Integrating a smart contract you didn't write**: Smart contract Solidity ditulis oleh anggota tim lain. Harus membaca dan memahami ABI, function signatures, dan parameter shapes untuk memanggil `mint()` dari frontend — tanpa tahu Solidity.
+- **Building for an undeployed system**: Platform tidak pernah mencapai production. Setiap fitur dibangun, diuji, dan didemonstrasikan di development only — tidak ada real users, tidak ada production metrics, tidak ada live minting. Ini membutuhkan fokus pada code quality dan architecture daripada user feedback loops.
+
 ## Thesis Connection
 
 ### Research Question
@@ -287,6 +293,11 @@ PoA direkomendasikan untuk tahap saat ini karena:
 - **Trade-off Analysis**: Tidak ada solusi konsensus yang sempurna — setiap pilihan adalah trade-off antara throughput, latensi, desentralisasi, dan biaya komputasi
 - **Context-driven Engineering**: Keputusan teknis harus didasarkan pada karakteristik beban kerja aktual, bukan hype teknologi — PoA yang "kurang fashionable" terbukti lebih cocok untuk kebutuhan DChain saat ini
 - **Reproducibility**: Seluruh 10 repositori kode sumber, konfigurasi, dan data mentah dibuka untuk memungkinkan replikasi oleh peneliti lain
+
+### Web3 Integration
+- **You can integrate blockchain meaningfully without writing smart contracts**: Reading a contract ABI, understanding its interface, and wiring it into a frontend with ethers.js is real web3 work. The skill is in bridging Web2 UI patterns with Web3 transaction flows — handling wallet connection, transaction signing, and error states from chain interaction.
+- **File parsing pipelines are underrated**: Building a reusable Excel uploader that parses `.xlsx`, validates columns, and dispatches to three different API endpoints taught structured data ingestion patterns that apply beyond blockchain.
+- **Learning an unfamiliar blockchain on the job is transferable**: DChain was new to everyone on the team. Spending a month studying its architecture, consensus, and integration patterns before writing code taught how to ramp up on proprietary or niche blockchain platforms quickly.
 
 ### Project Status
 - **LAM NFT Certificate App**: Development phase — belum di-deploy ke production

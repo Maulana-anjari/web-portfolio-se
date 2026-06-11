@@ -13,7 +13,7 @@ const PRINCIPLES = [
     icon: ShieldCheck,
     title: "Improve Transparency",
     desc: "Design systems where trust is verifiable, not assumed. Audit trails, immutable records, and clear access boundaries make accountability the default.",
-    projects: "CAR-dano, DChain, Kemdiktisaintek",
+    projects: "CAR-dano, DChain",
   },
   {
     icon: Globe,
