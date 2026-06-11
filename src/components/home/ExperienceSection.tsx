@@ -46,6 +46,16 @@ const EXPERIENCES = [
     tech: ["Hyperledger Fabric", "Docker", "IPFS"],
   },
   {
+    company: "UKM Bridge UGM",
+    role: "Chairman",
+    category: "Leadership",
+    industry: "Events & Operations",
+    date: "Jan 2023 - Dec 2023 • Yogyakarta",
+    description:
+      "Led a 40+ member organization through a full operational year. Coordinated national bridge championship events, managed annual budget and logistics, and built external partnerships with sponsors and university administration.",
+    tech: ["Team Coordination", "Event Operations", "Stakeholder Relations", "Budget Management"],
+  },
+  {
     company: "Technocorner (UGM)",
     role: "Backend Developer",
     category: "Event",
