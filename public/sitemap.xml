@@ -98,7 +98,17 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://maulana.sumbu.xyz/projects/fitted-wardrobe-intelligence</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://maulana.sumbu.xyz/projects/kemdiktisaintek</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maulana.sumbu.xyz/projects/pawona-kitchen-companion</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
