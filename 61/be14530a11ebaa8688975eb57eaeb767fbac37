@@ -1,0 +1,28 @@
+projects/pawona-kitchen-companion.md
+  s_f2f1ef0b997716::t_c1ecc37daa1950 1-86
+public/sitemap.xml
+  s_f2f1ef0b997716::t_4707a74be1fd3c 101-104,110-111
+projects/fitted-wardrobe-intelligence.md
+  s_f2f1ef0b997716::t_81282def492f4a 79-80
+  s_f2f1ef0b997716::t_4a847e85e1853f 93-94
+  s_f2f1ef0b997716::t_941413f920e9c9 8
+  s_f2f1ef0b997716::t_ee943c8bcb5b6a 46-47
+  s_f2f1ef0b997716::t_d99561b396e0bf 66-67
+  s_f2f1ef0b997716::t_7302020fe153c3 99-100
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "61be14530a11ebaa8688975eb57eaeb767fbac37",
+  "prompts": {},
+  "sessions": {
+    "s_f2f1ef0b997716": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_157f01c15ffeI9pR9OJoGj96xp",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
