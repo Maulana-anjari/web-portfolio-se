@@ -1,0 +1,28 @@
+public/sitemap.xml
+  s_f2f1ef0b997716::t_edde8825344bd3 91-94
+projects/aksara-legal-ai.md
+  s_f2f1ef0b997716::t_ca8788a9b2f8ad 54-55
+  s_f2f1ef0b997716::t_179502f7f0d0c2 28-29
+  s_f2f1ef0b997716::t_6242c853fd60c5 90-93
+  s_f2f1ef0b997716::t_72baa006093766 62-64
+  s_f2f1ef0b997716::t_4cbf0e32bbad9f 8
+  s_f2f1ef0b997716::t_86a57af6b68789 131
+projects/pawona-kitchen-companion.md
+  s_f2f1ef0b997716::t_99ee4b2b046248 6,13,15,22,26,38,40,46,48,50,52,54,56,58,60,66,72,80,86
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "05637d658e5b1875b8bbdd676739fe259ffd2baa",
+  "prompts": {},
+  "sessions": {
+    "s_f2f1ef0b997716": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_157f01c15ffeI9pR9OJoGj96xp",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
