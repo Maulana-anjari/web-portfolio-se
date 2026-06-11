@@ -12,9 +12,7 @@ order: 9
 ---
 # Pawona — AI Kitchen Companion for Indonesian Households
 
-![Pawona — AI Kitchen Companion di dapur Indonesia](/images/pawona-hero.webp)
-
-![Nara, Pawona mascot — AI kitchen companion branding](/images/nara-pawona-mascot.webp)
+![Pawona ? AI Kitchen Companion di dapur Indonesia](/images/pawona-hero.webp)
 
 ## Keywords
 food waste reduction, AI recipe recommendation, Indonesian culinary knowledge, RAG-based recommendation engine, household food management, ingredient-first cooking, modular monolith, Flutter mobile app, NestJS backend, knowledge-driven AI

@@ -398,7 +398,7 @@ export default function ProjectDetail() {
               [&_pre]:my-10 [&_pre]:rounded-xl [&_pre]:overflow-hidden
               [&_p_img]:inline-block
             ">
-              {figCounter.current = 0}
+              {void (figCounter.current = 0)}
               <ReactMarkdown 
                 remarkPlugins={[remarkGfm]}
                 components={{

@@ -3,7 +3,7 @@ title: "Fitted: AI-Powered Wardrobe Intelligence Platform"
 slug: "fitted-wardrobe-intelligence"
 role: "System Designer & Technical Architect"
 company: "Fitted"
-period: "2024–2025"
+period: "June 2026 – Present"
 tags: ["Flutter", "Supabase", "PostgreSQL", "Riverpod", "AI/ML", "GPT-4o", "Computer Vision", "Fashion Tech", "Mobile App", "System Design"]
 image: "/images/fitted-hero.webp"
 metric: "Design Phase Complete"
