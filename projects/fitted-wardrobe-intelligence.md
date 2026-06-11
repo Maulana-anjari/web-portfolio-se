@@ -12,6 +12,8 @@ order: 8
 ---
 # Fitted — AI-Powered Wardrobe Intelligence Platform
 
+![Fitted hero — AI-powered wardrobe intelligence platform](/images/fitted-hero.webp)
+
 ## Keywords
 Flutter, Supabase, PostgreSQL, Riverpod, GPT-4o Vision, AI recommendation engine, computer vision, fashion tech, wardrobe digitization, system architecture design, Edge Functions, Row Level Security, MVP architecture
 
