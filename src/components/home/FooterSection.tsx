@@ -68,6 +68,11 @@ export default function FooterSection() {
                     }}
                   />
                   <motion.button
+                    type="button"
+                    aria-label="Start a project by email"
+                    onClick={() => {
+                      window.location.href = "mailto:maulana17anjari@gmail.com?subject=Project%20Inquiry";
+                    }}
                     onMouseEnter={() => setIsHoveringButton(true)}
                     onMouseLeave={() => setIsHoveringButton(false)}
                     initial={{ scale: 0.8, opacity: 0 }}

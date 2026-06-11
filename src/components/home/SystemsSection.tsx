@@ -19,7 +19,7 @@ const PRINCIPLES = [
     icon: Globe,
     title: "Expand Access",
     desc: "Build infrastructure that opens opportunities — whether financial rails for underserved markets or career platforms that connect talent to jobs.",
-    projects: "SumbuPay, AutoHired",
+    projects: "SumbuPay, Aksara AI",
   },
   {
     icon: Unlock,

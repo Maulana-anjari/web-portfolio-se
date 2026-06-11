@@ -1,8 +1,8 @@
 # Maulana Anjari — Portfolio
-I am a Software Engineer & Startup Builder building systems that reduce friction, improve transparency, and expand access to resources.
+I build reliable backend systems, distributed infrastructure, and production APIs across enterprise, startup, and research environments.
 
 ## About
-- [Maulana Anjari](https://maulana.sumbu.xyz): Portfolio homepage with bio, skills, experience, and project highlights.
+- [Maulana Anjari](https://maulana.sumbu.xyz): Portfolio homepage with bio, skills, experience, and project case studies.
 
 ## Blog Posts
 - [How Playing Bridge Shaped My Thinking as an Engineer](https://maulana.sumbu.xyz/blog/bridge-shaped-engineer-thinking): Pattern recognition and probabilistic thinking — a reflection on how a card game taught precision and systems thinking.
@@ -22,7 +22,10 @@ I am a Software Engineer & Startup Builder building systems that reduce friction
 - [Enterprise LLM Insight Platform — PT Pertamina EP](https://maulana.sumbu.xyz/projects/pertamina-llm): Enterprise insight platform with RAG pipelines across SQL Server, Milvus, and Redis, serving 5 production use cases.
 - [CAR-dano: Vehicle Inspection Platform](https://maulana.sumbu.xyz/projects/car-dano): Blockchain-backed inspection platform on Cardano. 67 API endpoints, 100% uptime, 60K ADA funding.
 - [SumbuPay Web3 Payment Infrastructure](https://maulana.sumbu.xyz/projects/sumbupay): QRIS + MPC wallet dual-rail architecture. IDR 50M startup grant.
+- [DChain: National Blockchain Infrastructure](https://maulana.sumbu.xyz/projects/dchain-blockchain-infrastructure): National blockchain infrastructure for academic certificate management. PoA vs PoS benchmarking thesis.
 - [PharmaChain: Healthcare Data Interoperability](https://maulana.sumbu.xyz/projects/pharmachain): 2 independent Hyperledger Fabric networks, 30+ containers, encrypted IPFS storage.
 - [Technocorner Registration Platform](https://maulana.sumbu.xyz/projects/technocorner): National competition platform. 200+ teams, full-stack Express.js + Next.js.
 - [Find-IT Registration Platform](https://maulana.sumbu.xyz/projects/find-it): First backend delivery. 45-day sprint, 89% solo-authored.
-- [Kemdiktisaintek NFT Certificate Platform](https://maulana.sumbu.xyz/projects/kemdiktisaintek): Ministry-level blockchain accreditation platform.
+- [Fitted: Wardrobe Intelligence Platform](https://maulana.sumbu.xyz/projects/fitted-wardrobe-intelligence): AI wardrobe intelligence — design-phase product architecture and system design.
+- [Pawona: AI Kitchen Companion](https://maulana.sumbu.xyz/projects/pawona-kitchen-companion): AI kitchen companion for food waste reduction — design-phase product architecture.
+- [Aksara Legal AI](https://maulana.sumbu.xyz/projects/aksara-legal-ai): Legal compliance co-pilot for Indonesian MSMEs. Hackathon prototype with hybrid RAG.

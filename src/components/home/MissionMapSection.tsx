@@ -25,7 +25,7 @@ const MISSIONS = [
     label: "Expand Access",
     projects: [
       { name: "SumbuPay", desc: "QRIS + Web3 rails for underserved markets" },
-      { name: "AutoHired", desc: "Career opportunity platform connecting talent to jobs" },
+      { name: "Aksara AI", desc: "Legal compliance co-pilot for Indonesian MSMEs" },
     ],
   },
   {
