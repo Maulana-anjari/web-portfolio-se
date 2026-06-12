@@ -1,0 +1,21 @@
+src/components/home/FooterSection.tsx
+  s_f2f1ef0b997716::t_c070bf74188c6b 132-134
+gaps.md
+  s_f2f1ef0b997716::t_d808c95d744955 39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "1343121931eff1414e453cb5b1b8e868e4f7c9ee",
+  "prompts": {},
+  "sessions": {
+    "s_f2f1ef0b997716": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_157f01c15ffeI9pR9OJoGj96xp",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
