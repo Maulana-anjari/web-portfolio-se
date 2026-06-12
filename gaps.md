@@ -46,10 +46,10 @@
 - Solusi: pilih icon yang lebih spesifik atau tambah label yang lebih jelas
 
 ### 13. No scroll-to-top button
-- ScrollToTop ada di route change, tapi setelah scroll panjang di halaman blog/project detail (1000+ lines), tidak ada FAB untuk scroll ke atas
+- ScrollToTop ada di route change, tapi setelah scroll panjang di halaman home/blog/project detail (1000+ lines), tidak ada FAB untuk scroll ke atas
 - Lenis smooth scroll membuat manual scroll ke atas lambat
 
-### 14. 404 page tidak link ke `/projects`
+### 14. ~~404 page tidak link ke `/projects`~~ ✅ DONE
 - Hanya punya link ke home dan `/blog`
 - Harusnya tambah "Browse Projects" sebagai opsi ketiga
 

@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
 export function NotFound() {
@@ -114,6 +114,19 @@ export function NotFound() {
                 Go to Blog
                 <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-neon-mint group-hover:w-full transition-all duration-300" />
               </span>
+            </Link>
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 text-neon-mint/60 hover:text-neon-mint transition-all group py-2"
+            >
+              <span className="font-mono text-sm uppercase tracking-widest relative">
+                Browse Projects
+                <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-neon-mint group-hover:w-full transition-all duration-300" />
+              </span>
+              <ArrowRight
+                size={16}
+                className="group-hover:translate-x-2 transition-transform duration-300"
+              />
             </Link>
           </motion.div>
         </div>
