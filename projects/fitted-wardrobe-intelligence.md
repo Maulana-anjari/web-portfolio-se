@@ -6,8 +6,9 @@ company: "Fitted"
 period: "June 2026 – Present"
 tags: ["Flutter", "Supabase", "PostgreSQL", "Riverpod", "AI/ML", "GPT-4o", "Computer Vision", "Fashion Tech", "Mobile App", "System Design"]
 image: "/images/fitted-hero.webp"
-metric: "Design Phase Complete"
-excerpt: "Designed the architecture and product specification for an AI-powered wardrobe intelligence platform that digitizes clothing, generates personalized Fits, and provides daily styling recommendations. Currently in pre-production design phase."
+metric: "Pre-Production"
+status: "design"
+excerpt: "Designed the architecture and product specification for an AI-powered wardrobe intelligence platform that digitizes clothing, generates personalized Fits, and provides daily styling recommendations. This is a design-phase case study — the system has been architected and specified but not yet shipped."
 order: 8
 ---
 # Fitted — AI-Powered Wardrobe Intelligence Platform

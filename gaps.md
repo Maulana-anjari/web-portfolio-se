@@ -87,7 +87,7 @@
 - Homepage cuma punya 3 stats di SkillsSection (3+ years, 15+ systems, 97+ endpoints)
 - Tidak ada aggregate: total production users impacted, total TPS handled, total repos, total PRs merged
 
-### 22. Fitted & Pawona tidak ada disclaimer "design-phase"
+### 22. ~~Fitted & Pawona tidak ada disclaimer "design-phase"~~ ✅ DONE
 - Case studies Fitted dan Pawona adalah design/architecture work, belum shipped
 - Di listing project card tidak ada indikasi
 - Perlu label visible: "request for" / "design phase" di project card dan detail page

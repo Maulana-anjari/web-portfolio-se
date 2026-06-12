@@ -200,6 +200,7 @@ async function startServer() {
               tags: data.tags || [],
               image: data.image || "",
               metric: data.metric || "",
+              status: data.status || "",
               content,
             });
           }
@@ -214,16 +215,17 @@ async function startServer() {
           const fileContents = fs.readFileSync(filePath, "utf8");
           const { data } = matter(fileContents);
           return {
-            slug: data.slug || filename.replace(".md", ""),
-            title: data.title,
-            role: data.role,
-            company: data.company,
-            period: data.period,
-            tags: data.tags || [],
-            image: data.image || "",
-            metric: data.metric || "",
-            order: data.order || 99,
-            excerpt: data.excerpt || "",
+          slug: data.slug || filename.replace(".md", ""),
+          title: data.title,
+          role: data.role,
+          company: data.company,
+          period: data.period,
+          tags: data.tags || [],
+          image: data.image || "",
+          metric: data.metric || "",
+          status: data.status || "",
+          order: data.order || 99,
+          excerpt: data.excerpt || "",
           };
         })
         .sort((a: any, b: any) => a.order - b.order);

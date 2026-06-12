@@ -6,8 +6,9 @@ company: "Pawona"
 period: "Jan 2026 – Present"
 tags: ["food-tech", "ai", "flutter", "nestjs", "supabase", "indonesia", "mobile-app", "rag"]
 image: "/images/pawona-hero.webp"
-metric: "AI-Assisted Meals Completed"
-excerpt: "Designed the system architecture for an AI-powered kitchen companion that helps Indonesian households reduce food waste by discovering meals from available ingredients."
+metric: "Pre-Production"
+status: "design"
+excerpt: "Designed the system architecture for an AI-powered kitchen companion that helps Indonesian households reduce food waste by discovering meals from available ingredients. This is a design-phase case study — the architecture is complete but the system has not yet been built."
 order: 9
 ---
 # Pawona — AI Kitchen Companion for Indonesian Households

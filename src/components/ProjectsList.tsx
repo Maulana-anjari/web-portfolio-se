@@ -119,8 +119,10 @@ export default function ProjectsList() {
                     )}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="text-xs text-amber-400 font-mono bg-amber-400/10 px-2 py-0.5 rounded">
-                          {project.metric}
+                        <span className={`text-xs font-mono px-2 py-0.5 rounded ${
+                          project.status === 'design' ? 'border border-amber-400/30 text-amber-300' : 'text-amber-400 bg-amber-400/10'
+                        }`}>
+                          {project.status === 'design' ? 'REQUEST FOR · ' : ''}{project.metric}
                         </span>
                         <span className="text-xs text-[#6B7280]">{project.period}</span>
                       </div>

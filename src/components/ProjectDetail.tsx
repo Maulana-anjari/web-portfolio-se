@@ -30,6 +30,7 @@ interface ProjectData {
   period: string;
   tags: string[];
   metric: string;
+  status: string;
   content: string;
 }
 
@@ -359,10 +360,26 @@ export default function ProjectDetail() {
             </Link>
 
             <header className="mb-20">
+              {project.status === 'design' && (
+                <div className="mb-8 p-4 border border-amber-400/20 rounded-xl bg-amber-400/5">
+                  <p className="text-amber-300 text-sm font-mono uppercase tracking-widest mb-1">REQUEST FOR · {project.role}</p>
+                  <p className="text-[#AAAAAA] text-sm leading-relaxed">
+                    This case study documents design and architecture work completed during the pre-production phase. 
+                    The system has been architected, specified, and validated through design reviews — but has not been built or shipped. 
+                    It represents my approach to system design rather than production outcomes.
+                  </p>
+                </div>
+              )}
               <div className="flex items-center gap-4 mb-6 font-mono text-xs uppercase tracking-widest text-[#949494]">
-                <span className="text-amber-400 text-xs font-mono bg-amber-400/10 px-2 py-0.5 rounded">
-                  {project.metric}
-                </span>
+                {project.status === 'design' ? (
+                  <span className="text-amber-300 text-xs font-mono bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/30">
+                    REQUEST FOR · {project.metric}
+                  </span>
+                ) : (
+                  <span className="text-amber-400 text-xs font-mono bg-amber-400/10 px-2 py-0.5 rounded">
+                    {project.metric}
+                  </span>
+                )}
                 <span className="w-1 h-1 rounded-full bg-white/10" />
                 <span>{project.period}</span>
               </div>

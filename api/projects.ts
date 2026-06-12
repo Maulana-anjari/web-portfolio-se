@@ -43,6 +43,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             tags: data.tags || [],
             image: data.image || '',
             metric: data.metric || '',
+            status: data.status || '',
             content,
           });
         }
@@ -65,6 +66,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           tags: data.tags || [],
           image: data.image || '',
           metric: data.metric || '',
+          status: data.status || '',
           order: data.order || 99,
           excerpt: data.excerpt || '',
         };
