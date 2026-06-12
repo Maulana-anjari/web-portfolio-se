@@ -8,6 +8,8 @@ import FloatingMenu from "./shared/FloatingMenu";
 const PROJECTS_MENU = [
   { name: "Home", href: "/", isExternal: true },
   { name: "Blog", href: "/blog", isExternal: true },
+  { name: "Projects", href: "/projects", isExternal: true },
+  { name: "Contact", href: "mailto:maulana17anjari@gmail.com", isExternal: true },
 ];
 
 interface ProjectMeta {

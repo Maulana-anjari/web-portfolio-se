@@ -31,7 +31,7 @@
 - Hanya ada 1 testimonial — buttons non-fungsional, tidak ada carousel state
 - Solusi: tambah testimonial lain, atau sembunyikan buttons kalo cuma 1
 
-### 10. Navigasi sub-pages terbatas
+### 10. ~~Navigasi sub-pages terbatas~~ ✅ DONE
 - FloatingMenu di `/blog/:slug` dan `/projects/:slug` cuma nampilin 2 item (Home, All Posts/All Projects)
 - User tidak bisa navigate ke section lain tanpa balik ke home
 - Solusi: tambah item navigasi yang lebih lengkap di sub-pages (atau minimal "Back to Home", "Blog", "Projects", "Contact")
