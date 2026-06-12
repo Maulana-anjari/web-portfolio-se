@@ -11,7 +11,7 @@
 - Sertifikasi apa pun (jika ada)
 - Coursework relevan: distributed systems, blockchain, AI/ML
 
-### 6. Case study DChain dalam Bahasa Indonesia
+### 6. ~~Case study DChain dalam Bahasa Indonesia~~ ✅ DONE
 - 9 case studies lain English — DChain satu-satunya yang Indonesian
 - Harusnya konsisten: either all English or bilingual dengan English sebagai primary
 
