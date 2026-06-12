@@ -14,6 +14,7 @@ export default function ProofStrip() {
               "51.9% faster issue-to-merge",
               "50% faster inspection turnaround",
               "100% uptime on inspection platform",
+              "B.Eng. Information Engineering · UGM",
             ].map((proof) => (
               <span key={proof} className="inline-flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-neon-mint shadow-[0_0_8px_rgba(0,255,102,0.6)]" />

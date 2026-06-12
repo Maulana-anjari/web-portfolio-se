@@ -2,11 +2,11 @@
 
 ## 🟡 Content Gaps
 
-### 4. Belum ada halaman `/about`
+### 4. ~~Belum ada halaman `/about`~~ ✅ DONE
 - Bio lengkap, ProfilePage schema, education section
 - UGM degree (Sarjana Teknik, GPA 3.40) hanya ada di JSON-LD, tidak visible di halaman mana pun
 
-### 5. Belum ada Education section
+### 5. ~~Belum ada Education section~~ ✅ DONE
 - Pendidikan formal: S.T. from Universitas Gadjah Mada (2022–2026)
 - Sertifikasi apa pun (jika ada)
 - Coursework relevan: distributed systems, blockchain, AI/ML
