@@ -36,7 +36,7 @@
 - User tidak bisa navigate ke section lain tanpa balik ke home
 - Solusi: tambah item navigasi yang lebih lengkap di sub-pages (atau minimal "Back to Home", "Blog", "Projects", "Contact")
 
-### 11. Footer button text mismatch
+### 11. ~~Footer button text mismatch~~ ✅ DONE
 - Desktop: "Let's Collaborate"
 - Mobile: "Hire / Collaborate"
 - Harusnya konsisten — prefer "Let's Collaborate" untuk kedua

@@ -129,9 +129,9 @@ export default function FooterSection() {
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
                   className="group relative z-10 flex h-[120px] w-[120px] items-center justify-center rounded-full bg-[#00FF66] shadow-[0_0_20px_rgba(0,255,102,0.3)]"
                 >
-                  <span className="text-center text-sm font-bold text-black/90 px-4">
-                    Hire / Collaborate
-                  </span>
+                    <span className="text-center text-sm font-bold text-black/90 px-4">
+                      Let's Collaborate
+                    </span>
                 </motion.button>
               </div>
             </motion.div>
