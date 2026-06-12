@@ -59,6 +59,17 @@ export default function ProjectsList() {
         <meta property="og:description" content="Evidence-backed backend engineering case studies." />
         <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://maulana.sumbu.xyz" },
+              { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://maulana.sumbu.xyz/projects" }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <main className="min-h-screen bg-[#0A0A0A] pt-32 pb-24 px-6 md:px-20">

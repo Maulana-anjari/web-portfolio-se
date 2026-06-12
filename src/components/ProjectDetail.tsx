@@ -343,6 +343,17 @@ export default function ProjectDetail() {
             "mainEntityOfPage": { "@type": "WebPage", "@id": projectUrl }
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+              { "@type": "ListItem", "position": 2, "name": "Projects", "item": `${siteUrl}/projects` },
+              { "@type": "ListItem", "position": 3, "name": project.title || "Project", "item": projectUrl }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <div className="min-h-screen bg-[#0A0A0A] text-[#E0E0E0] selection:bg-amber-400 selection:text-black scroll-smooth">

@@ -324,6 +324,17 @@ export function BlogIndex() {
         <meta name="twitter:title" content="Blog | Maulana Anjari - Backend Engineer" />
         <meta name="twitter:description" content="Technical blog about backend architectures, blockchain protocols, and agentic workflows." />
         <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.png" />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://maulana.sumbu.xyz" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://maulana.sumbu.xyz/blog" }
+            ]
+          })}
+        </script>
       </Helmet>
       <div className="min-h-screen bg-[#0A0A0A] pt-32 pb-48 px-6 md:px-20">
         <FloatingMenu items={[{ name: "Home", href: "/", isExternal: true }, { name: "Projects", href: "/projects", isExternal: true }]} />

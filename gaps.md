@@ -63,7 +63,7 @@
 - Source `/assets/(.*)` muncul 2 kali di headers array (line 4–11 dan line 50–57)
 - Tidak menyebabkan error tapi redundant
 
-### 17. No breadcrumb JSON-LD
+### 17. ~~No breadcrumb JSON-LD~~ ✅ DONE
 - Tidak ada `BreadcrumbList` structured data di halaman mana pun
 - Penting untuk Google SERP rich snippets, terutama untuk blog dan project detail
 
