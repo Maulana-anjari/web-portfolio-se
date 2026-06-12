@@ -26,7 +26,7 @@
 
 ## 🟡 UX/UI Gaps
 
-### 9. Testimonials carousel broken
+### 9. ~~Testimonials carousel broken~~ ✅ DONE
 - Ada prev/next buttons (`aria-label="Previous testimonial"` / "Next testimonial")
 - Hanya ada 1 testimonial — buttons non-fungsional, tidak ada carousel state
 - Solusi: tambah testimonial lain, atau sembunyikan buttons kalo cuma 1
