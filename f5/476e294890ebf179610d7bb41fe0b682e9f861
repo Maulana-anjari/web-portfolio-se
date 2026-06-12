@@ -1,0 +1,21 @@
+src/components/home/TestimonialsSection.tsx
+  s_f2f1ef0b997716::t_9252de2f5e723e 47
+gaps.md
+  s_f2f1ef0b997716::t_2f7c3b1033adff 29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "f5476e294890ebf179610d7bb41fe0b682e9f861",
+  "prompts": {},
+  "sessions": {
+    "s_f2f1ef0b997716": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_157f01c15ffeI9pR9OJoGj96xp",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
