@@ -45,7 +45,7 @@
 - PostgreSQL, SQL Server, Milvus semua pakai icon `Database` yang sama
 - Solusi: pilih icon yang lebih spesifik atau tambah label yang lebih jelas
 
-### 13. No scroll-to-top button
+### 13. ~~No scroll-to-top button~~ ✅ DONE
 - ScrollToTop ada di route change, tapi setelah scroll panjang di halaman home/blog/project detail (1000+ lines), tidak ada FAB untuk scroll ke atas
 - Lenis smooth scroll membuat manual scroll ke atas lambat
 

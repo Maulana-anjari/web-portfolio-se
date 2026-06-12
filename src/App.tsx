@@ -4,6 +4,7 @@ import { HelmetProvider, Helmet } from "react-helmet-async";
 import { CursorProvider, useCursor } from "./context/CursorContext";
 import GlobalCursor from "./components/shared/GlobalCursor";
 import RouteLoader from "./components/shared/RouteLoader";
+import ScrollToTopButton from "./components/shared/ScrollToTopButton";
 import { NotFound } from "./components/NotFound";
 
 // Lazy-loaded sections
@@ -190,6 +191,7 @@ export default function App() {
       <CursorProvider>
         <BrowserRouter>
           <ScrollToTop />
+          <ScrollToTopButton />
           <GlobalCursor isHoveringProject={false} isHoveringButton={false} />
           <Routes>
             <Route path="/" element={<PortfolioHome />} />

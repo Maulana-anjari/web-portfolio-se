@@ -43,6 +43,8 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
       infinite: false,
     });
 
+    (window as any).__lenis = lenis;
+
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
