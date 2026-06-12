@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import { Helmet } from "react-helmet-async";
 import LazySyntaxHighlighter from "./LazySyntaxHighlighter";
 import FloatingMenu from "./shared/FloatingMenu";
+import { POST_TO_PROJECTS } from "../data/relatedContent";
 import {
   Calendar,
   Clock,
@@ -560,6 +561,7 @@ export function BlogPost() {
   const [error, setError] = useState<string | null>(null);
   const [activeId, setActiveId] = useState<string>("");
   const [toc, setToc] = useState<ToCItem[]>([]);
+  const [relatedProjects, setRelatedProjects] = useState<any[]>([]);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll();
@@ -608,6 +610,14 @@ export function BlogPost() {
         setError(err.name === "AbortError" ? "Request timeout - please try again" : `Error loading post: ${err.message}`);
       })
       .finally(() => clearTimeout(timeoutId));
+
+    const projectSlugs = slug ? POST_TO_PROJECTS[slug] : undefined;
+    if (projectSlugs && projectSlugs.length > 0) {
+      fetch("/api/projects")
+        .then(r => r.json())
+        .then(all => setRelatedProjects(all.filter((p: any) => projectSlugs.includes(p.slug))))
+        .catch(() => {});
+    }
   }, [slug]);
 
   useEffect(() => {
@@ -991,6 +1001,32 @@ export function BlogPost() {
               {post.content || ""}
             </ReactMarkdown>
           </div>
+
+          {relatedProjects.length > 0 && (
+            <section className="mt-24 border-t border-white/5 pt-12">
+              <h2 className="text-2xl font-bold text-white mb-3 flex items-baseline">
+                <span className="text-neon-mint mr-3">::</span> Related Projects
+              </h2>
+              <p className="text-[#9CA3AF] text-sm mb-8">Explore case studies that connect to the ideas in this article.</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {relatedProjects.map((proj: any) => (
+                  <Link
+                    key={proj.slug}
+                    to={`/projects/${proj.slug}`}
+                    className="group border border-white/5 bg-[#151515] rounded-xl p-5 hover:border-neon-mint/30 transition-all duration-300"
+                  >
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-neon-mint/60">
+                      {proj.role}
+                    </span>
+                    <h3 className="text-base font-semibold text-white mt-2 group-hover:text-neon-mint transition-colors line-clamp-2">
+                      {proj.title}
+                    </h3>
+                    <p className="text-xs text-[#6B7280] mt-2 line-clamp-2">{proj.excerpt}</p>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
 
         {/* Sidebar / ToC */}

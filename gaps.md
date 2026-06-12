@@ -15,7 +15,7 @@
 - 9 case studies lain English — DChain satu-satunya yang Indonesian
 - Harusnya konsisten: either all English or bilingual dengan English sebagai primary
 
-### 7. Belum ada cross-links antara blog dan projects
+### 7. ~~Belum ada cross-links antara blog dan projects~~ ✅ DONE
 - Blog post → "Related Projects" section
 - Project detail → "Related Reading" section
 - Membangun topical authority dan internal linking

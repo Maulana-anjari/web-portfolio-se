@@ -13,6 +13,7 @@ import {
   Check,
   List,
 } from "lucide-react";
+import { PROJECT_TO_POSTS } from "../data/relatedContent";
 
 const SAFE_IMAGE_PLACEHOLDER = "https://placehold.co/800x400/1A1A1A/666666?text=Image+Not+Found&font=roboto";
 
@@ -163,6 +164,7 @@ export default function ProjectDetail() {
   const [error, setError] = useState<string | null>(null);
   const [activeId, setActiveId] = useState<string>("");
   const [toc, setToc] = useState<ToCItem[]>([]);
+  const [relatedPosts, setRelatedPosts] = useState<any[]>([]);
   const contentRef = useRef<HTMLDivElement>(null);
   const figCounter = useRef(0);
   const { setAccentColor } = useCursor();
@@ -216,6 +218,14 @@ export default function ProjectDetail() {
         setError(err.name === "AbortError" ? "Request timeout - please try again" : `Error loading project: ${err.message}`);
       })
       .finally(() => clearTimeout(timeoutId));
+
+    const relatedSlugs = slug ? PROJECT_TO_POSTS[slug] : undefined;
+    if (relatedSlugs && relatedSlugs.length > 0) {
+      fetch("/api/posts")
+        .then(r => r.json())
+        .then(all => setRelatedPosts(all.filter((p: any) => relatedSlugs.includes(p.slug))))
+        .catch(() => {});
+    }
   }, [slug]);
 
   useEffect(() => {
@@ -572,6 +582,32 @@ export default function ProjectDetail() {
                 {project.content || ""}
               </ReactMarkdown>
             </div>
+
+            {relatedPosts.length > 0 && (
+              <section className="mt-24 border-t border-neutral-800 pt-12">
+                <h2 className="text-2xl font-bold text-white mb-3 flex items-baseline">
+                  <span className="text-amber-400 mr-3">::</span> Related Reading
+                </h2>
+                <p className="text-[#9CA3AF] text-sm mb-8">Deepen your understanding with blog posts that explore similar themes.</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {relatedPosts.map((post: any) => (
+                    <Link
+                      key={post.slug}
+                      to={`/blog/${post.slug}`}
+                      className="group border border-white/5 bg-[#151515] rounded-xl p-5 hover:border-amber-400/30 transition-all duration-300"
+                    >
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-amber-400/60">
+                        {post.tags?.[0] || "Article"}
+                      </span>
+                      <h3 className="text-base font-semibold text-white mt-2 group-hover:text-amber-400 transition-colors line-clamp-2">
+                        {post.title}
+                      </h3>
+                      <p className="text-xs text-[#6B7280] mt-2 line-clamp-2">{post.excerpt}</p>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
           </div>
 
           {toc.length > 0 && (
