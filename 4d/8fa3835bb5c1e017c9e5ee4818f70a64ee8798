@@ -1,0 +1,43 @@
+projects/dchain-blockchain-infrastructure.md
+  s_f2f1ef0b997716::t_8dbf8ebf90c418 234-235,237-240,242-245,247-249,251
+  s_f2f1ef0b997716::t_1fe04c92cf1f3f 286-289,293-296
+  s_f2f1ef0b997716::t_b6948aeaadb58f 139,141
+  s_f2f1ef0b997716::t_1ebcaed12ea6d0 273
+  s_f2f1ef0b997716::t_1af0285e1371f4 155,157,159-170,173-175,178-180
+  s_f2f1ef0b997716::t_3d792b68b9c982 82
+  s_f2f1ef0b997716::t_c9517fdee5f41f 57
+  s_f2f1ef0b997716::t_fba49af0ba04c1 102,104-107,109
+  s_f2f1ef0b997716::t_9cb4a48449a69a 202,205,207-212,214,216,219-220,222-227,229-230
+  s_f2f1ef0b997716::t_f9a6dbe095aea4 59
+  s_f2f1ef0b997716::t_b3151262796622 45,47
+  s_f2f1ef0b997716::t_c3c73a503a3f8c 21-22
+  s_f2f1ef0b997716::t_09a87c669743d6 51,53
+  s_f2f1ef0b997716::t_6b1a489df13543 184,186-191
+  s_f2f1ef0b997716::t_54817e504d229a 41
+  s_f2f1ef0b997716::t_4137fa21606b3d 26
+  s_f2f1ef0b997716::t_9f70e3366400f5 145,147,149
+  s_f2f1ef0b997716::t_3619cc32bd43b4 276-281
+  s_f2f1ef0b997716::t_182aa477d7d931 304-306
+  s_f2f1ef0b997716::t_ccdeda77fa4af9 93
+  s_f2f1ef0b997716::t_808ba886f989ae 84-86,88-91
+  s_f2f1ef0b997716::t_c05d5db8061ec9 95-100
+  s_f2f1ef0b997716::t_073ee0f2cd79f5 195-197
+gaps.md
+  s_f2f1ef0b997716::t_49720faa360121 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "4d8fa3835bb5c1e017c9e5ee4818f70a64ee8798",
+  "prompts": {},
+  "sessions": {
+    "s_f2f1ef0b997716": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_157f01c15ffeI9pR9OJoGj96xp",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
