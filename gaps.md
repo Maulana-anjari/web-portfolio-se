@@ -41,9 +41,9 @@
 - Mobile: "Hire / Collaborate"
 - Harusnya konsisten — prefer "Let's Collaborate" untuk kedua
 
-### 12. TechStack icons repetitive
+### 12. ~~TechStack icons repetitive~~ ➡️ WONTFIX
 - PostgreSQL, SQL Server, Milvus semua pakai icon `Database` yang sama
-- Solusi: pilih icon yang lebih spesifik atau tambah label yang lebih jelas
+- Solusi: pilih icon yang lebih spesifik
 
 ### 13. ~~No scroll-to-top button~~ ✅ DONE
 - ScrollToTop ada di route change, tapi setelah scroll panjang di halaman home/blog/project detail (1000+ lines), tidak ada FAB untuk scroll ke atas
