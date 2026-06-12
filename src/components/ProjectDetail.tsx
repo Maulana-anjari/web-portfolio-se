@@ -584,25 +584,37 @@ export default function ProjectDetail() {
             </div>
 
             {relatedPosts.length > 0 && (
-              <section className="mt-24 border-t border-neutral-800 pt-12">
-                <h2 className="text-2xl font-bold text-white mb-3 flex items-baseline">
+              <section className="mt-32 border-t border-neutral-800 pt-16">
+                <h2 className="text-2xl font-bold text-white mb-2 flex items-baseline">
                   <span className="text-amber-400 mr-3">::</span> Related Reading
                 </h2>
-                <p className="text-[#9CA3AF] text-sm mb-8">Deepen your understanding with blog posts that explore similar themes.</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <p className="text-[#6B7280] text-sm mb-10 font-mono uppercase tracking-wider">Deepen your understanding</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {relatedPosts.map((post: any) => (
                     <Link
                       key={post.slug}
                       to={`/blog/${post.slug}`}
-                      className="group border border-white/5 bg-[#151515] rounded-xl p-5 hover:border-amber-400/30 transition-all duration-300"
+                      className="group block"
                     >
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-amber-400/60">
-                        {post.tags?.[0] || "Article"}
-                      </span>
-                      <h3 className="text-base font-semibold text-white mt-2 group-hover:text-amber-400 transition-colors line-clamp-2">
+                      <div className="aspect-[16/9] rounded-xl overflow-hidden bg-[#1A1A1A] mb-4">
+                        <img
+                          src={post.img || "https://placehold.co/600x338/1A1A1A/666666?text=Read&font=roboto"}
+                          alt={post.title}
+                          width="600"
+                          height="338"
+                          loading="lazy"
+                          className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-[10px] font-mono uppercase tracking-widest text-amber-400/80 border border-amber-400/15 px-2 py-0.5 rounded-full">
+                          {post.tags?.[0] || "Article"}
+                        </span>
+                        <span className="text-[10px] text-[#6B7280] font-mono">{post.date?.slice(0, 10)}</span>
+                      </div>
+                      <h3 className="text-base font-semibold text-white group-hover:text-amber-400 transition-colors line-clamp-2 leading-snug">
                         {post.title}
                       </h3>
-                      <p className="text-xs text-[#6B7280] mt-2 line-clamp-2">{post.excerpt}</p>
                     </Link>
                   ))}
                 </div>

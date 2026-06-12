@@ -1003,25 +1003,37 @@ export function BlogPost() {
           </div>
 
           {relatedProjects.length > 0 && (
-            <section className="mt-24 border-t border-white/5 pt-12">
-              <h2 className="text-2xl font-bold text-white mb-3 flex items-baseline">
+            <section className="mt-32 border-t border-white/5 pt-16">
+              <h2 className="text-2xl font-bold text-white mb-2 flex items-baseline">
                 <span className="text-neon-mint mr-3">::</span> Related Projects
               </h2>
-              <p className="text-[#9CA3AF] text-sm mb-8">Explore case studies that connect to the ideas in this article.</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <p className="text-[#6B7280] text-sm mb-10 font-mono uppercase tracking-wider">Browse related case studies</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {relatedProjects.map((proj: any) => (
                   <Link
                     key={proj.slug}
                     to={`/projects/${proj.slug}`}
-                    className="group border border-white/5 bg-[#151515] rounded-xl p-5 hover:border-neon-mint/30 transition-all duration-300"
+                    className="group block"
                   >
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-neon-mint/60">
-                      {proj.role}
-                    </span>
-                    <h3 className="text-base font-semibold text-white mt-2 group-hover:text-neon-mint transition-colors line-clamp-2">
+                    <div className="aspect-[16/9] rounded-xl overflow-hidden bg-[#1A1A1A] mb-4">
+                      <img
+                        src={proj.image || "https://placehold.co/600x338/1A1A1A/666666?text=Case+Study&font=roboto"}
+                        alt={proj.title}
+                        width="600"
+                        height="338"
+                        loading="lazy"
+                        className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-neon-mint/80 border border-neon-mint/15 px-2 py-0.5 rounded-full">
+                        {proj.metric || "Case Study"}
+                      </span>
+                      <span className="text-[10px] text-[#6B7280] font-mono">{proj.role}</span>
+                    </div>
+                    <h3 className="text-base font-semibold text-white group-hover:text-neon-mint transition-colors line-clamp-2 leading-snug">
                       {proj.title}
                     </h3>
-                    <p className="text-xs text-[#6B7280] mt-2 line-clamp-2">{proj.excerpt}</p>
                   </Link>
                 ))}
               </div>
