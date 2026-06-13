@@ -13,9 +13,9 @@ readingTime: "6 min read"
 
 In today's digital era, financial innovations like Crypto, Tokenomics, Stocks, Paylater, and Dropshipping are evolving at a breakneck pace. However, these innovations often bring confusion, especially for Muslims who want to ensure their transactions comply with Islamic law (halal or haram).
 
-The main problem isn't a lack of scholars, but the **difficulty laypeople face in explaining complex financial schemes to muftis or ustadzs**. There is a massive knowledge gap between the classical language of Islamic jurisprudence (*turats*) and the reality of modern applications. Without an accurate and complete understanding of the facts—a concept known in Fiqh as **Tashawwur**—issuing a precise fatwa is impossible. As the legal maxim states: *"The ruling on a thing is a branch of its conceptualization (tashawwur)."*
+The main problem isn't a lack of scholars, but the **difficulty laypeople face in explaining complex financial schemes to muftis or ustadzs**. There is a massive knowledge gap between the classical language of Islamic jurisprudence (*turats*) and the reality of modern applications. Without an accurate and complete understanding of the facts, a concept known in Fiqh as **Tashawwur**, issuing a precise fatwa is impossible. As the legal maxim states: *"The ruling on a thing is a branch of its conceptualization (tashawwur)."*
 
-Driven by this issue, I designed and built the **Tashawwur Fikih Muamalat Telegram Bot**. This project is not a "Fatwa-Issuing Bot." Rather, it is an **AI Assistant and Transaction Anatomy Expert** designed to bridge modern financial terminology with the language of Fiqh, preparing the facts so they can be easily consulted with religious scholars.
+Driven by this issue, I designed and built the **Tashawwur Fikih Muamalat Telegram Bot**, an **AI Assistant and Transaction Anatomy Expert** designed to bridge modern financial terminology with the language of Fiqh, preparing the facts so they can be easily consulted with religious scholars.
 
 ![Illustration of an AI assistant analyzing modern financial transactions and Islamic finance contracts](/images/blog/tashawwur-hero.webp)
 
@@ -24,8 +24,8 @@ Driven by this issue, I designed and built the **Tashawwur Fikih Muamalat Telegr
 The bot is designed to deconstruct a business scheme from start to finish with the following key features:
 
 1. **Terminology Translator:** Converts complex marketing/financial terms into their Sharia contract equivalents (e.g., explaining crypto *staking* through the lens of Islamic contracts).
-2. **Transaction Flow Deconstruction:** Breaks down the involved parties, the flow of money, and the object of the transaction using simple language and diagrams.
-3. **Critical Point Detection:** Automatically highlights parts of the transaction that potentially contain *Gharar* (uncertainty), *Maysir* (gambling), or *Riba* (usury).
+2. **Transaction Flow Deconstruction:** Breaks down the parties and money flows using simple language and diagrams.
+3. **Critical Point Detection:** Automatically highlights parts of the transaction that potentially contain *Gharar* (uncertainty) or *Riba* (usury).
 4. **Case Simulation & Risk Analysis:** Provides concrete examples of real-world applications, including simulating who bears the loss if the business fails.
 5. **Copy-Ready Consultation Summary:** Generates a neatly structured report that users can easily copy-paste (or export to PDF) to send to their consulting ustadz.
 6. **Interactive Glossary:** If a user is confused by a Fiqh term mentioned by the bot, they can immediately ask for a conceptual explanation.
@@ -74,7 +74,7 @@ graph TD
 
 ### 3. Background Workers & Storage (Celery & PostgreSQL)
 
-* **Celery:** AI processing takes time (often 30-40 seconds). If the FastAPI "Receptionist" handled this, the queue would stall. Celery acts as the background "Factory Worker." FastAPI simply hands the task to Celery and returns to serving other users.
+* **Celery:** AI processing takes time (often 30-40 seconds). If the FastAPI "Receptionist" handled this, the queue would stall. Celery acts as the background "Factory Worker." FastAPI hands the task to Celery and returns to serving other users.
 * **PostgreSQL:** The robust main filing cabinet. It stores chat history (so the bot remembers context) and tracks the status of every asynchronous task.
 
 ### 4. The AI Brain (Gemini & LangGraph)
@@ -93,7 +93,7 @@ graph TD
 
 ## Service Level Objectives (SLOs)
 
-This system was built with strict technical performance targets:
+I built this system with strict technical performance targets:
 
 | Metric | Target |
 |---|---|
@@ -104,7 +104,7 @@ This system was built with strict technical performance targets:
 
 ## Development Roadmap
 
-The project is being built using an agile approach to ensure quality at every step:
+I am building the project using an agile approach to ensure quality at every step:
 
 * **Phase 1 - Foundation & Reliability:** Building FastAPI, Redis, Celery, and the queue system for absolute stability (Current Phase).
 * **Phase 2 - PDF Export:** Allowing users to download clean PDF versions of their consultation summaries.
@@ -114,6 +114,6 @@ The project is being built using an agile approach to ensure quality at every st
 
 ## Conclusion
 
-The **Tashawwur Fikih Muamalat** bot is a prime example of how modern Generative AI—when orchestrated with mature software architecture like asynchronous processing, caching, and agentic workflows—can solve highly specific and essential literacy problems in society.
+The **Tashawwur Fikih Muamalat** bot is a prime example of how modern Generative AI, when orchestrated with mature software architecture like asynchronous processing, caching, and agentic workflows, can solve highly specific and essential literacy problems in society.
 
-More than just a standard chatbot, it is a smart assistant that respects the authority of human scholars by positioning itself purely as a factual deconstruction tool, ensuring the community can navigate the disruptions of modern finance with clarity and peace of mind.
+More than just a standard chatbot, it is a smart assistant that respects the authority of human scholars by positioning itself purely as a factual deconstruction tool, ensuring the community can handle the disruptions of modern finance with clarity and peace of mind.

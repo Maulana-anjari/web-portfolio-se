@@ -9,15 +9,15 @@ readingTime: "3 min read"
 
 ## Introduction
 
-Leadership in university initiatives often serves as a microcosm for the challenges faced in professional engineering and management roles. During my time at Universitas Gadjah Mada (UGM), I had the privilege of taking on two significant leadership positions: serving as the **Kormanit (Coordinator of Student Unit Level)** for the KKN-PPM UGM program and as the **Head of UKM Bridge UGM**. 
+Leading university initiatives involves many of the same challenges as professional engineering and management roles. During my time at Universitas Gadjah Mada (UGM), I had the privilege of taking on two significant leadership positions: serving as the **Kormanit (Coordinator of Student Unit Level)** for the KKN-PPM UGM program and as the **Head of UKM Bridge UGM**. 
 
-In both roles, the core challenge wasn't just about planning activities—it was about aligning diverse groups of people toward a shared objective, managing substantial budgets, and ensuring transparent communication across multiple stakeholder levels.
+In both roles, the core challenge was aligning diverse groups of people toward a shared objective and managing substantial budgets with transparent communication across multiple stakeholder levels.
 
 ![Dark-themed conceptual illustration representing team leadership and project synchronization](/images/blog/managing-stakeholders-leadership.png)
 
 ## The Challenge
 
-In large-scale student initiatives, the primary hurdles often revolve around resource constraints and communication silos. 
+In large-scale student initiatives, teams often face resource constraints and communication silos. 
 
 ### 1. Cross-Functional Coordination at KKN-PPM UGM
 
@@ -25,15 +25,15 @@ For the 50-day KKN-PPM program in Ngemplak, Sleman, I was responsible for coordi
 
 ### 2. Revitalizing UKM Bridge UGM
 
-When I stepped up as the Head of UKM Bridge UGM in 2023, the organization needed a massive push in both member engagement and operational funding. I had to orchestrate the activities of multiple divisions—from public relations to training and media—while preparing athletes for regional and national competitions like the National Student Bridge League.
+As Head of UKM Bridge UGM in 2023, I drove a massive push in both member engagement and operational funding. I orchestrated the activities of multiple divisions, including public relations and media, while preparing athletes for regional and national competitions like the National Student Bridge League.
 
 ## Strategic Approach
 
-To navigate these challenges, I adopted a structured approach to project management and stakeholder communication that mirrors professional engineering practices:
+To handle these challenges, I adopted a structured approach to project management and stakeholder communication used in professional engineering:
 
-*   **Modularizing Responsibilities (Delegation):** Similar to a microservices architecture, I empowered division heads and cluster leads to operate semi-autonomously. For instance, in KKN, I managed the high-level roadmap on the Simaster platform, allowing the Science-Technology and Health clusters to focus deeply on their specific program executions without micromanagement.
-*   **Transparent Resource Management:** Managing an organization's finances requires the same level of rigorous attention as managing system resources. In UKM Bridge, I worked closely with the treasurer to ensure every rupiah was accounted for. By establishing a clear pipeline for activity proposals and financial reports, we maintained complete transparency with our faculty advisors.
-*   **Establishing "APIs" for Communication:** As a leader, I served as the primary interface between my teams and external stakeholders. During KKN, I synthesized activity outcomes and budget utilization for village officials and district authorities, ensuring they received clear, actionable updates rather than overwhelming raw data.
+*   **Modularizing Responsibilities (Delegation):** Similar to a microservices architecture, I empowered division heads and cluster leads to operate semi-autonomously. For instance, in KKN, I managed the high-level roadmap on the Simaster platform, allowing the Science-Technology and Health clusters to focus on their specific program executions without micromanagement.
+*   **Transparent Resource Management:** Managing an organization's finances requires the same level of rigorous attention as managing system resources. In UKM Bridge, I worked closely with the treasurer to account for every rupiah. By establishing a clear pipeline for activity proposals and financial reports, we maintained complete transparency with our faculty advisors.
+*   **Establishing "APIs" for Communication:** As a leader, I served as the primary interface between my teams and external stakeholders. During KKN, I synthesized activity outcomes and budget utilization for village officials and district authorities, ensuring they received clear, actionable updates without overwhelming raw data.
 
 ## Results & Impact
 
@@ -45,4 +45,4 @@ Implementing these structured management techniques led to quantifiable, real-wo
 
 ## Conclusion
 
-Whether you are coordinating an interdisciplinary student program, growing a university sports organization, or architecting a large-scale software system, the core principles remain identical: clear communication, strategic resource distribution, and empowering your team. The lessons I learned managing 30+ individuals and multi-million rupiah budgets have fundamentally shaped my approach to software engineering and technical leadership today.
+Clear communication and strategic resource distribution remain the core principles whether coordinating an interdisciplinary student program or growing a university sports organization. The lessons I learned managing 30+ individuals and multi-million rupiah budgets have shaped my approach to software engineering and technical leadership today.

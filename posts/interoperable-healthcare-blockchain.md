@@ -9,7 +9,7 @@ readingTime: "2 min read"
 
 ## Introduction
 
-In the current healthcare landscape, data silos between hospitals and insurance providers often lead to delays in patient treatment and insurance claims processing. Secure and scalable data exchange is no longer just a luxury—it's a necessity.
+In the current healthcare field, data silos between hospitals and insurance providers often lead to delays in patient treatment and insurance claims processing. Secure and scalable data exchange is a necessity.
 
 From August 2023 to January 2024, I had the opportunity to intern as a Blockchain Engineer at the Faculty of Engineering, Universitas Gadjah Mada (UGM) under the guidance of [Guntur Dharma Putra, S.T., M.Sc., Ph.D.](https://gdputra.github.io). Working alongside my colleague Novaldy Pratama, we focused on applying software engineering principles to solve healthcare data management challenges using an interoperable blockchain testbed.
 
@@ -17,7 +17,7 @@ From August 2023 to January 2024, I had the opportunity to intern as a Blockchai
 
 ## The Interoperability Challenge
 
-Healthcare data is sensitive, high-volume, and typically distributed across multiple organizations. A "one-size-fits-all" blockchain approach often fails because:
+Healthcare data is sensitive and high-volume, often distributed across multiple organizations. A "one-size-fits-all" blockchain approach often fails because:
 1.  **On-Chain Storage Limits**: Storing large medical records directly on a ledger makes the system slow and expensive.
 2.  **Privacy Requirements**: Different stakeholders (Hospitals vs. Insurers) require distinct access levels.
 3.  **Cross-Network Communication**: Data often needs to move between private (off-chain) storage and public (on-chain) validation layers.
@@ -30,7 +30,7 @@ We developed a testbed using **Hyperledger Fabric** to simulate a secure network
 
 Our solution followed a "Hybrid Data Management" pattern:
 -   **On-Chain (Hyperledger Fabric)**: Stores the metadata, access control lists, and cryptographic hashes of the medical records.
--   **Off-Chain (IPFS)**: Stores the actual medical documents (PDFs/Images). The IPFS CID (Content Identifier) is then anchored on the Fabric ledger.
+-   **Off-Chain (IPFS)**: Stores the actual medical documents (PDFs/Images). The IPFS CID (Content Identifier) anchors on the Fabric ledger.
 
 ```
 
@@ -73,6 +73,6 @@ A critical part of our research was ensuring the system could handle enterprise 
 
 ## Reflections
 
-This internship was more than just a coding exercise; it was a lesson in **Software Engineering Application**. We had to manage complex Docker deployments with multiple peer nodes, handle asynchronous transaction lifecycles in Node.js, and ensure our chaincode (smart contracts) adhered to strict medical data privacy standards.
+This internship was more than a coding exercise; it was a lesson in **Software Engineering Application**. We had to manage complex Docker deployments with multiple peer nodes and ensure our chaincode (smart contracts) adhered to strict medical data privacy standards.
 
-The project demonstrated that blockchain, when combined with off-chain storage like IPFS, can provide a scalable and secure foundation for the future of global healthcare interoperability.
+Through this project, we demonstrated that blockchain, when combined with off-chain storage like IPFS, can provide a scalable and secure foundation for the future of global healthcare interoperability.

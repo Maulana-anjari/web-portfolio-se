@@ -11,7 +11,7 @@ readingTime: "5 min read"
 
 In the automotive second-hand market, trust is the primary currency. Buyers need to know if a vehicle has been accurately inspected, while inspectors need a way to prove their reports haven't been tampered with.
 
-As part of **Sumbu Labs**, I worked as a Backend Developer to solve this problem for **PT. Inspeksi Mobil Jogja**. We built **CAR-dano**, a decentralized platform that turns vehicle inspection reports into immutable assets on the [Cardano](https://cardano.org) blockchain. This project was initiated by Giga and the PT Inspeksi team through a successful [Project Catalyst](https://projectcatalyst.io) Fund 13 proposal in late 2024.
+As part of **Sumbu Labs**, I worked as a Backend Developer to solve this problem for **PT. Inspeksi Mobil Jogja**. We built **CAR-dano**, a decentralized platform that turns vehicle inspection reports into immutable assets on the [Cardano](https://cardano.org) blockchain. Giga and the PT Inspeksi team initiated this project through a successful [Project Catalyst](https://projectcatalyst.io) Fund 13 proposal in late 2024.
 
 Under the academic supervision of [Ir. Noor Akhmad Setiawan, S.T., M.T., Ph.D., IPM.](https://acadstaff.ugm.ac.id/nasetiawan) and [Guntur Dharma Putra, S.T., M.Sc., Ph.D.](https://gdputra.github.io), our team developed a robust bridge between traditional Web2 mobile applications and the Web3 ecosystem.
 
@@ -19,7 +19,7 @@ Under the academic supervision of [Ir. Noor Akhmad Setiawan, S.T., M.T., Ph.D., 
 
 ## The Engineering Challenge: Web2 Reliability meets Web3 Finality
 
-Bringing blockchain to a real-world inspection business isn't just about writing smart contracts; it's about building a backend that survives the "chaos" of distributed systems. We faced three core engineering hurdles:
+Bringing blockchain to a real-world inspection business means building a backend that survives the "chaos" of distributed systems. We faced three core engineering hurdles:
 
 1.  **eUTXO State Management:** Unlike Account-based chains (like Ethereum), Cardano uses the **eUTXO (Extended Unspent Transaction Output)** model. We had to manage UTXO state manually to prevent "UTXO contention" when multiple transactions attempted to spend the same inputs or collateral simultaneously.
 2.  **Strict Metadata Constraints:** On-chain metadata (CIP-25) is limited to **64 bytes** per string value. Truncating or splitting hashes without losing data integrity was a non-negotiable requirement.
@@ -29,7 +29,7 @@ Bringing blockchain to a real-world inspection business isn't just about writing
 
 ## The System Architecture
 
-Our backend was built with **NestJS**, chosen for its modularity and scalability. The database layer utilized **PostgreSQL** with **Prisma ORM** for operational data, while **Redis** handled atomic counters (for unique inspection IDs like `YOG-01052025-001`) and caching.
+We built our backend with **NestJS**, chosen for its modularity and scalability. The database layer utilized **PostgreSQL** with **Prisma ORM** for operational data, while **Redis** handled atomic counters (for unique inspection IDs like `YOG-01052025-001`) and caching.
 
 ```mermaid
 graph TD
@@ -194,9 +194,9 @@ This project was a true collaborative effort by the **Sumbu Labs** team:
 
 ## Impact and Lessons Learned
 
-Integrating Web2 standards with Web3 finality taught me that **reliability is the hardest part of blockchain engineering**. By building a system that handles state management and service failure gracefully, we provided **PT. Inspeksi Mobil Jogja** with a truly tamper-proof digital archive. 
+Integrating Web2 standards with Web3 finality taught me that **reliability is the hardest part of blockchain engineering**. By building a system that handles state management and service failure gracefully, we provided **PT. Inspeksi Mobil Jogja** with a tamper-proof digital archive. 
 
-This project proves that the future of automotive trust isn't just in the engine—it's in the ledger.
+This project proves that the future of automotive trust is in the ledger.
 
 ---
 *Learn more about our Project Catalyst proposal at [projectcatalyst.io](https://projectcatalyst.io).*

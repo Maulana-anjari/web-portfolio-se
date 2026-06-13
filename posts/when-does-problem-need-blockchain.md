@@ -8,11 +8,11 @@ readingTime: 7
 
 ### Introduction
 
-The question of whether a given problem requires blockchain technology surfaces frequently in engineering discussions. It is not a matter of technological prestige. It is a matter of selecting the appropriate tool for the specific problem at hand.
+The question of whether a given problem requires blockchain technology surfaces frequently in engineering discussions. The goal is selecting the appropriate tool for the specific problem at hand.
 
 This question became particularly relevant during research comparing Proof of Authority and Proof of Stake consensus mechanisms on a national blockchain network. The answer, in practice, proved far more nuanced than the common refrain that blockchain represents a universal solution.
 
-This article presents a structured framework for determining when a problem genuinely requires blockchain technology, and when conventional database systems remain the more appropriate choice.
+This article presents a structured framework for determining when a problem requires blockchain technology, and when conventional database systems remain the more appropriate choice.
 
 ---
 
@@ -20,11 +20,11 @@ This article presents a structured framework for determining when a problem genu
 
 A fact often overlooked in architectural discussions: blockchain technology carries significant costs.
 
-These costs manifest in several dimensions. Development complexity increases substantially when working with smart contract testing, consensus mechanism configuration, and node management. Operational expenses include gas fees, node infrastructure, and validator incentives. Throughput remains lower than that of centralized databases. Regulatory uncertainty persists, particularly in jurisdictions such as Indonesia.
+These costs manifest in several dimensions. Development complexity increases substantially when working with smart contract testing and node management. Operational expenses include gas fees and node infrastructure. Throughput remains lower than that of centralized databases. Regulatory uncertainty persists, particularly in jurisdictions such as Indonesia.
 
 If a problem can be solved with PostgreSQL and proper access control, PostgreSQL is the correct choice. No additional architectural complexity is warranted.
 
-However, specific scenarios exist where blockchain technology is not merely beneficial but necessary.
+However, specific scenarios exist where blockchain technology is necessary.
 
 ---
 
@@ -44,9 +44,9 @@ Blockchain addresses this directly. All parties hold identical copies of the dat
 
 Certain systems require that data remain unmodifiable by any party, including system administrators.
 
-Practical examples include audit trails for financial transactions, tamper-proof medical records, digital academic credentials, and supply chain provenance tracking.
+Practical examples include audit trails for financial transactions and tamper-proof medical records.
 
-When a system requires non-repudiation — meaning no single entity can alter historical records — blockchain provides mathematical guarantees rather than organizational ones.
+When a system requires non-repudiation, meaning no single entity can alter historical records, blockchain provides mathematical guarantees rather than organizational ones.
 
 **Decision criterion:** If a requirement explicitly states that data must be unmodifiable by any party including system administrators, blockchain merits evaluation.
 
@@ -54,9 +54,9 @@ When a system requires non-repudiation — meaning no single entity can alter hi
 
 ### Scenario 3: Decentralized Governance Requirements
 
-The concern is sometimes not technical but structural. Certain platforms must operate without any single party holding full control over rules and policies.
+The concern is structural. Certain platforms must operate without any single party holding full control over rules and policies.
 
-Examples include decentralized autonomous organizations, decentralized marketplaces, and transparent voting systems.
+Examples include decentralized autonomous organizations and transparent voting systems.
 
 **Decision criterion:** If requirements explicitly prohibit single points of control, blockchain technology is relevant.
 
@@ -66,7 +66,7 @@ Examples include decentralized autonomous organizations, decentralized marketpla
 
 When a problem involves digital ownership that must be transferable without intermediaries, blockchain occupies a distinct position.
 
-Practical applications include digital collectibles with genuine utility, tokenized real-world assets such as property or precious metals, loyalty points transferable across platforms, and portable in-game assets.
+Practical applications include digital collectibles with genuine utility and tokenized real-world assets such as property or precious metals.
 
 **Decision criterion:** If the system requires users to hold genuine ownership of digital assets and transfer them without intermediaries, blockchain is appropriate.
 
@@ -131,9 +131,9 @@ Affirmative answers to at least two or three of these questions indicate that bl
 
 ### Observations from Research Experience
 
-Research comparing Proof of Authority and Proof of Stake on a national blockchain network yielded one significant insight.
+Research comparing Proof of Authority and Proof of Stake on a national blockchain network yielded one insight.
 
-The relevant question is not whether blockchain functions. The question is whether the trade-offs are justified.
+The relevant question is whether the trade-offs are justified.
 
 Proof of Authority offers greater speed and efficiency but with higher centralization. Proof of Stake provides stronger decentralization guarantees but with greater complexity and resource consumption. Each has valid applications depending on the specific use case.
 
@@ -143,7 +143,7 @@ This principle applies to architectural decisions generally. No technology is in
 
 ### Conclusion
 
-Blockchain technology is a powerful tool. It remains, however, a tool — not a universal solution.
+Blockchain technology is a powerful tool. It remains a tool for specific problems.
 
 Before adopting blockchain technology, consider the following questions:
 
