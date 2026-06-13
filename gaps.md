@@ -59,7 +59,7 @@
 - Masih "Backend & AI Engineer" dari positioning lama
 - Seharusnya: "Backend Engineer & Startup Builder"
 
-### 16. `vercel.json` duplicate cache-control
+### 16. ~~`vercel.json` duplicate cache-control~~ ✅ DONE
 - Source `/assets/(.*)` muncul 2 kali di headers array (line 4–11 dan line 50–57)
 - Tidak menyebabkan error tapi redundant
 
