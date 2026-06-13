@@ -107,14 +107,22 @@ export default function ServicesSection() {
                         <p className="text-[#A0A0A0] text-[15px] leading-relaxed max-w-md">
                           {service.desc}
                         </p>
-                        <a
-                          href="#contact"
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const lenis = (window as any).__lenis;
+                            if (lenis) {
+                              lenis.scrollTo('#contact');
+                            } else {
+                              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                            }
+                          }}
                           onMouseEnter={() => setIsHoveringButton(true)}
                           onMouseLeave={() => setIsHoveringButton(false)}
-                          className="inline-block text-neon-mint text-sm font-semibold tracking-wide hover:underline underline-offset-4"
+                          className="inline-block text-neon-mint text-sm font-semibold tracking-wide hover:underline underline-offset-4 cursor-none"
                         >
                           Let's Talk ↗
-                        </a>
+                        </button>
                       </div>
                     </motion.div>
                   )}

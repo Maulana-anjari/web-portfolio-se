@@ -20,7 +20,7 @@
 - Project detail → "Related Reading" section
 - Membangun topical authority dan internal linking
 
-### 8. ServiceSection CTA link ke `#contact` anchor
+### 8. ~~ServiceSection CTA link ke `#contact` anchor~~ ✅ DONE
 - `services` CTA menggunakan `<a href="#contact">` — di SPA dengan Lenis smooth scroll, hash navigation tidak menjamin scroll ke footer
 - Harusnya programmatic scroll atau langsung `mailto:` (seperti footer button)
 
