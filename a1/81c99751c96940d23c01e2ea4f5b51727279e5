@@ -1,0 +1,29 @@
+projects/car-dano-cardano-backend.md
+  s_f2f1ef0b997716::t_c775f3f6d371a7 175,177-179
+  s_f2f1ef0b997716::t_32b1e82d7b53bc 51-52,54
+  s_f2f1ef0b997716::t_a12b6d6266ae0a 141
+  s_f2f1ef0b997716::t_0f703eeb7225f1 29
+  s_f2f1ef0b997716::t_0d553db74cf653 43
+  s_f2f1ef0b997716::t_973d8dd349d206 41
+  s_f2f1ef0b997716::t_054c0e9b99ab19 59
+  s_f2f1ef0b997716::t_fa4759f79dbe52 27
+  s_f2f1ef0b997716::t_8e8162c2d4b545 118-119,122-123
+  s_f2f1ef0b997716::t_94666920fae8a7 174
+  s_f2f1ef0b997716::t_e811ee5f8f75c8 151-152
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "a181c99751c96940d23c01e2ea4f5b51727279e5",
+  "prompts": {},
+  "sessions": {
+    "s_f2f1ef0b997716": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_157f01c15ffeI9pR9OJoGj96xp",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Maulana Anjari Anggorokasih <maulana17anjari@gmail.com>"
+    }
+  }
+}
