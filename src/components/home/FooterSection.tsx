@@ -84,7 +84,7 @@ export default function FooterSection() {
                     whileTap={{ scale: 0.95 }}
                     viewport={{ once: true }}
                     transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                    className="group relative z-10 flex h-[130px] w-[130px] items-center justify-center rounded-full bg-[#00FF66] shadow-[0_0_20px_rgba(0,255,102,0.3)]"
+                    className="group relative z-10 flex h-[130px] w-[130px] items-center justify-center rounded-full bg-neon-mint shadow-[0_0_20px_rgba(0,255,102,0.3)]"
                   >
                     <span className="text-center text-sm font-bold text-black/90 px-4">
                       Let's Collaborate
@@ -127,7 +127,7 @@ export default function FooterSection() {
                   whileTap={{ scale: 0.95 }}
                   viewport={{ once: true }}
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  className="group relative z-10 flex h-[120px] w-[120px] items-center justify-center rounded-full bg-[#00FF66] shadow-[0_0_20px_rgba(0,255,102,0.3)]"
+                  className="group relative z-10 flex h-[120px] w-[120px] items-center justify-center rounded-full bg-neon-mint shadow-[0_0_20px_rgba(0,255,102,0.3)]"
                 >
                     <span className="text-center text-sm font-bold text-black/90 px-4">
                       Let's Collaborate
@@ -158,7 +158,7 @@ export default function FooterSection() {
                       <a
                         key={link.name}
                         href={link.href}
-                        className="text-xs font-semibold text-white/70 hover:text-[#00FF66] transition-colors"
+                        className="text-xs font-semibold text-white/70 hover:text-neon-mint transition-colors"
                       >
                         {link.name}
                       </a>
@@ -174,7 +174,7 @@ export default function FooterSection() {
                       href="https://github.com/Maulana-anjari"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-semibold text-white/70 hover:text-[#00FF66] transition-colors"
+                      className="text-xs font-semibold text-white/70 hover:text-neon-mint transition-colors"
                     >
                       GITHUB
                     </a>
@@ -195,7 +195,7 @@ export default function FooterSection() {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs font-semibold text-white/70 hover:text-[#00FF66] transition-colors"
+                        className="text-xs font-semibold text-white/70 hover:text-neon-mint transition-colors"
                       >
                         {link.name}
                       </a>
@@ -207,7 +207,7 @@ export default function FooterSection() {
               <div className="mt-20 space-y-4">
                 <a
                   href="mailto:maulana17anjari@gmail.com"
-                  className="block text-[clamp(14px,4.5vw,24px)] md:text-3xl font-bold text-white hover:text-[#00FF66] transition-colors whitespace-nowrap"
+                  className="block text-[clamp(14px,4.5vw,24px)] md:text-3xl font-bold text-white hover:text-neon-mint transition-colors whitespace-nowrap"
                 >
                   maulana17anjari@gmail.com
                 </a>
@@ -215,7 +215,7 @@ export default function FooterSection() {
                   href="https://wa.me/62895619386814"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-[clamp(16px,5vw,20px)] md:text-2xl font-bold text-white hover:text-[#00FF66] transition-colors"
+                  className="block text-[clamp(16px,5vw,20px)] md:text-2xl font-bold text-white hover:text-neon-mint transition-colors"
                 >
                   +62 8956 1938 6814
                 </a>

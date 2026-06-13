@@ -337,11 +337,11 @@ export default function ProjectDetail() {
         <meta property="og:url" content={projectUrl} />
         <meta property="og:title" content={`${project.title || "Project"} — Maulana Anjari`} />
         <meta property="og:description" content={`Case study: ${project.role || "Engineer"} at ${project.company || "Organization"}.`} />
-        <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.png" />
+        <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${project.title} — Maulana Anjari`} />
         <meta name="twitter:description" content={`Case study: ${project.role} at ${project.company}.`} />
-        <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.png" />
+        <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

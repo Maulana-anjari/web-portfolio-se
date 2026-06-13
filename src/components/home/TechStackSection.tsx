@@ -37,8 +37,8 @@ export default function TechStackSection() {
               onMouseLeave={() => setIsHoveringButton(false)}
               className={`group relative flex h-[120px] items-center justify-center border-b border-r border-[#333333] transition-all duration-300 ${
                 tech.highlight
-                  ? "bg-[#00FF66] text-[#111111]"
-                  : "bg-transparent text-[#888888] hover:bg-[#00FF66] hover:text-[#111111]"
+                  ? "bg-neon-mint text-[#111111]"
+                  : "bg-transparent text-[#888888] hover:bg-neon-mint hover:text-[#111111]"
               }`}
             >
               <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-center px-2">

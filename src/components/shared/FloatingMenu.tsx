@@ -71,11 +71,11 @@ export default function FloatingMenu({ items }: FloatingMenuProps) {
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
           }}
         />
-        <span className="group-hover:animate-pulse relative z-10 transition-colors group-hover:text-[#00FF66]">
+        <span className="group-hover:animate-pulse relative z-10 transition-colors group-hover:text-neon-mint">
           Menu
         </span>
         <div className="flex items-center text-xs relative z-10">
-          <span className="font-mono text-[#00FF66] tracking-tighter">
+          <span className="font-mono text-neon-mint tracking-tighter">
             &lt;&nbsp;&gt;
           </span>
         </div>
@@ -109,10 +109,10 @@ export default function FloatingMenu({ items }: FloatingMenuProps) {
             <div className="p-6 flex flex-col gap-2 relative z-10">
               <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-2">
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gray-400 flex items-center gap-2">
-                  <Terminal size={12} className="text-[#00FF66]" />
+                  <Terminal size={12} className="text-neon-mint" />
                   Menu
                 </span>
-                <div className="h-1 w-1 rounded-full bg-[#00FF66] animate-pulse" />
+                <div className="h-1 w-1 rounded-full bg-neon-mint animate-pulse" />
               </div>
               <div className="space-y-1">
                 {items.map((item, idx) => {
@@ -131,26 +131,26 @@ export default function FloatingMenu({ items }: FloatingMenuProps) {
                         <Link
                           to={item.href}
                           className={`group/item flex items-center gap-3 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-300 relative tracking-[0.02em]
-                            ${isActive ? "text-[#00FF66] bg-[#00FF66]/10" : "text-white hover:text-[#00FF66] hover:bg-[#00FF66]/5"}`}
+                            ${isActive ? "text-neon-mint bg-neon-mint/10" : "text-white hover:text-neon-mint hover:bg-neon-mint/5"}`}
                           style={{
                             textShadow: isActive ? "0 0 8px rgba(0, 255, 102, 0.4)" : "none",
                           }}
                           onClick={() => setIsMenuOpen(false)}
                         >
-                          <span className="w-0 opacity-0 group-hover/item:w-2 group-hover/item:opacity-100 transition-all duration-300 text-[#00FF66] font-mono">&gt;</span>
+                          <span className="w-0 opacity-0 group-hover/item:w-2 group-hover/item:opacity-100 transition-all duration-300 text-neon-mint font-mono">&gt;</span>
                           {item.name}
                         </Link>
                       ) : (
                         <a
                           href={item.href}
                           className={`group/item flex items-center gap-3 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-300 relative tracking-[0.02em]
-                            ${isActive ? "text-[#00FF66] bg-[#00FF66]/10" : "text-white hover:text-[#00FF66] hover:bg-[#00FF66]/5"}`}
+                            ${isActive ? "text-neon-mint bg-neon-mint/10" : "text-white hover:text-neon-mint hover:bg-neon-mint/5"}`}
                           style={{
                             textShadow: isActive ? "0 0 8px rgba(0, 255, 102, 0.4)" : "none",
                           }}
                           onClick={() => setIsMenuOpen(false)}
                         >
-                          <span className="w-0 opacity-0 group-hover/item:w-2 group-hover/item:opacity-100 transition-all duration-300 text-[#00FF66] font-mono">&gt;</span>
+                          <span className="w-0 opacity-0 group-hover/item:w-2 group-hover/item:opacity-100 transition-all duration-300 text-neon-mint font-mono">&gt;</span>
                           {item.name}
                         </a>
                       )}

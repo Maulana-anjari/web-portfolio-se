@@ -23,6 +23,7 @@ interface ProjectMeta {
   metric: string;
   order: number;
   excerpt: string;
+  status?: string;
 }
 
 export default function ProjectsList() {
@@ -59,7 +60,7 @@ export default function ProjectsList() {
         <meta property="og:url" content="https://maulana.sumbu.xyz/projects" />
         <meta property="og:title" content="Projects — Maulana Anjari" />
         <meta property="og:description" content="Evidence-backed backend engineering case studies." />
-        <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.png" />
+        <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json">

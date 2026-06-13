@@ -58,12 +58,12 @@ function PortfolioHome() {
         <meta property="og:url" content="https://maulana.sumbu.xyz/" />
         <meta property="og:title" content="Maulana Anjari | Backend Engineer" />
         <meta property="og:description" content="Backend Engineer building production systems, distributed infrastructure, and LLM-integrated workflows." />
-        <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.png" />
+        <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://maulana.sumbu.xyz/" />
         <meta name="twitter:title" content="Maulana Anjari | Backend Engineer" />
         <meta name="twitter:description" content="Backend systems, distributed infrastructure, and risk-aware digital governance." />
-        <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.png" />
+        <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -72,7 +72,7 @@ function PortfolioHome() {
             "alternateName": "Maul",
             "url": "https://maulana.sumbu.xyz",
             "jobTitle": "Backend Engineer",
-            "image": "https://maulana.sumbu.xyz/og-image.png",
+            "image": "https://maulana.sumbu.xyz/og-image.jpg",
             "alumniOf": {
               "@type": "CollegeOrUniversity",
               "name": "Universitas Gadjah Mada",

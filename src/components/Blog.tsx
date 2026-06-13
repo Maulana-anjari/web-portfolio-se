@@ -117,7 +117,7 @@ const MermaidCodeBlock = ({ code }: { code: string }) => {
   }
 
   return (
-    <div className="my-10 rounded-xl overflow-hidden border border-[#00FF66]/20 shadow-2xl group/code">
+    <div className="my-10 rounded-xl overflow-hidden border border-neon-mint/20 shadow-2xl group/code">
       <div className="bg-[#1A1A1A] px-4 py-2 flex items-center justify-between border-b border-[#333333]">
         <div className="flex gap-2">
           <div className="w-3 h-3 rounded-full bg-[#FF5F56] opacity-60" />
@@ -318,13 +318,13 @@ export function BlogIndex() {
         <meta property="og:url" content={`https://maulana.sumbu.xyz/blog${activeCategory !== "All" ? `?tag=${activeCategory}` : ""}`} />
         <meta property="og:title" content={activeCategory !== "All" ? `${activeCategory} Articles | Maulana Anjari` : "Blog | Maulana Anjari - Backend Engineer"} />
         <meta property="og:description" content={activeCategory !== "All" ? `${activeCategory} articles by Maulana Anjari.` : "Technical blog about backend architecture, blockchain protocols, and distributed systems."} />
-        <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.png" />
+        <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.jpg" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://maulana.sumbu.xyz/blog" />
         <meta name="twitter:title" content="Blog | Maulana Anjari - Backend Engineer" />
         <meta name="twitter:description" content="Backend architecture, blockchain protocols, and distributed systems by Maulana Anjari." />
-        <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.png" />
+        <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.jpg" />
 
         <script type="application/ld+json">
           {JSON.stringify({
@@ -356,7 +356,7 @@ export function BlogIndex() {
               className="font-sans font-black text-white leading-[1.1] tracking-tighter mb-8"
               style={{ fontSize: "clamp(2.5rem, 8vw, 6rem)" }}
             >
-              Documenting the logic behind <span className="text-[#00FF66] selection:text-black">complex systems</span> and <span className="text-[#00FF66] selection:text-black">scalable infrastructure</span>.
+              Documenting the logic behind <span className="text-neon-mint selection:text-black">complex systems</span> and <span className="text-neon-mint selection:text-black">scalable infrastructure</span>.
             </motion.h1>
 
             <motion.p
@@ -378,17 +378,17 @@ export function BlogIndex() {
                   aria-pressed={activeCategory === category}
                    onClick={() => { setActiveCategory(category); setSearchParams(category === "All" ? {} : { tag: category }); }}
                   className={`relative text-xs md:text-sm font-mono uppercase tracking-[0.15em] transition-all duration-300 group
-                    ${activeCategory === category ? 'text-[#00FF66]' : 'text-[#949494] hover:text-[#00FF66]'}`}
+                    ${activeCategory === category ? 'text-neon-mint' : 'text-[#949494] hover:text-neon-mint'}`}
                 >
                   {category}
                   {activeCategory === category && (
                     <motion.div 
                       layoutId="activeCategory"
-                      className="absolute -bottom-[33px] left-0 right-0 h-[2px] bg-[#00FF66] shadow-[0_0_10px_#00FF66]"
+                      className="absolute -bottom-[33px] left-0 right-0 h-[2px] bg-neon-mint shadow-[0_0_10px_var(--color-neon-mint)]"
                     />
                   )}
                   {activeCategory === category && (
-                    <div className="absolute -right-2 top-0 w-1 h-1 rounded-full bg-[#00FF66] shadow-[0_0_8px_#00FF66]" />
+                    <div className="absolute -right-2 top-0 w-1 h-1 rounded-full bg-neon-mint shadow-[0_0_8px_var(--color-neon-mint)]" />
                   )}
                 </button>
               ))}
@@ -396,14 +396,14 @@ export function BlogIndex() {
 
             <div className="flex items-center gap-6 self-end md:self-auto">
               <div className="relative group/search">
-                <span className="absolute left-0 top-1/2 -translate-y-1/2 font-mono text-[10px] text-[#00FF66]/40 group-focus-within/search:text-[#00FF66] transition-colors uppercase tracking-widest">
+                <span className="absolute left-0 top-1/2 -translate-y-1/2 font-mono text-[10px] text-neon-mint/40 group-focus-within/search:text-neon-mint transition-colors uppercase tracking-widest">
                   // SEARCH_
                 </span>
                 <input 
                   type="text"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
-                  className="bg-transparent border-b border-[#00FF66]/10 focus:border-[#00FF66]/60 focus:ring-0 focus:outline-none pl-20 pr-4 py-1 text-white font-mono text-xs w-48 md:w-64 transition-all duration-300 focus:shadow-[0_4px_10px_-5px_rgba(0,255,102,0.2)]"
+                  className="bg-transparent border-b border-neon-mint/10 focus:border-neon-mint/60 focus:ring-0 focus:outline-none pl-20 pr-4 py-1 text-white font-mono text-xs w-48 md:w-64 transition-all duration-300 focus:shadow-[0_4px_10px_-5px_rgba(0,255,102,0.2)]"
                   spellCheck="false"
                 />
               </div>
@@ -412,7 +412,7 @@ export function BlogIndex() {
                 type="button"
                 aria-label={`Sort posts ${sortOrder === "DESC" ? "oldest first" : "newest first"}`}
                 onClick={() => setSortOrder(prev => prev === "DESC" ? "ASC" : "DESC")}
-                className="font-mono text-[10px] tracking-widest text-[#949494] hover:text-[#00FF66] transition-colors border border-white/10 rounded px-3 py-1 bg-white/5 active:scale-95"
+                className="font-mono text-[10px] tracking-widest text-[#949494] hover:text-neon-mint transition-colors border border-white/10 rounded px-3 py-1 bg-white/5 active:scale-95"
               >
                 [{sortOrder}]
               </button>
@@ -450,7 +450,7 @@ export function BlogIndex() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className={`${gridClass} group relative bg-[#111111] border border-[#00FF66]/10 rounded-3xl overflow-hidden hover:border-[#00FF66]/80 transition-all duration-500 flex flex-col h-full min-h-max`}
+                    className={`${gridClass} group relative bg-[#111111] border border-neon-mint/10 rounded-3xl overflow-hidden hover:border-neon-mint/80 transition-all duration-500 flex flex-col h-full min-h-max`}
                     whileHover={{ 
                       backgroundColor: "rgba(17, 17, 17, 0.8)",
                       boxShadow: "0 0 15px rgba(0, 255, 102, 0.2), inset 0 0 20px rgba(0, 255, 102, 0.05)"
@@ -463,7 +463,7 @@ export function BlogIndex() {
                       <div className="flex-grow shrink-0">
                         <div className="flex flex-wrap items-center gap-2 mb-5">
                           {visibleTags.map(tag => (
-                            <span key={tag} className="text-[10px] font-mono uppercase tracking-widest text-[#00FF66] border border-[#00FF66]/15 px-3 py-1 rounded-full bg-[#00FF66]/[0.03] backdrop-blur-sm">
+                            <span key={tag} className="text-[10px] font-mono uppercase tracking-widest text-neon-mint border border-neon-mint/15 px-3 py-1 rounded-full bg-neon-mint/[0.03] backdrop-blur-sm">
                               {tag}
                             </span>
                           ))}
@@ -717,13 +717,13 @@ export function BlogPost() {
   const postUrl = `${siteUrl}/blog/${post.slug}`;
   const imageUrl = (() => {
     const img = post.frontmatter.img;
-    if (!img) return `${siteUrl}/og-image.png`;
+    if (!img) return `${siteUrl}/og-image.jpg`;
     // Relative path: prepend site URL (always HTTPS)
     if (img.startsWith('/')) return `${siteUrl}${img}`;
     // Already HTTPS: use as-is
     if (img.startsWith('https://')) return img;
     // HTTP or other scheme: fall back to OG image to avoid mixed content
-    return `${siteUrl}/og-image.png`;
+    return `${siteUrl}/og-image.jpg`;
   })();
 
   const articleSchema = {
@@ -743,7 +743,7 @@ export function BlogPost() {
       "name": "Maulana Anjari",
       "logo": {
         "@type": "ImageObject",
-        "url": `${siteUrl}/og-image.png`
+        "url": `${siteUrl}/og-image.jpg`
       }
     },
     "description": post.frontmatter.excerpt,
@@ -817,7 +817,7 @@ export function BlogPost() {
         <FloatingMenu items={[{ name: "All Posts", href: "/blog", isExternal: true }, { name: "Home", href: "/", isExternal: true }, { name: "Projects", href: "/projects", isExternal: true }, { name: "Contact", href: "mailto:maulana17anjari@gmail.com", isExternal: true }]} />
         {/* Progress Bar */}
         <motion.div
-          className="fixed top-0 left-0 right-0 h-[3px] bg-neon-mint z-[100] origin-left shadow-[0_0_10px_#00FF66]"
+          className="fixed top-0 left-0 right-0 h-[3px] bg-neon-mint z-[100] origin-left shadow-[0_0_10px_var(--color-neon-mint)]"
           style={{ scaleX }}
         />
 
@@ -913,7 +913,7 @@ export function BlogPost() {
 
                   if (isInline) {
                     return (
-                      <code className="bg-[#00FF66]/[0.1] text-[#00FF66] px-1.5 py-0.5 rounded-[4px] font-mono text-[0.9em] border border-[#00FF66]/10">
+                      <code className="bg-neon-mint/[0.1] text-neon-mint px-1.5 py-0.5 rounded-[4px] font-mono text-[0.9em] border border-neon-mint/10">
                         {children}
                       </code>
                     );

@@ -2,6 +2,7 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { checkRateLimit } from './_lib/rateLimit';
 
 function getPostsDirectory() {
   const dir = path.join(process.cwd(), "posts");
@@ -13,6 +14,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
+
+  const ip = (req.headers['x-forwarded-for'] as string || req.socket.remoteAddress || 'unknown').split(',')[0].trim();
+  if (!checkRateLimit(ip, res)) return;
 
   try {
     const postsDirectory = getPostsDirectory();

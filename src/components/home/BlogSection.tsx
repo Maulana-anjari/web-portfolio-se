@@ -57,7 +57,7 @@ export default function BlogSection() {
                   </div>
 
                   <div className="flex items-center gap-3 mt-2">
-                    <span className="rounded-full border border-[#00FF66]/20 bg-[#00FF66]/5 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#00FF66]">
+                    <span className="rounded-full border border-neon-mint/20 bg-neon-mint/5 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-neon-mint">
                       {post.tags?.[0] || "//POST"}
                     </span>
                     <span className="text-[#949494]">|</span>
@@ -66,7 +66,7 @@ export default function BlogSection() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold leading-tight text-white transition-colors duration-300 group-hover:text-[#00FF66] line-clamp-2">
+                  <h3 className="text-xl font-bold leading-tight text-white transition-colors duration-300 group-hover:text-neon-mint line-clamp-2">
                     {post.title}
                   </h3>
 
