@@ -78,12 +78,12 @@
 
 ## 📊 Positioning Gaps
 
-### 20. Open source contribution tidak di-highlight
+### 20. ~~Open source contribution tidak di-highlight~~ ✅ DONE (via stat #4 di SkillsSection)
 - 7 repositori thesis (DChain-PoA-Geth, DChain-PoS-Geth, caliper-benchmark-workspace, dll) adalah open source
 - Tidak disebut di SkillsSection, ProjectsSection, atau mana pun
 - Bisa jadi signal kuat untuk technical hiring managers
 
-### 21. Aggregate impact metrics tidak ada
+### 21. ~~Aggregate impact metrics tidak ada~~ ✅ DONE
 - Homepage cuma punya 3 stats di SkillsSection (3+ years, 15+ systems, 97+ endpoints)
 - Tidak ada aggregate: total production users impacted, total TPS handled, total repos, total PRs merged
 

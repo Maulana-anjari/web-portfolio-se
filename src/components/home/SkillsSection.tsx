@@ -138,12 +138,13 @@ export default function SkillsSection({ onOpenResume }: SkillsSectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-16"
+          className="mt-32 grid grid-cols-1 md:grid-cols-4 gap-16"
         >
           {[
-            { num: "3+", label: "Years of Back-End Exp." },
-            { num: "15+", label: "High-Load Systems Built" },
-            { num: "97+", label: "API Endpoints Optimized" },
+            { num: "3+", label: "Years Shipping Production Systems" },
+            { num: "10+", label: "Case Studies Published" },
+            { num: "100+", label: "API Endpoints Engineered" },
+            { num: "7+", label: "Open Source Repositories" },
           ].map((stat, idx) => (
             <div key={idx} className="group flex flex-col">
               <span className="text-6xl md:text-7xl font-bold h-[1.2em] flex items-center text-amber-400">
