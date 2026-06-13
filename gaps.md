@@ -72,7 +72,7 @@
 - Tidak bisa ukur: traffic, conversion (email/WA clicks), popular content, bounce rate
 - Privacy-preserving option: Plausible or Umami (self-hosted)
 
-### 19. ServiceSection Unsplash image tanpa local fallback
+### 19. ~~ServiceSection Unsplash image tanpa local fallback~~ ✅ DONE
 - Image dari Unsplash: kalau gagal load, area image jadi kosong
 - onError handler tidak replace dengan placeholder seperti di ProjectDetail
 

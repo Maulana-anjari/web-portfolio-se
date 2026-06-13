@@ -34,7 +34,9 @@ export default function ServicesSection() {
               loading="lazy"
               onError={(e) => {
                 const target = e.currentTarget;
-                target.style.display = "none";
+                if (!target.src.includes("placehold.co")) {
+                  target.src = "https://placehold.co/1000x750/1A1A1A/666666?text=Cloud+Architecture&font=roboto";
+                }
               }}
               className="h-full w-full object-cover grayscale transition-transform duration-[800ms] ease-out group-hover:scale-[1.03] group-hover:grayscale-0"
             />
