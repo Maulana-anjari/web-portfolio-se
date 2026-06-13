@@ -143,7 +143,7 @@ export default function SkillsSection({ onOpenResume }: SkillsSectionProps) {
           {[
             { num: "3+", label: "Years Shipping Production Systems" },
             { num: "10+", label: "Case Studies Published" },
-            { num: "100+", label: "API Endpoints Engineered" },
+            { num: "5", label: "Industries Served" },
             { num: "7+", label: "Open Source Repositories" },
           ].map((stat, idx) => (
             <div key={idx} className="group flex flex-col">
