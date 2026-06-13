@@ -24,9 +24,9 @@ Cardano, NestJS, Node.js, Prisma, PostgreSQL, REST APIs, NFT minting, Xendit, Ba
 
 ## Overview
 
-CAR-dano is a blockchain-backed vehicle inspection platform (inspeksimobil.id) built for PT Inspeksi Mobil Jogja, funded by **Project Catalyst Cardano Fund 13 (60K ADA)** grant. The platform enables automobile inspectors to conduct on-site vehicle inspections, generate certified reports, mint inspection records as NFTs on Cardano, and deliver verified results to customers — all within a production backend running at **100% uptime** serving 20 concurrent users.
+CAR-dano is a blockchain-backed vehicle inspection platform (inspeksimobil.id) built for PT Inspeksi Mobil Jogja, funded by **Project Catalyst Cardano Fund 13 (60K ADA)** grant. The platform enables automobile inspectors to conduct on-site vehicle inspections, generate certified reports, mint inspection records as NFTs on Cardano, and deliver verified results to customers. The production backend runs at **100% uptime** serving 20 concurrent users.
 
-The backend was built from scratch by a small team at **Sumbu Labs (PT Sumbu Inovasi Digital)** — a startup — between February and October 2025, with continued post-experience contributions through March 2026.
+The backend was built from scratch by a small team at **Sumbu Labs (PT Sumbu Inovasi Digital)** between February and October 2025, with continued post-experience contributions through March 2026.
 
 ## My Role
 
@@ -38,9 +38,9 @@ Also wrote **~3,400 lines of architecture proposals** for platform evolution (mi
 
 ## Problem
 
-The client — PT Inspeksi Mobil Jogja — ran manual inspection workflows with no centralized backend, no verifiable audit trail, and no automated report generation. They needed a production-grade platform that could:
+The client, PT Inspeksi Mobil Jogja, ran manual inspection workflows with no centralized backend, no verifiable audit trail, and no automated report generation. They needed a production-grade platform that could:
 
-1. Digitize end-to-end inspection workflows (inspector → reviewer → customer)
+1. Digitize end-to-end inspection workflows (inspector to reviewer to customer)
 2. Provide tamper-proof, blockchain-backed verification via Cardano NFT minting
 3. Automate PDF report generation with cloud storage
 4. Monetize through paid inspection reports and credit packages
@@ -48,15 +48,15 @@ The client — PT Inspeksi Mobil Jogja — ran manual inspection workflows with 
 
 ### Sub-Problem: Operational bottlenecks in manual inspection flow
 
-- **Problem**: Inspection flow was entirely manual — inspectors recorded data on paper, reviewers approved offline, customers waited hours for results. Client handled only ~7 inspections daily with ~3-hour end-to-end cycle time.
-- **Solution**: Built full inspection CRUD + status workflow engine (submitted → reviewed → approved → published), granular RBAC (5 roles: ADMIN, REVIEWER, INSPECTOR, SUPERADMIN, CUSTOMER), role-based approval flows, and batch operations for bulk approval.
+- **Problem**: Inspection flow was entirely manual. Inspectors recorded data on paper, reviewers approved offline, customers waited hours for results. The client handled only ~7 inspections daily with ~3-hour end-to-end cycle time.
+- **Solution**: Built full inspection CRUD + status workflow engine (submitted, reviewed, approved, published), granular RBAC (5 roles: ADMIN, REVIEWER, INSPECTOR, SUPERADMIN, CUSTOMER), role-based approval flows, and batch operations for bulk approval.
 - **Stack**: NestJS, Prisma, PostgreSQL, REST APIs, JWT/PIN/OAuth.
-- **Result**: Daily on-chain inspections grew from **~7 → 15–20**. End-to-end cycle time dropped from **±3 hours → 1.5–2 hours** (inspeksi → approval reviewer → hasil ke customer).
+- **Result**: Daily on-chain inspections grew from ~7 to 15-20. End-to-end cycle time dropped from ±3 hours to 1.5-2 hours (inspeksi to approval reviewer to hasil ke customer).
 
 ### Sub-Problem: Blockchain verification without degrading performance
 
 - **Problem**: Every inspection needed on-chain verification via Cardano NFT minting, but blockchain transaction latency risked slowing down the core API for all users.
-- **Solution**: Isolated blockchain module with in-memory queue + circuit breaker pattern, per-UTXO minimum logic, and retry mechanism. Core inspection workflow never blocks on chain confirmation. PDF hash is minted to blockchain asynchronously after report generation.
+- **Solution**: Isolated blockchain module with in-memory queue and circuit breaker pattern, per-UTXO minimum logic, and retry mechanism. Core inspection workflow never blocks on chain confirmation. PDF hash is minted to blockchain asynchronously after report generation.
 - **Stack**: Cardano, MeshSDK, Blockfrost, NestJS queue, PostgreSQL (transaction isolation).
 - **Result**: Reliable on-chain verification that never degraded API response times. Users experienced blockchain-backed integrity without blockchain latency.
 
@@ -115,12 +115,12 @@ Client (Web / Mobile)
 ```
 
 - REST API serves inspection and platform workflows
-- PostgreSQL (Prisma) handles all transactional data — inspections, users, credits, audit logs
-- Blockchain queue operates asynchronously with circuit breaker: NFT minting never blocks API response
+- PostgreSQL (Prisma) handles all transactional data: inspections, users, credits, audit logs
+- Blockchain queue operates asynchronously with circuit breaker. NFT minting never blocks API response.
 - Xendit webhooks processed with DB-backed idempotency (unique transaction deduplication)
 - PDF reports generated in parallel with compression, stored on Backblaze B2, served via presigned URLs
-- Prometheus exposes `/metrics` endpoint; Grafana dashboards visualize throughput, latency, error rates
-- GitHub Actions CI/CD: Docker 3-stage build → push to registry → deploy to staging/production
+- Prometheus exposes `/metrics` endpoint. Grafana dashboards visualize throughput, latency, error rates.
+- GitHub Actions CI/CD: Docker 3-stage build to push to registry to deploy to staging/production
 
 ## Result / Impact
 
@@ -138,7 +138,7 @@ Client (Web / Mobile)
 
 ## Solution
 
-1. **Modular NestJS monolith** — 15+ feature modules with clear separation: auth, inspections, users, blockchain, billing, credits, reports, photos, backblaze, pdf-proxy, logging, customer, public-api, dashboard, grafana.
+1. **Modular NestJS monolith** — 15+ feature modules with clear separation. Auth, inspections, users, blockchain, billing, credits, reports, photos, backblaze, pdf-proxy, logging, customer, public-api, dashboard, grafana.
 2. **Async blockchain integration** — Cardano NFT minting isolated behind in-memory queue with circuit breaker. Core inspection API never blocks on chain confirmation. UTXO-aware minting logic with per-UTXO minimum and retry.
 3. **Production-grade reliability** — Docker 3-stage optimized builds, GitHub Actions CI/CD, Prometheus + Grafana monitoring, structured logging (nestjs-pino), audit trail for sensitive flows, granular per-endpoint rate limiting.
 4. **Payment integrity** — Xendit webhook idempotency enforced at database level (Prisma unique constraints on transaction IDs). Credit charging with atomic decrement. No duplicate charges possible.
@@ -148,8 +148,8 @@ Client (Web / Mobile)
 
 - **Isolating blockchain latency from user experience**: Cardano transaction confirmation takes 20+ seconds. Built in-memory queue with circuit breaker so NFT minting failures never cascade into API errors. Users get as-fast-as-normal response times regardless of chain state.
 - **Webhook idempotency for payments**: Xendit can send duplicate webhooks under network retry. Implemented DB-level idempotency (unique constraint on `xendit_transaction_id`) with proper error handling so replay is safe and no customer gets double-charged.
-- **PDF generation under concurrent load**: Generating inspection PDFs consumes significant CPU. Built parallel generation (full + no-docs PDFs simultaneously) with compression tuning. Added circuit breaker to prevent resource exhaustion. Wrote migration plan for dedicated Go PDF worker.
-- **Maintaining 100% uptime while shipping 194 commits**: Every feature went through staging → production with zero-downtime deploys. Used Prisma migrations carefully (no destructive changes in production), feature flags for partial rollouts, and rollback-compatible API changes.
+- **PDF generation under concurrent load**: Generating inspection PDFs consumes significant CPU. Built parallel generation (full and no-docs PDFs simultaneously) with compression tuning. Added circuit breaker to prevent resource exhaustion. Wrote migration plan for dedicated Go PDF worker.
+- **Maintaining 100% uptime while shipping 194 commits**: Every feature went through staging to production with zero-downtime deploys. Used Prisma migrations carefully (no destructive changes in production), feature flags for partial rollouts, and rollback-compatible API changes.
 - **Cross-team coordination in a startup**: Worked alongside PM for feature scoping, mobile engineer for API contract design, frontend engineer for data shape alignment, and UI/UX designer for workflow states. All 67 API endpoints shaped through this collaboration.
 
 ## Evidence
@@ -171,9 +171,9 @@ Client (Web / Mobile)
 
 ## What I Learned
 
-- **Decouple slow subsystems from fast ones**: The most impactful decision was isolating Cardano NFT minting behind an async queue with circuit breaker. Users never felt blockchain latency. This principle applies everywhere — payment webhooks, PDF generation, external APIs.
-- **Payment idempotency is not optional**: Building database-level idempotency for Xendit webhooks (unique constraint on transaction ID) was a small implementation that prevented an entire class of catastrophic bugs. Every payment integration needs this from day one.
+- **Decouple slow subsystems from fast ones**: Isolating Cardano NFT minting behind an async queue with circuit breaker was the most impactful decision. Users never felt blockchain latency. This principle applies everywhere: payment webhooks, PDF generation, external APIs.
+- **Payment idempotency is not optional**: Database-level idempotency for Xendit webhooks (unique constraint on transaction ID) was a small implementation that prevented an entire class of catastrophic bugs. Every payment integration needs this from day one.
 - **Operational simplicity wins in startups**: The 67-endpoint NestJS monolith with modular design served 20 concurrent users at 100% uptime. Microservices would have been premature. But writing ~3,400 lines of migration proposals meant the team had a clear path when growth demanded it.
-- **Queue + circuit breaker as a deployment safety net**: PDF generation and blockchain minting both used the same pattern (queue → worker → circuit breaker → graceful degradation). This prevented resource exhaustion and kept the API responsive even when downstream services degraded.
-- **Cross-team API design compounds**: Shaping 67 endpoints alongside PM, mobile, frontend, and UI/UX meant the API fit real workflows — not just what looked good in Swagger. The frontend performance optimization I later contributed (React.memo, optimistic UI, prefetching) was directly enabled by clean API contracts we designed together months earlier.
-- **Ownership beyond employment**: Continuing to build `inspector-backend` (10 commits, 17,798 LOC from scratch) and optimize `cardano-frontend` (19 commits) months after the formal experience period ended taught me that real engineering ownership doesn't stop at a contract date — it stops when the system is right.
+- **Queue and circuit breaker as a deployment safety net**: PDF generation and blockchain minting both used the same pattern (queue, worker, circuit breaker, graceful degradation). This prevented resource exhaustion and kept the API responsive even when downstream services degraded.
+- **Cross-team API design compounds**: Shaping 67 endpoints alongside PM, mobile, frontend, and UI/UX meant the API fit real workflows, not just what looked good in Swagger. The frontend performance optimization I later contributed (React.memo, optimistic UI, prefetching) was enabled by clean API contracts we designed together months earlier.
+- **Ownership beyond employment**: Continuing to build `inspector-backend` (10 commits, 17,798 LOC from scratch) and optimize `cardano-frontend` (19 commits) months after the formal experience period ended taught me that real engineering ownership does not stop at a contract date. It stops when the system is right.
