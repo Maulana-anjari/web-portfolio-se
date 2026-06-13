@@ -15,9 +15,9 @@ order: 5
 
 ## Overview
 
-Full-stack registration platform for **Technocorner UGM 2023** — a national engineering competition organized by KMK UGM with 5 contest tracks (EEC, IoT, Line Follower, Sumorobot, Transporter) serving ~200 participant teams. I was the **primary backend developer**, authoring **94.3% of backend commits** (66 of 70), plus **107 frontend commits** as API integrator and auth developer — totaling **173 commits across both repos** over a 6-month development cycle (November 2022 – May 2023).
+Full-stack registration platform for **Technocorner UGM 2023**. A national engineering competition organized by KMK UGM with 5 contest tracks (EEC, IoT, Line Follower, Sumorobot, Transporter) serving ~200 participant teams. I was the **primary backend developer**, authoring **94.3% of backend commits** (66 of 70), plus **107 frontend commits** as API integrator and auth developer, totaling **173 commits across both repos** over a 6-month development cycle (November 2022 – May 2023).
 
-Unlike my earlier sprint-style event project (Find-It), Technocorner was a **mature, sustained delivery** spanning initialization, feature development, production deployment (Cyclic → Render migration), and post-event maintenance. It demonstrates full-stack capability — Express.js backend with MongoDB, Next.js 13 frontend with Redux Toolkit, cross-domain cookie-based authentication, Google Drive + Sheets integrations, and real production debugging (10+ CORS-related commits).
+Technocorner was a **mature, sustained delivery** spanning initialization, feature development, production deployment (Cyclic → Render migration), and post-event maintenance. It demonstrates full-stack capability: Express.js backend with MongoDB, Next.js 13 frontend with Redux Toolkit, cross-domain cookie-based authentication, Google Drive + Sheets integrations, and real production debugging (10+ CORS-related commits).
 
 ## Repository
 
@@ -32,7 +32,7 @@ Node.js, Express.js, MongoDB, Mongoose, JWT authentication, Google OAuth2 (Passp
 
 ## My Role
 
-**Primary Backend Developer** — effectively solo backend owner — built the entire REST API, database schema, authentication/authorization system, email service, Google integrations, and deployment pipeline from scratch. Authored 94.3% of all backend commits; the only other contributors were a minor dev (3 commits) and a deployment bot (1 commit). Also contributed **107 commits to the frontend** as API integrator: built the authentication flow, user dashboard, and registration pipeline using Next.js 13, Redux Toolkit, and Tailwind CSS.
+**Primary Backend Developer**, effectively solo backend owner, built the entire REST API, database schema, authentication/authorization system, email service, Google integrations, and deployment pipeline from scratch. Authored 94.3% of all backend commits; the only other contributors were a minor dev (3 commits) and a deployment bot (1 commit). Also contributed **107 commits to the frontend** as API integrator: built the authentication flow, user dashboard, and registration pipeline using Next.js 13, Redux Toolkit, and Tailwind CSS.
 
 ## Problem
 
@@ -40,10 +40,10 @@ Technocorner UGM needed a reliable registration platform for a national-scale en
 
 1. Team registration with multi-member data collection and document uploads (photos, ID cards, promotional materials)
 2. Payment verification with proof-of-transfer upload
-3. Admin review workflows — team verification, status tracking, announcements
+3. Admin review workflows: team verification, status tracking, announcements
 4. Exportable statistics for the organizing committee (Google Sheets)
 5. Authentication for participants, admins, and Google OAuth users
-6. Production deployment with separate frontend and backend domains — requiring CORS and cross-domain cookie management
+6. Production deployment with separate frontend and backend domains, requiring CORS and cross-domain cookie management
 
 The platform went live for ~200 teams and ran through the event with ongoing maintenance.
 
@@ -56,7 +56,7 @@ The platform went live for ~200 teams and ran through the event with ongoing mai
 
 ### Sub-Problem: Cross-domain authentication between Next.js frontend and Express backend
 
-- **Problem**: The frontend (Next.js 13) and backend (Express.js) ran on separate domains — requiring cookie-based session management across origins. Standard localhost auth patterns broke in production.
+- **Problem**: The frontend (Next.js 13) and backend (Express.js) ran on separate domains, requiring cookie-based session management across origins. Standard localhost auth patterns broke in production.
 - **Solution**: Implemented JWT-based auth with `httpOnly` cookies, configured `sameSite: 'none'` and `secure: true` for cross-domain delivery, and built the frontend auth layer using Redux Toolkit async thunks with `withCredentials: true` on every Axios request. Auth coverage included signup, email activation (Nodemailer + Zoho SMTP), signin, forgot/reset password, Google OAuth2 (Passport.js), and role-based access control (admin vs user).
 - **Stack**: JWT (jsonwebtoken), bcrypt, Passport.js (Google OAuth2), Nodemailer, cookie-parser, express-session + connect-mongo, Redux Toolkit, axios.
 - **Result**: Seamless auth flow across separate frontend and backend domains. Role-protected admin routes and user dashboard functioned correctly in production.
@@ -64,7 +64,7 @@ The platform went live for ~200 teams and ran through the event with ongoing mai
 ### Sub-Problem: CORS and deployment reliability in production
 
 - **Problem**: Deploying a cross-origin Express.js backend to Cyclic and later to Render exposed persistent CORS misconfigurations. Cookies weren't being set, preflight requests failed, and environment-specific origins behaved inconsistently.
-- **Solution**: Iterated through **10+ CORS fix commits** across February–May 2023 — adjusting `origin` configuration, `credentials: true`, header allow-lists, and environment-variable-driven CORS settings. Migrated deployment from Cyclic (initial) to Render (final) when Cyclic's free tier proved unstable.
+- **Solution**: Iterated through **10+ CORS fix commits** across February–May 2023, adjusting `origin` configuration, `credentials: true`, header allow-lists, and environment-variable-driven CORS settings. Migrated deployment from Cyclic (initial) to Render (final) when Cyclic's free tier proved unstable.
 - **Stack**: cors middleware, Helmet, environment-driven configuration, Cyclic, Render.
 - **Result**: Stable production deployment on Render serving cross-domain cookie-based auth. Gained real operational experience debugging deployment-edge-case issues that don't appear in local development.
 
@@ -140,26 +140,26 @@ The platform went live for ~200 teams and ran through the event with ongoing mai
 
 ## Solution
 
-1. **Solo backend delivery** — built the entire REST API from `npm init` to production, authoring 94.3% of backend commits. Only 4 commits came from other contributors. Designed 7 Mongoose models, 4 route groups, and full MVC architecture with services, middleware, and utility layers.
-2. **Complete authentication system** — JWT + Google OAuth2 (Passport.js) with email verification (Nodemailer + Zoho SMTP), cookie-based session management (`httpOnly`, `sameSite: 'none'`, `secure: true`), role-based access control (ensureAuth/ensureAdmin/ensureGuest middleware), and frontend auth integration via Redux Toolkit async thunks.
-3. **Full-stack registration pipeline** — 107 frontend commits delivering the complete user journey: signup → email activation → login → team registration (multi-member, document upload) → dashboard → profile management. Redux Toolkit managed auth and registration state; Axios handled cross-domain cookie-based requests.
-4. **Production operations** — iterated through 10+ CORS fix commits, migrated deployment from Cyclic to Render when the free tier became unreliable, and maintained the platform post-event through May 2023. This was not a "build and handoff" project — it required sustained production debugging.
-5. **Google ecosystem integrations** — categorized file uploads to Google Drive (foto, KTP, twibbon per team member + payment proof) with delete-and-replace semantics. Per-track statistics auto-exported to Google Sheets for the organizing committee, reducing manual reporting effort.
+1. **Solo backend delivery**: built the entire REST API from `npm init` to production, authoring 94.3% of backend commits. Only 4 commits came from other contributors. Designed 7 Mongoose models, 4 route groups, and full MVC architecture with services, middleware, and utility layers.
+2. **Complete authentication system**: JWT + Google OAuth2 (Passport.js) with email verification (Nodemailer + Zoho SMTP), cookie-based session management (`httpOnly`, `sameSite: 'none'`, `secure: true`), role-based access control (ensureAuth/ensureAdmin/ensureGuest middleware), and frontend auth integration via Redux Toolkit async thunks.
+3. **Full-stack registration pipeline**: 107 frontend commits delivering the complete user journey: signup → email activation → login → team registration (multi-member, document upload) → dashboard → profile management. Redux Toolkit managed auth and registration state; Axios handled cross-domain cookie-based requests.
+4. **Production operations**: iterated through 10+ CORS fix commits, migrated deployment from Cyclic to Render when the free tier became unreliable, and maintained the platform post-event through May 2023. It required sustained production debugging.
+5. **Google ecosystem integrations**: categorized file uploads to Google Drive (foto, KTP, twibbon per team member + payment proof) with delete-and-replace semantics. Per-track statistics auto-exported to Google Sheets for the organizing committee, reducing manual reporting effort.
 
 ## Challenges
 
 - **CORS + cross-domain cookie auth in production**: The single largest source of deployment bugs. Cookie-based JWT auth between a Next.js frontend and Express.js backend on different domains required precise CORS configuration (`origin`, `credentials`, allowed headers) and correct cookie flags (`sameSite`, `secure`, `httpOnly`). Localhost worked; production didn't. Required 10+ iterative fixes spread across 3 months before stabilizing. This was a practical lesson in how deployment environment differences surface subtle auth bugs.
 - **Deployment platform instability**: Cyclic's free tier proved insufficient for production load, necessitating a mid-project migration to Render. The migration was straightforward but required environment variable reconfiguration, CORS origin updates, and a deployment mirror repo (`temp-api-technocorner`). The experience reinforced that free-tier platforms are fine for prototyping but unreliable for live event workloads.
-- **Multi-track registration without code duplication**: 5 competition tracks could easily have become 5 separate registration flows. Centralizing track differentiation in the data model (`cabangLomba` enum on `Tim`) and composing track-aware validation kept the codebase DRY while supporting distinct business rules per track.
-- **Maintaining the system during live event operations**: Unlike a sprint-and-done project, Technocorner required ongoing maintenance as teams registered, admins verified, and edge cases surfaced. Fix commits in March–May 2023 addressed bugs found by real users during the competition cycle — impostor syndrome bugs (teams unable to register for certain tracks, profile edit failures, password change errors) that only appeared under real usage patterns.
+- **Multi-track registration without code duplication**: 5 competition tracks could have become 5 separate registration flows. Centralizing track differentiation in the data model (`cabangLomba` enum on `Tim`) and composing track-aware validation kept the codebase DRY while supporting distinct business rules per track.
+- **Maintaining the system during live event operations**: Technocorner required ongoing maintenance as teams registered, admins verified, and edge cases surfaced. Fix commits in March–May 2023 addressed bugs found by real users during the competition cycle: impostor syndrome bugs (teams unable to register for certain tracks, profile edit failures, password change errors) that only appeared under real usage patterns.
 
 ## What I Learned
 
-- **Production is the real testing environment**: CORS misconfigurations, cookie delivery failures, and deployment platform quirks only surfaced in production. 10+ CORS fix commits taught me that deployment debugging is a distinct skill from development — it requires understanding browser security policies, proxy behavior, and environment-variable-driven configuration at a deeper level than local development does.
-- **Cookie-based cross-domain auth is deceptively complex**: `httpOnly`, `sameSite`, `secure`, `withCredentials` — each flag interacts with browser security models differently across environments. Getting this right between a Next.js frontend and Express.js backend on separate domains required methodical iteration and an understanding of how browsers enforce cookie policies.
-- **Sustained delivery vs. sprint delivery are different skills**: Find-It was a 45-day sprint; Technocorner was a 6-month sustained delivery with post-launch maintenance. The latter required different disciplines — keeping the codebase maintainable over time, debugging issues reported by real users, and delivering fixes under live-event pressure. The frontend contributions (107 commits) added full-stack context that pure backend work doesn't provide.
-- **Model-rich schema design simplifies multi-variant logic**: 7 Mongoose models wasn't over-engineering — it was the right abstraction for a domain with 5 competition tracks, multi-member teams, payment tracking, admin announcements, and URL management. Clean schema design prevented the "one giant collection" anti-pattern that makes event platforms brittle.
-- **Free-tier platforms have hidden costs**: Migrating from Cyclic to Render mid-project consumed time that could have gone to features. For live-event systems, starting with a platform you trust for production scale is worth the upfront cost — the migration overhead of switching platforms under time pressure exceeds the savings of starting free.
+- **Production is the real testing environment**: CORS misconfigurations, cookie delivery failures, and deployment platform quirks only surfaced in production. 10+ CORS fix commits taught me that deployment debugging is a distinct skill from development. It requires understanding browser security policies, proxy behavior, and environment-variable-driven configuration at a deeper level than local development does.
+- **Cookie-based cross-domain auth is deceptively complex**: `httpOnly`, `sameSite`, `secure`, `withCredentials`. Each flag interacts with browser security models differently across environments. Getting this right between a Next.js frontend and Express.js backend on separate domains required methodical iteration and an understanding of how browsers enforce cookie policies.
+- **Sustained delivery vs. sprint delivery are different skills**: Find-It was a 45-day sprint; Technocorner was a 6-month sustained delivery with post-launch maintenance. The latter required different disciplines: keeping the codebase maintainable and debugging issues under live-event pressure. The frontend contributions (107 commits) added full-stack context that pure backend work doesn't provide.
+- **Model-rich schema design simplifies multi-variant logic**: 7 Mongoose models was the right abstraction for a domain with 5 competition tracks, multi-member teams, payment tracking, admin announcements, and URL management. Clean schema design prevented the "one giant collection" anti-pattern that makes event platforms brittle.
+- **Free-tier platforms have hidden costs**: Migrating from Cyclic to Render mid-project consumed time that could have gone to features. For live-event systems, starting with a platform you trust for production scale is worth the upfront cost. The migration overhead of switching platforms under time pressure exceeds the savings of starting free.
 
 ## Evidence
 

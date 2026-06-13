@@ -17,7 +17,7 @@ order: 6
 
 **My first major backend project.** Built the entire registration platform API for Find IT 2022, a national-level competition event, in a 45-day sprint (Jan 19 – Mar 4, 2022). As the primary backend engineer on a 2-person backend team, I wrote **89% of the codebase** (~12,068 lines), authored **34 commits** (40% of repo) and **14 merged PRs** (67% of all PRs).
 
-This was the origin story — the project where I learned backend engineering by doing, delivered under real deadline pressure, and established patterns I carried into Technocorner, Pertamina EP, and beyond.
+I learned backend engineering by doing under real deadline pressure and established patterns I carried into Technocorner, Pertamina EP, and beyond.
 
 ---
 
@@ -35,30 +35,30 @@ Node.js, Express.js, MongoDB/Mongoose, JWT authentication, Google OAuth (Passpor
 
 ## 🛠️ My Role
 
-- **Primary Backend Engineer** — 2-person backend team (collaborated with Jovian Reynaldo, who handled deployment and minor bug fixes).
+- **Primary Backend Engineer** on a 2-person backend team (collaborated with Jovian Reynaldo, who handled deployment and minor bug fixes).
 - Initiated the repository and built the entire backend architecture from scratch: project scaffolding, 6 Mongoose data models, routing, controllers, middleware, validation, third-party integrations.
-- **89% codebase ownership** — 34 non-merge commits (40% of total), 14 merged PRs (67% of all PRs), ~12,068 lines added.
+- **89% codebase ownership**: 34 non-merge commits (40% of total), 14 merged PRs (67% of all PRs), ~12,068 lines added.
 
 ---
 
 ## ❗ Problem
 
-Find IT 2022 needed a production-ready registration platform to serve **~200–300 teams** across **6 competition categories** (Hackathon, Mobile Legends, Competitive Programming, Data Analytics, Capture The Flag, Valorant) plus a webinar track. The platform had to handle registration, team creation and management, document upload, admin verification, and real-time statistics — all within a **45-day development window**.
+Find IT 2022 needed a production-ready registration platform to serve **~200–300 teams** across **6 competition categories** (Hackathon, Mobile Legends, Competitive Programming, Data Analytics, Capture The Flag, Valorant) plus a webinar track. The platform had to handle registration, team creation and management, document upload, admin verification, and real-time statistics, all within a **45-day development window**.
 
-There was no existing backend. No scaffolding. No prior institutional codebase to borrow from. This was built entirely from zero by a junior developer still learning Express.js and MongoDB.
+There was no existing backend. No scaffolding. No prior institutional codebase to borrow from. I built this entirely from zero while still learning Express.js and MongoDB.
 
 ---
 
 ### 🧩 Sub-Problem: Full authentication system from scratch
 
-- **Problem:** The platform needed complete user auth — registration, email verification, login, password reset, and Google OAuth — before any team features could work.
+- **Problem:** The platform needed complete user auth: registration, email verification, login, password reset, and Google OAuth, before any team features could work.
 - **Solution:** Built a JWT-based auth system with activation links via Zoho SMTP (Nodemailer), Google OAuth via Passport.js (client-side token verification + server-side session), forgot/reset password flow with email tokens, and multi-source token extraction (Bearer header, cookie, query param).
 - **Stack:** Express.js, jsonwebtoken + express-jwt, Passport.js + passport-google-oauth20, Nodemailer, Zoho SMTP, express-validator.
 - **Result:** 6 auth endpoints in `controllers/auth.js` (440 lines), with input validation on all routes. Users could register, verify email, login via JWT or Google, and reset passwords.
 
 ### 🧩 Sub-Problem: Team management across 6 event categories
 
-- **Problem:** Team workflows had to work identically across 6 different competition categories, each with different slot limits, leader constraints, and verification rules (e.g. Hackathon didn't require payment proof).
+- **Problem:** Team workflows had to work identically across 6 different competition categories, each with different slot limits and leader constraints (e.g. Hackathon didn't require payment proof).
 - **Solution:** Designed a flexible team system with crypto-generated team codes, leader validation (profile completeness check, duplicate team/leader prevention per event), slot-based join validation, member kick by leader, and category-aware verification logic.
 - **Stack:** Mongoose models (Team, TeamMember) with population queries, JWT-protected routes, Multer file upload to Google Drive API, Nodemailer email notifications to admin on team verification submission.
 - **Result:** 7 team endpoints in `controllers/team.js` (534 lines) + dedicated team middleware (164 lines). Team creation, search-by-code, join-with-slot-check, payment proof upload to Google Drive, and leader-only member kick.
@@ -150,11 +150,11 @@ Client (Frontend)
 
 ## ✅ Solution
 
-- Initiated the repository and built the entire backend architecture from zero — Express.js project setup, MongoDB connection, CORS, session management, error handling middleware, 6 router modules.
+- Initiated the repository and built the entire backend architecture from zero: Express.js project setup, MongoDB connection, CORS, session management, error handling middleware, 6 router modules.
 - Implemented full authentication system: JWT registration with email activation, multi-source token extraction (header/cookie/query), Google OAuth via Passport.js, forgot/reset password flow.
 - Built team management workflows: crypto team-code generation, leader-only kick, slot-based join validation, category-aware verification (Hackathon bypasses payment upload).
 - Integrated Google Drive API for payment proof and institution file uploads, with Nodemailer email notifications to admins on new verification submissions.
-- Developed admin dashboard with CRUD operations, team accept/reject with styled HTML email notifications (including re-registration links for e-sport categories), and real-time statistics aggregation.
+- Developed admin dashboard with team accept/reject using styled HTML email notifications (including re-registration links for e-sport categories) and real-time statistics aggregation.
 
 ---
 
@@ -172,19 +172,19 @@ Client (Frontend)
 
 ## ⚠️ Challenges
 
-- **Building while learning.** This was my first major backend project. Every pattern — auth flows, middleware chains, file upload to external APIs, email integration — was being learned and applied simultaneously under a 45-day deadline.
+- **Building while learning.** This was my first major backend project. I learned and applied auth flows, middleware chains, file upload to external APIs, and email integration simultaneously under a 45-day deadline.
 - **Designing for 6 event categories without duplication.** Each category had different rules (slot sizes, payment requirements, leader constraints). The data model and controller logic had to be flexible enough to handle all 6 without branching spaghetti code.
-- **Solo ownership of the codebase.** With 89% of the code written by me, every production bug, every edge case, and every late-breaking requirement change landed on my plate. This taught me to write defensive, self-documenting code early.
-- **External service integration with no prior experience.** Google Drive API, Passport.js OAuth, and Zoho SMTP were all new. Figuring out OAuth2 token flows, Multer file piping to Drive, and HTML email templates while shipping features was the steepest part of the learning curve.
+- **Solo ownership of the codebase.** With 89% of the code written by me, every production bug and late-breaking requirement change landed on my plate. This taught me to write defensive, self-documenting code early.
+- **External service integration with no prior experience.** Google Drive API, Passport.js OAuth, and Zoho SMTP were all new. Figuring out OAuth2 token flows and Google Drive file uploads while shipping features was the steepest part of the learning curve.
 
 ---
 
 ## 💡 What I Learned
 
-- **Shipping a complete backend in 45 days as a junior developer is possible — if you own every line.** Being the 89% contributor meant no hiding behind someone else's code. Every failure mode was mine to fix, and that accelerated my growth more than any tutorial could.
-- **Design data models for variance from day one.** Six event categories with different rules forced me to think in abstractions — not hardcoding per-event logic, but building configurable validation layers. This habit of designing for variation carried directly into Technocorner and Pertamina.
-- **External integrations are not "just API calls."** Google OAuth token flow, Drive file permission scoping, and SMTP email deliverability each had hidden complexity that consumed disproportionate debugging time. After this project, I never again underestimated third-party integration effort in estimates.
-- **The foundation matters more than the features.** The patterns established in this first project — middleware-based auth guard, centralized validation helpers, controller-service separation — became the template I reused and refined in every subsequent backend project.
+- **Shipping a complete backend in 45 days as a junior developer is possible if you own every line.** Being the 89% contributor meant no hiding behind someone else's code. Every failure mode was mine to fix, and that accelerated my growth more than any tutorial could.
+- **Design data models for variance from day one.** Six event categories with different rules forced me to think in abstractions. I built configurable validation layers instead of hardcoding per-event logic. This habit of designing for variation carried directly into Technocorner and Pertamina.
+- **External integrations are not "API calls."** Google OAuth token flow and SMTP email deliverability each had hidden complexity that consumed disproportionate debugging time. After this project, I never again underestimated third-party integration effort in estimates.
+- **The foundation matters more than the features.** The patterns I established in this first project, middleware-based auth guard and controller-service separation, became the template I reused and refined in every subsequent backend project.
 
 ---
 

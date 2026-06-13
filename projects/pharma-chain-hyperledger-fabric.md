@@ -28,7 +28,7 @@ Hyperledger Fabric, IPFS (Kubo + Helia), AES-256-CBC, cross-chain interoperabili
 
 ## 🧾 Overview
 
-Healthcare supply-chain interoperability testbed built as a **university research grant project (Hibah KD DTETI UGM)** under supervisor **Guntur D Putra**. The project explored secure, verifiable data exchange between hospital and insurance blockchain networks — combining on-chain identity verification with off-chain encrypted storage.
+Healthcare supply-chain interoperability testbed built as a **university research grant project (Hibah KD DTETI UGM)** under supervisor **Guntur D Putra**. The project explored secure, verifiable data exchange between hospital and insurance blockchain networks, combining on-chain identity verification with off-chain encrypted storage.
 
 This work later became the **foundation for my undergraduate thesis (Grade A)**, with the full research report serving as the lab's academic publication baseline.
 
@@ -46,14 +46,14 @@ This work later became the **foundation for my undergraduate thesis (Grade A)**,
 
 ## ❗ Problem
 
-Healthcare data exchange between independent organizations (hospitals, insurers) requires strong integrity guarantees without overloading the shared ledger with large sensitive files. The project needed a testbed that could prove cross-network interoperability is viable — not just theoretical — while maintaining practical performance.
+Healthcare data exchange between independent organizations (hospitals, insurers) requires strong integrity guarantees without overloading the shared ledger with large sensitive files. The project needed a testbed that could prove cross-network interoperability is viable while maintaining practical performance.
 
 ---
 
 ### 🧩 Sub-Problem: cross-network interoperability
 
 - **Problem:** Hospital and insurance networks running separate blockchain deployments needed to exchange identity and transaction data securely, with cryptographic verifiability across trust boundaries.
-- **Solution:** Built two independent Hyperledger Fabric networks (not 1 network with 2 channels — two fully isolated deployments with separate orderers, CAs, and port ranges) and a cross-chain application connecting both simultaneously via dual Gateway instances.
+- **Solution:** Built two independent Hyperledger Fabric networks (two fully isolated deployments with separate orderers, CAs, and port ranges) and a cross-chain application connecting both simultaneously via dual Gateway instances.
 - **Stack:** Hyperledger Fabric 2.2.x, Node.js (`fabric-network`), Docker Compose, Bash automation scripts.
 - **Result:** Two networks interoperating in a controlled testbed — `GetKey` from Org1 (hospital channel) relayed to `UploadIdentity` on Org4 (insurance channel), with SHA-256 chained state hashing for integrity verification between transactions.
 
@@ -157,11 +157,11 @@ Healthcare data exchange between independent organizations (hospitals, insurers)
 
 ## 💡 What I Learned
 
-**The core insight:** Blockchain doesn't need to store all data. Distributed systems achieve efficiency not by putting everything on the ledger, but by knowing exactly what belongs on-chain (identity, verification, integrity proofs) and what belongs off-chain (storage, heavy payloads, operational data). The ~40% latency reduction came from this architectural clarity — not from tuning individual components.
+**The core insight:** Blockchain doesn't need to store all data. Distributed systems achieve efficiency by knowing exactly what belongs on-chain (identity, verification, integrity proofs) and what belongs off-chain (storage, heavy payloads, operational data). The ~40% latency reduction came from this architectural clarity.
 
 **Technical takeaways:**
-- 154 config files from scratch taught me that infrastructure-as-code discipline is non-negotiable in distributed systems — copy-pasting `fabric-samples` hides critical design decisions
-- Cross-chain identity sharing requires thinking about trust models, not just connection plumbing — two separate HLF networks mean two separate trust domains
+- 154 config files from scratch taught me that infrastructure-as-code discipline is non-negotiable in distributed systems: copy-pasting \`fabric-samples\` hides critical design decisions
+- Cross-chain identity sharing requires thinking about trust models: two separate HLF networks mean two separate trust domains
 - Encrypted IPFS pipelines introduce a tension between decentralization and key management that has no one-size-fits-all answer
 
 ---
