@@ -18,13 +18,13 @@ const PRINCIPLES = [
   {
     icon: Globe,
     title: "Expand Access",
-    desc: "Build infrastructure that opens opportunities — whether financial rails for underserved markets or career platforms that connect talent to jobs.",
+    desc: "Build infrastructure that opens opportunities: financial rails for underserved markets or career platforms that connect talent to jobs.",
     projects: "SumbuPay, Aksara AI",
   },
   {
     icon: Unlock,
     title: "Optimize Resources",
-    desc: "Create systems that make existing resources go further — reducing waste in supply chains, computing, and institutional workflows.",
+    desc: "Create systems that make existing resources go further: reducing waste in supply chains and institutional workflows.",
     projects: "Fitted, Pawona, PharmaChain",
   },
 ];
@@ -42,16 +42,16 @@ export default function SystemsSection() {
           title="Every project follows the same mission."
         />
 
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-[#9CA3AF] text-lg max-w-2xl mb-16 leading-relaxed"
-        >
-          Technology is not the destination — it is the vehicle. Across different domains and stacks,
-          every system I build is anchored in one of four principles. The tools change, but the mission
-          does not.
-        </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[#9CA3AF] text-lg max-w-2xl mb-16 leading-relaxed"
+          >
+            Technology is a vehicle, not a destination. Across different domains and stacks,
+            every system I build is anchored in one of four principles. The tools change, but the mission
+            doesn't.
+          </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {PRINCIPLES.map((principle, idx) => (

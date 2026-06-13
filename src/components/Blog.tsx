@@ -310,20 +310,20 @@ export function BlogIndex() {
     <>
       <Helmet>
         <title>{activeCategory !== "All" ? `${activeCategory} Articles | Maulana Anjari` : "Blog | Maulana Anjari - Backend Engineer"}</title>
-        <meta name="description" content={activeCategory !== "All" ? `Technical articles about ${activeCategory.toLowerCase()} by Maulana Anjari. Deep dives into architecture, patterns, and production experience.` : "Technical blog about backend architectures, blockchain protocols, and agentic workflows by Maulana Anjari. Insights on Go, Python, Cardano, and scalable systems."} />
+        <meta name="description" content={activeCategory !== "All" ? `${activeCategory} articles and technical deep dives by Maulana Anjari.` : "Technical blog by Maulana Anjari about backend architecture, blockchain protocols, and distributed systems."} />
         <meta name="keywords" content="Backend, Blockchain, Cardano, Go, Python, Distributed Systems, Microservices, Web3" />
         <link rel="canonical" href={`https://maulana.sumbu.xyz/blog${activeCategory !== "All" ? `?tag=${activeCategory}` : ""}`} />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://maulana.sumbu.xyz/blog${activeCategory !== "All" ? `?tag=${activeCategory}` : ""}`} />
         <meta property="og:title" content={activeCategory !== "All" ? `${activeCategory} Articles | Maulana Anjari` : "Blog | Maulana Anjari - Backend Engineer"} />
-        <meta property="og:description" content={activeCategory !== "All" ? `Technical articles about ${activeCategory.toLowerCase()} by Maulana Anjari.` : "Technical blog about backend architectures, blockchain protocols, and agentic workflows."} />
+        <meta property="og:description" content={activeCategory !== "All" ? `${activeCategory} articles by Maulana Anjari.` : "Technical blog about backend architecture, blockchain protocols, and distributed systems."} />
         <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://maulana.sumbu.xyz/blog" />
         <meta name="twitter:title" content="Blog | Maulana Anjari - Backend Engineer" />
-        <meta name="twitter:description" content="Technical blog about backend architectures, blockchain protocols, and agentic workflows." />
+        <meta name="twitter:description" content="Backend architecture, blockchain protocols, and distributed systems by Maulana Anjari." />
         <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.png" />
 
         <script type="application/ld+json">
@@ -365,7 +365,7 @@ export function BlogIndex() {
               transition={{ delay: 0.1 }}
               className="font-mono text-[#9CA3AF] text-sm md:text-base max-w-2xl mb-16 leading-relaxed"
             >
-              // A technical log of backend architectures, blockchain protocols, and agentic workflows by UL.
+              // A technical log of backend architecture, blockchain protocols, and distributed systems by UL.
             </motion.p>
           </div>
 

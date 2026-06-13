@@ -143,7 +143,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
               transition={{ delay: 0.85 }}
               className="mt-3 max-w-[520px] text-sm md:text-lg leading-relaxed text-white/70 md:text-white/65"
             >
-              I build scalable APIs, distributed systems, and backend infrastructure that power real products across enterprise, startup, and research environments.
+              I build scalable APIs and distributed systems that power real products across enterprise, startup, and research environments.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 14 }}

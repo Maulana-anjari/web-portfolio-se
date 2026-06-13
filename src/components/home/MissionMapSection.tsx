@@ -58,8 +58,8 @@ export default function MissionMapSection() {
           viewport={{ once: true }}
           className="text-[#9CA3AF] text-lg max-w-2xl mb-16 leading-relaxed"
         >
-          Different industries. Different technologies. Same mission. Every product is an expression
-          of the same four principles applied to different problems.
+          Different industries, different technologies. But every product is driven by
+          the same mission applied to different problems.
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

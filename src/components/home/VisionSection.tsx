@@ -35,9 +35,8 @@ export default function VisionSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-[#555555] text-lg leading-relaxed"
           >
-            My long-term goal is not only to build software. It is to build systems,
-            organizations, and products that create sustainable value — reaching people
-            and communities that need them most.
+            My long-term goal is to build systems, organizations,
+            and products that reach underserved communities.
           </motion.p>
 
           <motion.p
@@ -47,8 +46,8 @@ export default function VisionSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[#555555] text-lg leading-relaxed"
           >
-            Software is a tool. Systems create leverage. Organizations sustain impact.
-            When these three align, technology becomes a vehicle for real, lasting change.
+            Software is a tool that amplifies what teams and organizations can do.
+            When the three align around a real problem, technology becomes a vehicle for change.
           </motion.p>
         </div>
       </div>

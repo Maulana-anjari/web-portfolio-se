@@ -54,7 +54,7 @@ export default function ProjectsList() {
     <>
       <Helmet>
         <title>Projects — Maulana Anjari</title>
-        <meta name="description" content="Evidence-backed backend engineering case studies — from enterprise LLM platforms to Web3 payment infrastructure." />
+        <meta name="description" content="Evidence-backed backend engineering case studies, from enterprise LLM platforms to Web3 payment infrastructure." />
         <link rel="canonical" href="https://maulana.sumbu.xyz/projects" />
         <meta property="og:url" content="https://maulana.sumbu.xyz/projects" />
         <meta property="og:title" content="Projects — Maulana Anjari" />
@@ -89,7 +89,7 @@ export default function ProjectsList() {
             Projects
           </h1>
           <p className="font-mono text-[#9CA3AF] text-sm md:text-base max-w-2xl mb-16 leading-relaxed">
-            Evidence-backed case studies — from enterprise LLM platforms to Web3 payment infrastructure. Each project includes verified metrics, architecture decisions, and production outcomes.
+            Evidence-backed case studies, from enterprise LLM platforms to Web3 payment infrastructure. Each project includes verified metrics and production outcomes.
           </p>
 
           {loading ? (

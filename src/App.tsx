@@ -52,17 +52,17 @@ function PortfolioHome() {
     <>
       <Helmet>
         <title>Maulana Anjari | Backend Engineer - Portfolio</title>
-        <meta name="description" content="Backend Engineer building reliable production systems, APIs that scale, and distributed infrastructure. Experienced across Pertamina EP, Kemdiktisaintek, and Sumbu Labs." />
+        <meta name="description" content="Backend Engineer building reliable APIs and distributed infrastructure. Experienced across Pertamina EP, Kemdiktisaintek, and Sumbu Labs." />
         <meta name="keywords" content="Maulana Anjari, Backend Engineer, Distributed Systems Engineer, AI Integration, Blockchain Infrastructure, Go Developer, Python Developer, Sumbu Labs" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://maulana.sumbu.xyz/" />
         <meta property="og:title" content="Maulana Anjari | Backend Engineer" />
-        <meta property="og:description" content="Backend Engineer building reliable production systems, distributed infrastructure, and LLM-integrated workflows." />
+        <meta property="og:description" content="Backend Engineer building production systems, distributed infrastructure, and LLM-integrated workflows." />
         <meta property="og:image" content="https://maulana.sumbu.xyz/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://maulana.sumbu.xyz/" />
         <meta name="twitter:title" content="Maulana Anjari | Backend Engineer" />
-        <meta name="twitter:description" content="Backend systems, distributed infrastructure, LLM-integrated workflows, and risk-aware digital governance." />
+        <meta name="twitter:description" content="Backend systems, distributed infrastructure, and risk-aware digital governance." />
         <meta name="twitter:image" content="https://maulana.sumbu.xyz/og-image.png" />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -108,7 +108,7 @@ function PortfolioHome() {
             "@type": "WebSite",
             "name": "Maulana Anjari - Portfolio",
             "url": "https://maulana.sumbu.xyz",
-            "description": "Backend Engineer building reliable APIs, production systems, distributed infrastructure, and LLM-integrated workflows",
+            "description": "Backend Engineer building production systems, distributed infrastructure, and LLM-integrated workflows",
             "potentialAction": {
               "@type": "SearchAction",
               "target": "https://maulana.sumbu.xyz/blog?search={search_term_string}",

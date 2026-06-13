@@ -126,10 +126,10 @@ export default function SkillsSection({ onOpenResume }: SkillsSectionProps) {
             className="flex flex-col items-start"
           >
             <p className="max-w-[450px] text-lg leading-relaxed text-[#A0A0A0]">
-              I design and ship backend systems that teams can run with confidence
-              — APIs built for scale, AI integrations with evaluation guardrails,
-              and distributed infrastructure where traceability, access control,
-              and operational clarity come standard.
+              I design and ship backend systems that teams can run with confidence:
+              APIs built for production, AI integrations with evaluation guardrails,
+              and distributed infrastructure where traceability and access control
+              are built in from the start.
             </p>
             <motion.button
               onMouseEnter={() => setIsHoveringButton(true)}

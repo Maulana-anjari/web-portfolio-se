@@ -13,7 +13,7 @@ const ITEMS = [
     icon: Layers,
     label: "Core Domains",
     value: "Backend · Systems",
-    detail: "API design, distributed systems, database architecture, LLM pipelines, and blockchain infrastructure.",
+    detail: "API design, distributed systems, database architecture, and blockchain infrastructure.",
   },
   {
     icon: Building2,
@@ -25,7 +25,7 @@ const ITEMS = [
     icon: Target,
     label: "Ideal Roles",
     value: "Backend · Platform · Founding",
-    detail: "Building the foundation layer — APIs, data systems, and infrastructure that products depend on.",
+    detail: "Building the foundation layer: APIs, data systems, and infrastructure that products depend on.",
   },
 ];
 
