@@ -57,6 +57,11 @@ export default function SkillsSection({ onOpenResume }: SkillsSectionProps) {
                   content:
                     "Cardano, Hyperledger Fabric, PoA/PoS consensus, audit trails, access control, and risk-aware digital governance",
                 },
+                {
+                  id: "now",
+                  title: "Current Focus",
+                  content: "",
+                },
               ].map((item) => (
                 <div key={item.id} className="border-b border-[#333333]">
                   <button
@@ -91,7 +96,18 @@ export default function SkillsSection({ onOpenResume }: SkillsSectionProps) {
                         className="overflow-hidden"
                       >
                         <div className="pb-8 text-sm leading-relaxed text-[#A0A0A0]">
-                          {item.content}
+                          {item.id === "now" ? (
+                            <>
+                              Building backend infrastructure at{" "}
+                              <a href="https://sumbu.xyz" target="_blank" rel="noopener noreferrer" className="text-neon-mint hover:underline">
+                                Sumbu Labs
+                              </a>{" "}
+                              — developing Web3 payment rails and production systems for underserved markets.
+                              Previously completed thesis research on PoA vs PoS consensus benchmarking for the DChain national blockchain.
+                            </>
+                          ) : (
+                            item.content
+                          )}
                         </div>
                       </motion.div>
                     )}

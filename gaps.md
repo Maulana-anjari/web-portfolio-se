@@ -92,7 +92,7 @@
 - Di listing project card tidak ada indikasi
 - Perlu label visible: "request for" / "design phase" di project card dan detail page
 
-### 23. No `/uses` or `/now` page
+### 23. ~~No `/uses` or `/now` page~~ ✅ DONE (panel ke-6 di SkillsSection)
 - Common developer portfolio patterns
 - `/uses`: tools, hardware, software stack
 - `/now`: current focus areas (Derek Sivers pattern)
